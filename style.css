@@ -1,0 +1,629 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+canvas {
+    border: #333 10px solid;
+  } 
+body{
+    max-width: 90%;
+    margin: auto;
+}
+
+ul{
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+li{
+    list-style-type: none;
+    color: aqua;
+    background: linear-gradient(90.00deg, rgba(255,0,127,1.00),rgba(255,0,0,1.00) 100%);
+    border-radius: 50px;
+    display: inline-block;
+    color: white;
+    font-size: 10px;
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: JetBrains Mono;
+    margin-left: 35px;
+    
+}
+li a{
+    color: white;
+    text-decoration: none;
+}
+
+#head{
+    display: flex;
+    justify-content: space-between;
+}
+#hw{
+    font-family: JetBrains Mono; 
+    
+    padding: 150px;
+    padding-right: 0px;
+    padding-top: 180px;
+}
+#hw p{
+    font-size: 12px;
+}
+#hw h1{
+    font-size: 50px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+#hw a{
+    text-decoration: none;
+    background: linear-gradient(90.00deg, rgba(255,0,131.9,1.00),rgba(255,0,0,1.00) 100%);
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
+    color: white;
+    font-size: 12px;
+}
+
+#myphoto{
+    font-family: JetBrains Mono; 
+    padding: 150px;
+    padding-top: 80px;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+#myphoto img{
+    width: 250px;
+}
+#myphoto p{
+    margin: auto;
+    color: rgb(85, 85, 85);
+    font-size: 12px;
+}
+#mouse{
+    display: inline-block;
+    background: linear-gradient(180.00deg, rgba(255,0,111,1.00),rgba(255,0,4,1.00) 100%);
+    padding: 4px;
+    padding-bottom: 30px;
+    margin-left: 50%;
+    border-radius: 100px;
+
+}
+#mouse1{
+    background: white;
+    padding: 7px;
+    border-radius: 100px;
+}
+main{
+    margin-top: 200px;
+    max-width: 100%;
+    font-family: JetBrains Mono;
+}
+#myinfo{
+    text-align: center;
+}
+#oneplus, #twoplus, #threeplus, #fourplus{
+    display: flex;
+    justify-content: space-between;
+    width: 520px;
+    margin-top: 30px;
+    font-size: 13px;
+}
+#oneplus p, #twoplus p, #threeplus p, #fourplus p{
+    color: rgb(85, 85, 85);
+    font-size: 12px;
+    
+}
+#oneplus, #twoplus{
+    margin-top: 50px;
+}
+#threeplus, #fourplus{
+    margin-top: 30px;
+}
+#icon1{
+    width: 50px;
+}
+#myplus{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#myassessment{
+    margin-top: 170px;
+}
+#oneassessment{
+    max-width: 100%;
+    margin: 35px;
+}
+#oneprocent{
+    display: flex;
+    justify-content: space-between;
+    width: 320px;
+}
+#oneline{
+    background: linear-gradient(90.00deg, rgba(255,220.23,220.23,1.00) 2.888%,rgba(255,64,70,1.00) 47.328%,rgba(255,64,70,1.00) 100%,rgba(255,64,141,1.00) 100%);
+    padding: 10px;
+    width: 80%;
+    border-radius: 3px;
+}
+#oneline1, #oneline5{
+    background: linear-gradient(90.00deg, rgba(255,220.23,220.23,1.00) 2.888%,rgba(255,64,70,1.00) 47.328%,rgba(255,64,70,1.00) 100%,rgba(255,64,141,1.00) 100%);
+    padding: 10px;
+    width: 90%;
+    border-radius: 3px;
+}
+#oneline3, #oneline2{
+    background: linear-gradient(90.00deg, rgba(255,220.23,220.23,1.00) 2.888%,rgba(255,64,70,1.00) 47.328%,rgba(255,64,70,1.00) 100%,rgba(255,64,141,1.00) 100%);
+    padding: 10px;
+    width: 100%;
+    border-radius: 3px;
+}
+#oneline4{
+    background: linear-gradient(90.00deg, rgba(255,220.23,220.23,1.00) 2.888%,rgba(255,64,70,1.00) 47.328%,rgba(255,64,70,1.00) 100%,rgba(255,64,141,1.00) 100%);
+    padding: 10px;
+    width: 60%;
+    border-radius: 3px;
+}
+#assessment{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+#mydiplom{
+    margin-top: 170px;
+}
+#mydiplom h1{
+    text-align: center;
+}
+#diplom{
+    display: flex;
+    justify-content: space-between;
+}
+#diplom p{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+#mystack{
+    margin-top: 170px;
+}
+#mystack h1{
+    text-align: center;
+}
+#stack{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 36px;
+    justify-content: center;
+}
+#stack1{
+    color: #D36161;
+}
+#stack2{
+    color: #A46EAB;
+}
+#stack3{
+    color: #FF7334;
+}
+#stack4{
+    color: #7CC0FF;
+}
+#stack5{
+    color: #008fac;
+}
+#stack6{
+    color: #51B500;
+}
+#stack7{
+    color: #0C0CE5;
+}
+#stack8{
+    color: #697EAE;
+}
+#mywork{
+    margin-top: 170px;
+}
+#mywork h1{
+    text-align: center;
+}
+#work{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+#podstay, #blessed h3{
+text-align: center;
+}
+
+.popup-bg{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .4s, visibility .4s;
+}
+
+
+
+.popup{
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    background-color: #1f1f1f;
+    padding: 50px;
+    padding-top: 10px;
+    transform: translate(-50%, -50%);
+    color: white;
+box-shadow: 0px 10px 54px rgba(255, 255, 255, 0.21);
+
+}
+
+#popup2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #1f1f1f;
+    padding: 50px;
+    padding-top: 10px;
+    transform: translate(-50%, -50%);
+    color: white;
+box-shadow: 0px 10px 54px rgba(255, 255, 255, 0.21);
+
+}
+
+.close-popup{
+    height: 30px;
+    width: 30px;
+    margin-top: 30px;
+}
+.close-popup:hover{
+    transform: rotate(10deg);
+}
+.popup h1{
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255,0,131.9,1.00);
+}
+#sb{
+    display: flex;
+    justify-content: space-between;
+}
+.popup-bg.open{
+    visibility: visible;
+    opacity: 1;
+}
+
+#git{
+    background-color: white;
+    padding: 5px;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    margin-top: 50px;
+}
+
+@media screen and (max-width:425px) {
+    body{
+        max-width: 90%;
+    }
+    nav{
+        display: flex;
+    justify-content: flex-end;
+    }
+
+    li{
+        list-style-type: none;
+    color: aqua;
+    background: linear-gradient(90.00deg, rgba(255,0,127,1.00),rgba(255,0,0,1.00) 100%);
+    border-radius: 50px;
+    display: inline-block;
+    color: white;
+    font-size: 10px;
+    padding: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: JetBrains Mono;
+    margin-left: 35px;
+    }
+    #hw {
+        font-family: JetBrains Mono;
+        text-align: center;
+        margin: auto;
+        margin-top: 100px;
+    }
+    #hw {
+         font-family: JetBrains Mono; 
+        padding: 0px; 
+        padding-right: 0px; 
+         padding-top: 0px;
+    }
+    #hw p {
+        font-size: 10px;
+    }
+    #hw h1 {
+        font-size: 40px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    #hw a {
+        text-decoration: none;
+        background: linear-gradient(90.00deg, rgba(255,0,131.9,1.00),rgba(255,0,0,1.00) 100%);
+        padding: 7px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 50px;
+        color: white;
+        font-size: 10px;
+    }
+    #myphoto{
+        display: none;
+    }
+    #mouse, #mouse1{
+        display: none;
+    }
+    #myinfo p{
+        font-size: 12px;
+    }
+    #oneplus, #twoplus, #threeplus, #fourplus {
+        display: flex;
+        justify-content: space-between;
+        width: 520px;
+        margin-top: 30px;
+        font-size: 13px;
+    }
+    #icon img{
+        width: 40px;
+    }
+    #icon1 img{
+        width: 40px;
+    }
+    #assessment p{
+        font-size: 12px;
+    }
+
+    #diplom p{
+        font-size: 10px;
+    }
+    #diplom img{
+        width: 250px;
+        height: 250px;
+    }
+    #stack p{
+        font-size: 18px;
+    }
+    #podstay img{
+        width: 300px;
+    }
+    #blessed img{
+        width: 300px;
+        margin: auto;
+    }
+    #blessed{
+        margin: auto;
+    }
+    #work{
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    #myassessment {
+        margin-top: 80px;
+    }
+    #mydiplom {
+        margin-top: 80px;
+    }
+    #mystack {
+        margin-top: 80px;
+    }
+    #mywork {
+        margin-top: 80px;
+    }
+    #window{
+        width: 300px;
+    }
+    
+    .popup {
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        background-color: #1f1f1f;
+        padding: 21px;
+        padding-top: 0px;
+        transform: translate(-50%, -50%);
+        color: white;
+        box-shadow: 0px 10px 54px rgb(255 255 255 / 21%);
+    }
+    #sb h1{
+        font-size: 20px;
+    }
+    #popup1 p{
+        font-size: 12px;
+    }
+    #popup2 p{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:375px){
+    li{
+        list-style-type: none;
+    color: aqua;
+    background: linear-gradient(90.00deg, rgba(255,0,127,1.00),rgba(255,0,0,1.00) 100%);
+    border-radius: 50px;
+    display: inline-block;
+    color: white;
+    font-size: 10px;
+    padding: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: JetBrains Mono;
+    margin-left: 35px;
+    }
+}
+@media screen and (max-width:1000px) and (min-width:500px){
+#hw {
+    font-family: JetBrains Mono;
+    padding: 100px;
+    padding-right: 0px;
+    padding-top: 180px;
+}
+#diplom p{
+    font-size: 15px;
+}
+#diplom img{
+    width: 300px;
+    height: 300px;
+}
+#podstay img{
+    width: 300px;
+}
+#blessed img{
+    width: 300px;
+}
+
+}
+
+@media screen and (min-width:1700px) and (max-width:2560px){
+    li{   
+    font-size: 18px;
+    }
+
+    #hw p {
+        font-size: 23px;
+    }
+    #hw h1 {
+        font-size: 80px;
+        
+    }
+    #hw a {
+        font-size: 23px;
+    }
+
+    #myphoto img{
+        width: 400px;
+    }
+    #myphoto p{
+        margin: auto;
+        color: rgb(85, 85, 85);
+        font-size: 23px;
+    }
+    #mouse{
+        display: inline-block;
+        background: linear-gradient(180.00deg, rgba(255,0,111,1.00),rgba(255,0,4,1.00) 100%);
+        padding: 10px;
+        padding-bottom: 50px;
+        margin-left: 50%;
+        border-radius: 100px;
+    
+    }
+    #mouse1{
+        background: white;
+        padding: 12px;
+        border-radius: 100px;
+    }
+
+    #oneplus, #twoplus, #threeplus, #fourplus{
+        display: flex;
+        justify-content: space-between;
+        width: 520px;
+        margin-top: 30px;
+        font-size: 25px;
+    }
+    #oneplus p, #twoplus p, #threeplus p, #fourplus p{
+        color: rgb(85, 85, 85);
+        font-size: 20px;
+        
+    }
+    #myinfo p{
+        font-size: 23px;
+    }
+    #myinfo h1{
+        font-size: 40px;
+    }
+    #oneprocent p{
+        font-size: 23px;
+    }
+
+    #oneprocent{
+        display: flex;
+        justify-content: space-between;
+        width: 550px;
+    }
+    #mydiplom h1{
+        font-size: 40px;
+    }
+    #mydiplom p{
+        font-size: 30px;
+    }
+    #diplom img{
+        width: 1000px;
+        height: 1000px;
+    }
+    #mystack h1{
+        font-size: 40px;
+    }
+    #stack p{
+        font-size: 60px;
+    }
+    #mywork h1{
+        font-size: 40px;
+    }
+
+    #podstay img{
+        width: 1000px;
+    }
+    #blessed img{
+        width: 1000px;
+        margin: auto;
+    }
+    .popup{
+        position: absolute;
+        top: 130%;
+        left: 50%;
+        background-color: #1f1f1f;
+        padding: 50px;
+        padding-top: 10px;
+        transform: translate(-50%, -50%);
+        color: white;
+    box-shadow: 0px 10px 54px rgba(255, 255, 255, 0.21);
+    
+    }
+    #popup1 h1{
+        font-size: 40px;
+    }
+    #popup1 p{
+        font-size: 23px;
+    }
+    #window{
+        width: 1200px;
+    }
+    #popup2 h1{
+        font-size: 40px;
+    }
+    #popup2 p{
+        font-size: 23px;
+    }
+    
+    #one{
+        margin-top: 300px;
+    }
+    #myassessment{
+        margin-top: 300px;
+    }
+    #mydiplom{
+        margin-top: 300px;
+    }
+    #mystack{
+        margin-top: 300px;
+    }
+    #mywork{
+        margin-top: 300px;
+    }
+}
