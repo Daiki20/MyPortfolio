@@ -1,629 +1,607 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
-canvas {
-    border: #333 10px solid;
-  } 
-body{
-    max-width: 90%;
-    margin: auto;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-ul{
-    display: flex;
-    justify-content: flex-end;
-    
-}
-
-li{
-    list-style-type: none;
-    color: aqua;
-    background: linear-gradient(90.00deg, rgba(255,0,127,1.00),rgba(255,0,0,1.00) 100%);
-    border-radius: 50px;
-    display: inline-block;
-    color: white;
-    font-size: 10px;
-    padding: 7px;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-family: JetBrains Mono;
-    margin-left: 35px;
-    
-}
-li a{
-    color: white;
-    text-decoration: none;
-}
-
-#head{
-    display: flex;
-    justify-content: space-between;
-}
-#hw{
-    font-family: JetBrains Mono; 
-    
-    padding: 150px;
-    padding-right: 0px;
-    padding-top: 180px;
-}
-#hw p{
-    font-size: 12px;
-}
-#hw h1{
-    font-size: 50px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-}
-#hw a{
-    text-decoration: none;
-    background: linear-gradient(90.00deg, rgba(255,0,131.9,1.00),rgba(255,0,0,1.00) 100%);
-    padding: 7px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 50px;
-    color: white;
-    font-size: 12px;
-}
-
-#myphoto{
-    font-family: JetBrains Mono; 
-    padding: 150px;
-    padding-top: 80px;
-    padding-bottom: 0;
+/* ПЕРВЫЙ ЭКРАН - НА ВСЮ ВЫСОТУ ЭКРАНА */
+header {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
-#myphoto img{
-    width: 250px;
+
+/* ВСЁ ОСТАЛЬНОЕ - ПОЯВЛЯЕТСЯ ТОЛЬКО ПРИ СКРОЛЛЕ */
+.scroll-content {
+    margin-top: 100px;
 }
-#myphoto p{
-    margin: auto;
-    color: rgb(85, 85, 85);
+
+/* Убираем лишние отступы у первого блока */
+#one {
+    margin-top: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    background: white;
+}
+
+/* НАВИГАЦИЯ */
+ul {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+li {
+    list-style-type: none;
+    background: linear-gradient(90deg, rgba(255,0,127,1), rgba(255,0,0,1));
+    border-radius: 50px;
+    display: inline-block;
+    padding: 7px 20px;
+}
+
+li a {
+    color: white;
+    text-decoration: none;
     font-size: 12px;
 }
-#mouse{
+
+/* ХЕДЕР */
+#head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+#hw {
+    flex: 1;
+    min-width: 250px;
+}
+
+#hw p {
+    font-size: 14px;
+    color: #666;
+}
+
+#hw h1 {
+    font-size: 50px;
+    margin: 10px 0;
+    background: linear-gradient(90deg, rgba(255,0,127,1), rgba(255,0,0,1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+#hw a {
+    text-decoration: none;
+    background: linear-gradient(90deg, rgba(255,0,127,1), rgba(255,0,0,1));
+    padding: 10px 25px;
+    border-radius: 50px;
+    color: white;
     display: inline-block;
-    background: linear-gradient(180.00deg, rgba(255,0,111,1.00),rgba(255,0,4,1.00) 100%);
+    transition: transform 0.3s;
+}
+
+#hw a:hover {
+    transform: scale(1.05);
+}
+
+#myphoto {
+    text-align: center;
+}
+
+#myphoto img {
+    width: 250px;
+    max-width: 100%;
+    height: auto;
+}
+
+#myphoto p {
+    color: #555;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+/* МЫШКА */
+#mouse {
+    display: inline-block;
+    background: linear-gradient(180deg, rgba(255,0,111,1), rgba(255,0,4,1));
     padding: 4px;
     padding-bottom: 30px;
-    margin-left: 50%;
+    margin: 50px auto 0;
     border-radius: 100px;
-
+    width: 30px;
+    text-align: center;
 }
-#mouse1{
+
+#mouse1 {
     background: white;
     padding: 7px;
     border-radius: 100px;
-}
-main{
-    margin-top: 200px;
-    max-width: 100%;
-    font-family: JetBrains Mono;
-}
-#myinfo{
-    text-align: center;
-}
-#oneplus, #twoplus, #threeplus, #fourplus{
-    display: flex;
-    justify-content: space-between;
-    width: 520px;
-    margin-top: 30px;
-    font-size: 13px;
-}
-#oneplus p, #twoplus p, #threeplus p, #fourplus p{
-    color: rgb(85, 85, 85);
-    font-size: 12px;
-    
-}
-#oneplus, #twoplus{
-    margin-top: 50px;
-}
-#threeplus, #fourplus{
-    margin-top: 30px;
-}
-#icon1{
-    width: 50px;
-}
-#myplus{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-#myassessment{
-    margin-top: 170px;
-}
-#oneassessment{
-    max-width: 100%;
-    margin: 35px;
-}
-#oneprocent{
-    display: flex;
-    justify-content: space-between;
-    width: 320px;
-}
-#oneline{
-    background: linear-gradient(90.00deg, rgba(255,220.23,220.23,1.00) 2.888%,rgba(255,64,70,1.00) 47.328%,rgba(255,64,70,1.00) 100%,rgba(255,64,141,1.00) 100%);
-    padding: 10px;
-    width: 80%;
-    border-radius: 3px;
-}
-#oneline1, #oneline5{
-    background: linear-gradient(90.00deg, rgba(255,220.23,220.23,1.00) 2.888%,rgba(255,64,70,1.00) 47.328%,rgba(255,64,70,1.00) 100%,rgba(255,64,141,1.00) 100%);
-    padding: 10px;
-    width: 90%;
-    border-radius: 3px;
-}
-#oneline3, #oneline2{
-    background: linear-gradient(90.00deg, rgba(255,220.23,220.23,1.00) 2.888%,rgba(255,64,70,1.00) 47.328%,rgba(255,64,70,1.00) 100%,rgba(255,64,141,1.00) 100%);
-    padding: 10px;
-    width: 100%;
-    border-radius: 3px;
-}
-#oneline4{
-    background: linear-gradient(90.00deg, rgba(255,220.23,220.23,1.00) 2.888%,rgba(255,64,70,1.00) 47.328%,rgba(255,64,70,1.00) 100%,rgba(255,64,141,1.00) 100%);
-    padding: 10px;
-    width: 60%;
-    border-radius: 3px;
-}
-#assessment{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
 }
 
-#mydiplom{
-    margin-top: 170px;
+/* ОСНОВНОЙ КОНТЕНТ */
+main {
+    margin-top: 100px;
 }
-#mydiplom h1{
+
+#myinfo {
     text-align: center;
-}
-#diplom{
-    display: flex;
-    justify-content: space-between;
-}
-#diplom p{
-    display: flex;
-    align-items: center;
-    font-size: 20px;
-}
-#mystack{
-    margin-top: 170px;
-}
-#mystack h1{
-    text-align: center;
-}
-#stack{
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 36px;
-    justify-content: center;
-}
-#stack1{
-    color: #D36161;
-}
-#stack2{
-    color: #A46EAB;
-}
-#stack3{
-    color: #FF7334;
-}
-#stack4{
-    color: #7CC0FF;
-}
-#stack5{
-    color: #008fac;
-}
-#stack6{
-    color: #51B500;
-}
-#stack7{
-    color: #0C0CE5;
-}
-#stack8{
-    color: #697EAE;
-}
-#mywork{
-    margin-top: 170px;
-}
-#mywork h1{
-    text-align: center;
-}
-#work{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
     margin-bottom: 50px;
 }
-#podstay, #blessed h3{
-text-align: center;
+
+#myinfo h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
 }
 
-.popup-bg{
+#myinfo p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ПЛЮСЫ */
+#myplus {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.plus-block {
+    display: flex;
+    gap: 20px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.icon, .icon1 {
+    flex-shrink: 0;
+}
+
+.icon img, .icon1 img {
+    width: 50px;
+}
+
+.plus-content h3 {
+    margin-bottom: 10px;
+}
+
+.plus-content p {
+    color: #555;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ОЦЕНОЧКИ */
+#myassessment {
+    margin-top: 100px;
+}
+
+#assessment {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.one-assessment {
+    width: 300px;
+}
+
+.one-procent {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.progress-line {
+    background: linear-gradient(90deg, #ffdcdc, #ff4046);
+    padding: 8px;
+    border-radius: 3px;
+    transition: width 0.5s;
+}
+
+/* ДИПЛОМ */
+#mydiplom {
+    margin-top: 100px;
+}
+
+#mydiplom h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#diplom {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#diplom p {
+    flex: 1;
+    min-width: 250px;
+    line-height: 1.6;
+}
+
+#diplom img {
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* СТЕК */
+#mystack {
+    margin-top: 100px;
+}
+
+#mystack h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#stack {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    font-size: 30px;
+}
+
+#stack1 { color: #D36161; }
+#stack2 { color: #A46EAB; }
+#stack3 { color: #FF7334; }
+#stack4 { color: #7CC0FF; }
+#stack5 { color: #008fac; }
+#stack6 { color: #51B500; }
+#stack7 { color: #0C0CE5; }
+#stack8 { color: #697EAE; }
+
+/* РАБОТЫ */
+#mywork {
+    margin-top: 100px;
+}
+
+#mywork > div:first-child h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.project-section {
+    margin-top: 70px;
+}
+
+.project-title {
+    text-align: center;
+    font-size: 14px;
+    background: linear-gradient(90deg, rgba(255,0,127,1), rgba(255,0,0,1));
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 50px;
+    color: white;
+    margin: 0 auto 30px;
+    width: auto;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+/* ФИКС ДЛЯ ПОСЛЕДНЕЙ КАРТИНКИ OZON3 - НОРМАЛЬНЫЙ РАЗМЕР */
+.project-grid-single {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    justify-items: center;
+    width: 100%;
+}
+
+.project-grid-single .work-item {
+    width: auto;
+    max-width: 100%;
+}
+
+.project-grid-single .work-item img {
+    width: auto;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.work-item {
+    text-align: center;
+}
+
+.work-item a {
+    display: block;
+    cursor: pointer;
+}
+
+.work-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.work-item img:hover {
+    transform: scale(1.02);
+}
+
+.work-item p {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #555;
+    font-weight: bold;
+}
+
+/* КОНТАКТЫ */
+#contacts {
+    margin-top: 100px;
+}
+
+#contacts h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contacts-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.contact-card {
+    background: #f5f5f5;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    min-width: 220px;
+    transition: transform 0.3s;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.contact-card i {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.contact-card h3 {
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    color: #555;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.contact-link {
+    color: #ff007f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* СЧЕТЧИК */
+.visitor-counter {
+    text-align: center;
+    padding: 25px;
+    background: #f5f5f5;
+    border-radius: 20px;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.visitor-counter i {
+    font-size: 25px;
+    color: #ff007f;
+}
+
+#visitor-count {
+    font-size: 30px;
+    font-weight: bold;
+    display: block;
+    margin: 10px 0;
+}
+
+/* ПОПАП */
+.popup-bg {
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.8);
-    overflow-y: auto;
+    background: rgba(0,0,0,0.8);
     visibility: hidden;
     opacity: 0;
-    transition: opacity .4s, visibility .4s;
+    transition: 0.3s;
+    z-index: 1000;
 }
 
-
-
-.popup{
-    position: absolute;
-    top: 120%;
-    left: 50%;
-    background-color: #1f1f1f;
-    padding: 50px;
-    padding-top: 10px;
-    transform: translate(-50%, -50%);
-    color: white;
-box-shadow: 0px 10px 54px rgba(255, 255, 255, 0.21);
-
-}
-
-#popup2{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background-color: #1f1f1f;
-    padding: 50px;
-    padding-top: 10px;
-    transform: translate(-50%, -50%);
-    color: white;
-box-shadow: 0px 10px 54px rgba(255, 255, 255, 0.21);
-
-}
-
-.close-popup{
-    height: 30px;
-    width: 30px;
-    margin-top: 30px;
-}
-.close-popup:hover{
-    transform: rotate(10deg);
-}
-.popup h1{
-    color: #ffffff;
-    border-bottom: 1px solid rgba(255,0,131.9,1.00);
-}
-#sb{
-    display: flex;
-    justify-content: space-between;
-}
-.popup-bg.open{
+.popup-bg.open {
     visibility: visible;
     opacity: 1;
 }
 
-#git{
-    background-color: white;
-    padding: 5px;
-    border-radius: 100px;
-    width: 30px;
-    height: 30px;
-    margin-top: 50px;
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1f1f1f;
+    padding: 30px;
+    border-radius: 20px;
+    color: white;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
-@media screen and (max-width:425px) {
-    body{
-        max-width: 90%;
-    }
-    nav{
-        display: flex;
-    justify-content: flex-end;
-    }
+#sb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
-    li{
-        list-style-type: none;
-    color: aqua;
-    background: linear-gradient(90.00deg, rgba(255,0,127,1.00),rgba(255,0,0,1.00) 100%);
-    border-radius: 50px;
-    display: inline-block;
-    color: white;
-    font-size: 10px;
-    padding: 6px;
-    padding-left: 15px;
-    padding-right: 15px;
-    font-family: JetBrains Mono;
-    margin-left: 35px;
+.close-popup {
+    width: 25px;
+    cursor: pointer;
+}
+
+#popup-image {
+    width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+#git {
+    background: white;
+    padding: 8px;
+    border-radius: 50%;
+    width: 40px;
+}
+
+/* ========== АДАПТИВ ========== */
+@media screen and (max-width: 900px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
-    #hw {
-        font-family: JetBrains Mono;
+    
+    #head {
+        flex-direction: column;
         text-align: center;
-        margin: auto;
-        margin-top: 100px;
     }
+    
     #hw {
-         font-family: JetBrains Mono; 
-        padding: 0px; 
-        padding-right: 0px; 
-         padding-top: 0px;
+        text-align: center;
     }
-    #hw p {
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+    
+    ul {
+        justify-content: center;
+    }
+    
+    li {
+        padding: 5px 15px;
+    }
+    
+    li a {
         font-size: 10px;
     }
+    
     #hw h1 {
-        font-size: 40px;
-        margin-bottom: 10px;
-        margin-top: 10px;
+        font-size: 35px;
     }
-    #hw a {
-        text-decoration: none;
-        background: linear-gradient(90.00deg, rgba(255,0,131.9,1.00),rgba(255,0,0,1.00) 100%);
-        padding: 7px;
-        padding-left: 20px;
-        padding-right: 20px;
-        border-radius: 50px;
-        color: white;
-        font-size: 10px;
-    }
-    #myphoto{
-        display: none;
-    }
-    #mouse, #mouse1{
-        display: none;
-    }
-    #myinfo p{
+    
+    #hw p {
         font-size: 12px;
     }
-    #oneplus, #twoplus, #threeplus, #fourplus {
-        display: flex;
-        justify-content: space-between;
-        width: 520px;
-        margin-top: 30px;
+    
+    #myinfo h1 {
+        font-size: 30px;
+    }
+    
+    #myinfo p {
         font-size: 13px;
     }
-    #icon img{
-        width: 40px;
-    }
-    #icon1 img{
-        width: 40px;
-    }
-    #assessment p{
-        font-size: 12px;
-    }
-
-    #diplom p{
-        font-size: 10px;
-    }
-    #diplom img{
-        width: 250px;
-        height: 250px;
-    }
-    #stack p{
-        font-size: 18px;
-    }
-    #podstay img{
-        width: 300px;
-    }
-    #blessed img{
-        width: 300px;
-        margin: auto;
-    }
-    #blessed{
-        margin: auto;
-    }
-    #work{
-        display: flex;
+    
+    .plus-block {
         flex-direction: column;
-        margin-top: 50px;
-        margin-bottom: 50px;
+        text-align: center;
+        align-items: center;
     }
-    #myassessment {
-        margin-top: 80px;
+    
+    .project-grid {
+        grid-template-columns: 1fr;
     }
-    #mydiplom {
-        margin-top: 80px;
+    
+    .project-grid-single .work-item img {
+        max-width: 250px
+
     }
-    #mystack {
-        margin-top: 80px;
+    
+    .contacts-container {
+        gap: 20px;
     }
-    #mywork {
-        margin-top: 80px;
-    }
-    #window{
-        width: 300px;
+    
+    .contact-card {
+        padding: 20px;
+        min-width: 180px;
     }
     
     .popup {
-        position: absolute;
-        top: 90%;
-        left: 50%;
-        background-color: #1f1f1f;
-        padding: 21px;
-        padding-top: 0px;
-        transform: translate(-50%, -50%);
-        color: white;
-        box-shadow: 0px 10px 54px rgb(255 255 255 / 21%);
+        padding: 20px;
+        width: 95vw;
     }
-    #sb h1{
-        font-size: 20px;
-    }
-    #popup1 p{
-        font-size: 12px;
-    }
-    #popup2 p{
-        font-size: 12px;
+    
+    #popup-image {
+        max-height: 50vh;
     }
 }
 
-@media screen and (max-width:375px){
-    li{
-        list-style-type: none;
-    color: aqua;
-    background: linear-gradient(90.00deg, rgba(255,0,127,1.00),rgba(255,0,0,1.00) 100%);
-    border-radius: 50px;
-    display: inline-block;
-    color: white;
-    font-size: 10px;
-    padding: 6px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-family: JetBrains Mono;
-    margin-left: 35px;
+@media screen and (min-width: 1700px) {
+    body {
+        max-width: 1400px;
     }
-}
-@media screen and (max-width:1000px) and (min-width:500px){
-#hw {
-    font-family: JetBrains Mono;
-    padding: 100px;
-    padding-right: 0px;
-    padding-top: 180px;
-}
-#diplom p{
-    font-size: 15px;
-}
-#diplom img{
-    width: 300px;
-    height: 300px;
-}
-#podstay img{
-    width: 300px;
-}
-#blessed img{
-    width: 300px;
-}
-
-}
-
-@media screen and (min-width:1700px) and (max-width:2560px){
-    li{   
-    font-size: 18px;
-    }
-
-    #hw p {
-        font-size: 23px;
-    }
+    
     #hw h1 {
-        font-size: 80px;
-        
-    }
-    #hw a {
-        font-size: 23px;
-    }
-
-    #myphoto img{
-        width: 400px;
-    }
-    #myphoto p{
-        margin: auto;
-        color: rgb(85, 85, 85);
-        font-size: 23px;
-    }
-    #mouse{
-        display: inline-block;
-        background: linear-gradient(180.00deg, rgba(255,0,111,1.00),rgba(255,0,4,1.00) 100%);
-        padding: 10px;
-        padding-bottom: 50px;
-        margin-left: 50%;
-        border-radius: 100px;
-    
-    }
-    #mouse1{
-        background: white;
-        padding: 12px;
-        border-radius: 100px;
-    }
-
-    #oneplus, #twoplus, #threeplus, #fourplus{
-        display: flex;
-        justify-content: space-between;
-        width: 520px;
-        margin-top: 30px;
-        font-size: 25px;
-    }
-    #oneplus p, #twoplus p, #threeplus p, #fourplus p{
-        color: rgb(85, 85, 85);
-        font-size: 20px;
-        
-    }
-    #myinfo p{
-        font-size: 23px;
-    }
-    #myinfo h1{
-        font-size: 40px;
-    }
-    #oneprocent p{
-        font-size: 23px;
-    }
-
-    #oneprocent{
-        display: flex;
-        justify-content: space-between;
-        width: 550px;
-    }
-    #mydiplom h1{
-        font-size: 40px;
-    }
-    #mydiplom p{
-        font-size: 30px;
-    }
-    #diplom img{
-        width: 1000px;
-        height: 1000px;
-    }
-    #mystack h1{
-        font-size: 40px;
-    }
-    #stack p{
-        font-size: 60px;
-    }
-    #mywork h1{
-        font-size: 40px;
-    }
-
-    #podstay img{
-        width: 1000px;
-    }
-    #blessed img{
-        width: 1000px;
-        margin: auto;
-    }
-    .popup{
-        position: absolute;
-        top: 130%;
-        left: 50%;
-        background-color: #1f1f1f;
-        padding: 50px;
-        padding-top: 10px;
-        transform: translate(-50%, -50%);
-        color: white;
-    box-shadow: 0px 10px 54px rgba(255, 255, 255, 0.21);
-    
-    }
-    #popup1 h1{
-        font-size: 40px;
-    }
-    #popup1 p{
-        font-size: 23px;
-    }
-    #window{
-        width: 1200px;
-    }
-    #popup2 h1{
-        font-size: 40px;
-    }
-    #popup2 p{
-        font-size: 23px;
+        font-size: 70px;
     }
     
-    #one{
-        margin-top: 300px;
+    #hw p, #hw a {
+        font-size: 18px;
     }
-    #myassessment{
-        margin-top: 300px;
+    
+    .project-title {
+        font-size: 18px;
     }
-    #mydiplom{
-        margin-top: 300px;
+    
+    .work-item p {
+        font-size: 16px;
     }
-    #mystack{
-        margin-top: 300px;
-    }
-    #mywork{
-        margin-top: 300px;
+    
+    .project-grid-single .work-item img {
+        max-width: 400px;
     }
 }
