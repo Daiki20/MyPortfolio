@@ -27,7 +27,11 @@ const projectsData = {
     "Дизайн маркетплейсов": {
         description: "📦 Дизайн для маркетплейсов — карточки товаров, баннеры, промо-страницы для Ozon и Wildberries. Адаптивные макеты, продуманный UX.",
         gitLink: "https://github.com/Daiki20?tab=repositories"
-    }
+    },
+    "Рекламный баннер в мебельную компанию": {
+        description: "🛋️ Разработал рекламные баннеры для мебельной компании. Все выполнено четко по ТЗ",
+        gitLink: "https://github.com/Daiki20?tab=repositories"
+    },
 };
 
 // ========== ПОПАП ==========
@@ -48,7 +52,8 @@ function openPopup(imageSrc, title) {
     // Устанавливаем заголовок
     popupTitle.textContent = title;
     
-    // Устанавливаем описание
+    // ========== ВОТ ЭТОТ БЛОК БЫЛ ПРОПУЩЕН ==========
+    // Устанавливаем описание и ссылку на GitHub
     const projectData = projectsData[title];
     if (projectData) {
         popupDescription.textContent = projectData.description;
@@ -57,6 +62,7 @@ function openPopup(imageSrc, title) {
         popupDescription.textContent = "Проект в разработке. Скоро здесь появится описание!";
         popupGitLink.href = "https://github.com/Daiki20";
     }
+    // ================================================
     
     // Показываем попап
     popupBg.classList.add("open");
