@@ -605,3 +605,55 @@ main {
         max-width: 400px;
     }
 }
+/* КРУПНЫЙ БАННЕР ДЛЯ МЕБЕЛЬНОЙ КОМПАНИИ */
+.large-banner {
+    grid-column: span 2;
+}
+
+.large-banner img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+/* Адаптив для крупного баннера */
+@media screen and (max-width: 900px) {
+    .large-banner {
+        grid-column: span 1;
+    }
+    
+    .large-banner img {
+        max-height: 300px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .large-banner img {
+        max-height: 250px;
+    }
+}
+
+
+
+.project-grid-single {
+    display: flex;
+    justify-content: flex-start; /* выравнивание по левому краю */
+}
+
+
+/* Ссылки в попапе */
+#popup-git-link i, #popup-tg-link i {
+    transition: transform 0.3s;
+}
+
+#popup-git-link i:hover, #popup-tg-link i:hover {
+    transform: scale(1.1);
+}
+
+#popup-git-link i:hover {
+    color: #000;
+}
+
+#popup-tg-link i:hover {
+    color: #006699;
+}
