@@ -16,6 +16,10 @@ if (countEl) countEl.textContent = visitorCount;
 
 // ========== ДАННЫЕ ДЛЯ ПОПАПОВ ==========
 const projectsData = {
+    "WildSpace": {
+    description: "🚀 Проект дизайна карточки инфографики для WildSpace",
+    gitLink: "https://github.com/Daiki20?tab=repositories"
+},
     "PODSTAY": {
         description: "🔥 Учебный проект 'PodStay' — полностью адаптивная верстка, современный дизайн. Вложил душу в каждую деталь!",
         gitLink: "https://github.com/Daiki20?tab=repositories"
