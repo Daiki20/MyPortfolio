@@ -2,470 +2,550 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    
-    <title>MyPortfolio | Андрей — веб-разработчик</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Андрей Пишев — Junior Frontend Developer</title>
+    <meta name="description" content="Портфолио Junior Frontend разработчика. HTML, CSS, JavaScript, React, Figma.">
+    <meta property="og:title" content="Андрей Пишев — Junior Frontend Developer">
+    <meta property="og:description" content="Верстка, дизайн, JavaScript. Смотри мои работы.">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<nav>
-    <div id="navigation">
-        <ul>
-            <li><a href="#myinfo">О себе</a></li>
-            <li><a href="#mydiplom">Диплом</a></li>
-            <li><a href="#mywork">Работы</a></li>
-            <li><a href="#contacts">Контакты</a></li>
+<!-- ═══ STICKY NAV ═══ -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="#" class="nav-logo">AP<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="#about">О себе</a></li>
+            <li><a href="#stack">Стек</a></li>
+            <li><a href="#works">Работы</a></li>
+            <li><a href="#contacts" class="nav-cta">Связаться</a></li>
         </ul>
+        <button class="burger" id="burger" aria-label="Меню">
+            <span></span><span></span><span></span>
+        </button>
     </div>
 </nav>
 
-<!-- ПЕРВЫЙ ЭКРАН - ТОЛЬКО ГЛАВНОЕ -->
-<header>
-    <div id="head">
-        <div id="hw">
-            <p>сайт-портфолио WEB-разработчика</p>
-            <h1>Hello world</h1>
-            <a href="#myinfo">Листай</a>
+<!-- ═══ HERO ═══ -->
+<header id="hero">
+    <div class="hero-inner">
+        <div class="hero-text">
+            <p class="hero-label" data-aos="fade-up">Junior Frontend Developer</p>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                Привет,<br>я <span class="grad">Андрей</span>
+            </h1>
+            <p class="hero-desc" data-aos="fade-up" data-aos-delay="200">
+                Верстаю сайты, создаю дизайн и разбираюсь в коде.<br>
+                Ищу первую работу в веб-разработке.
+            </p>
+            <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
+                <a href="#works" class="btn-primary">Смотреть работы</a>
+                <a href="#contacts" class="btn-ghost">Написать мне</a>
+            </div>
+            <div class="hero-tags" data-aos="fade-up" data-aos-delay="400">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Figma</span>
+                <span class="tag">React</span>
+            </div>
         </div>
-        <div data-aos="fade-left" id="myphoto">
-            <!-- Фото убрано с первого экрана -->
+        <div class="hero-card" data-aos="fade-left" data-aos-delay="200">
+            <div class="hero-card-inner">
+                <div class="hero-avatar">
+                    <div class="avatar-placeholder">А</div>
+                </div>
+                <p class="hero-card-name">Андрей Пишев</p>
+                <p class="hero-card-role">Frontend Dev & Designer</p>
+                <div class="hero-card-stats">
+                    <div class="hcs">
+                        <span class="hcs-num">8+</span>
+                        <span class="hcs-label">проектов</span>
+                    </div>
+                    <div class="hcs-sep"></div>
+                    <div class="hcs">
+                        <span class="hcs-num">1+</span>
+                        <span class="hcs-label">год опыта</span>
+                    </div>
+                    <div class="hcs-sep"></div>
+                    <div class="hcs">
+                        <span class="hcs-num">100%</span>
+                        <span class="hcs-label">мотивация</span>
+                    </div>
+                </div>
+                <div class="hero-card-links">
+                    <a href="https://github.com/Daiki20" target="_blank" class="card-link"><i class="fab fa-github"></i></a>
+                    <a href="https://t.me/andrusha_pv" target="_blank" class="card-link"><i class="fab fa-telegram"></i></a>
+                    <a href="mailto:andrey.pishev2020@yandex.ru" class="card-link"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
         </div>
     </div>
-    <div id="mouse">
-        <div id="mouse1"></div>
+    <div class="scroll-hint" data-aos="fade-up" data-aos-delay="500">
+        <div class="mouse-icon"><div class="mouse-dot"></div></div>
+        <span>скролл</span>
     </div>
 </header>
 
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+    <div class="container">
+        <div class="section-label" data-aos="fade-right">О себе</div>
+        <h2 class="section-title" data-aos="fade-right" data-aos-delay="50">Кто я такой</h2>
 
-<main>
-    <!-- ВСЁ ОСТАЛЬНОЕ - ПОЯВЛЯЕТСЯ ТОЛЬКО ПРИ СКРОЛЛЕ -->
-    <div class="scroll-content">
-        <section id="one">
-            <div id="myinfo">
-                <h1 data-aos="fade-right">Андрей</h1>
-                <p data-aos="fade-right">Привет! На сайте разместил информацию о себе и моих проектах в веб-дизайне, верстке.
-                    Основная цель — показать портфолио начинающего веб-разработчика.
-                    Мне нравиться работать с кодом,
-                    разбираться как построен процесс, его логику.</p>
+        <div class="about-grid">
+            <div class="about-story" data-aos="fade-right" data-aos-delay="100">
+                <p>Начинал как сварщик, но однажды наткнулся на видео по Python — и что-то щёлкнуло. Написал своего первого «Змейку», и понял: вот оно.</p>
+                <p>Переключился на JavaScript и веб, потому что хочу делать вещи, которые видят люди. С тех пор верстаю, проектирую интерфейсы и постепенно прокачиваю скилы.</p>
+                <p>Сейчас ищу первую работу, где смогу расти и приносить пользу команде.</p>
             </div>
-            <div id="myplus">
-                <div data-aos="fade-right" class="plus-block">
-                    <div class="icon">
-                        <img src="img/icon1.png" alt="Иконка адаптации">
-                    </div>
-                    <div class="plus-content">
-                        <h3>Адаптация</h3>
-                        <p>Изображения, графика, текстовые блоки. Буду расставлять так, чтобы было комфортно пользоваться.</p>
-                    </div>
+            <div class="about-skills" data-aos="fade-left" data-aos-delay="100">
+                <div class="skill-item">
+                    <div class="skill-info"><span>Дизайн & Figma</span><span class="skill-lvl">Уверенно</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
                 </div>
-                <div data-aos="fade-left" class="plus-block">
-                    <div class="icon">
-                        <img src="img/icon2.png" alt="Иконка верстки">
-                    </div>
-                    <div class="plus-content">
-                        <h3>Верстка макетов</h3>
-                        <p>Стараюсь придерживаться семантической, валидной верстки, с использованием общепринятой методологии.</p>
-                    </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>HTML / CSS</span><span class="skill-lvl">Уверенно</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
                 </div>
-                <div data-aos="fade-right" class="plus-block">
-                    <div class="icon1">
-                        <img src="img/icon3.png" alt="Иконка любви к делу">
-                    </div>
-                    <div class="plus-content">
-                        <h3>Любовь</h3>
-                        <p>На данный момент я понимаю, что люблю это дело и собираюсь в нем разбираться</p>
-                    </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>JavaScript</span><span class="skill-lvl">Учусь</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-w="65"></div></div>
                 </div>
-                <div data-aos="fade-left" class="plus-block">
-                    <div class="icon1">
-                        <img src="img/icon4.png" alt="Иконка веб-дизайна">
-                    </div>
-                    <div class="plus-content">
-                        <h3>WEB-design</h3>
-                        <p>Вроде бы умею разбирать визуальную составляющую макета, композицию)</p>
-                    </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>React</span><span class="skill-lvl">Знакомство</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-w="40"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>WordPress</span><span class="skill-lvl">Базово</span></div>
+                    <div class="skill-bar"><div class="skill-fill" data-w="55"></div></div>
                 </div>
             </div>
-        </section>
-
-
-        <section id="myassessment">
-            <div data-aos="fade-right" id="myinfo">
-                <h1>Мои оценки</h1>
-            </div>
-            <div id="assessment">
-                <div class="one-assessment">
-                    <div data-aos="fade-right" class="one-procent">
-                        <p>Создание дизайна</p>
-                        <p>80%</p>
-                    </div>
-                    <div class="progress-line" style="width: 80%;"></div>
-                </div>
-                <div class="one-assessment">
-                    <div data-aos="fade-right" class="one-procent">
-                        <p>Общение</p>
-                        <p>90%</p>
-                    </div>
-                    <div class="progress-line" style="width: 90%;"></div>
-                </div>
-                <div class="one-assessment">
-                    <div data-aos="fade-right" class="one-procent">
-                        <p>Уверенность</p>
-                        <p>100%</p>
-                    </div>
-                    <div class="progress-line" style="width: 100%;"></div>
-                </div>
-                <div class="one-assessment">
-                    <div data-aos="fade-right" class="one-procent">
-                        <p>Интерес</p>
-                        <p>100%</p>
-                    </div>
-                    <div class="progress-line" style="width: 100%;"></div>
-                </div>
-                <div class="one-assessment">
-                    <div data-aos="fade-right" class="one-procent">
-                        <p>Профессионализм</p>
-                        <p>60%</p>
-                    </div>
-                    <div class="progress-line" style="width: 60%;"></div>
-                </div>
-                <div class="one-assessment">
-                    <div data-aos="fade-right" class="one-procent">
-                        <p>Креативность</p>
-                        <p>90%</p>
-                    </div>
-                    <div class="progress-line" style="width: 90%;"></div>
-                </div>
-            </div>
-        </section>
-
-
-        <section id="mydiplom">
-            <div data-aos="fade-right"><h1>Диплом</h1></div>
-            <div id="diplom">
-                <p data-aos="fade-right">Я получил среднее профессиональное образование
-                    по специальности сварщик. Однако поработав в 
-                    этой сфере некоторое время, понял, что это не 
-                    то, чем я хотел заниматься всю жизнь, и начал 
-                    искать свою истинную страсть. Несколько месяцев
-                    назад я увидел видео о программировании на Python,
-                    попытался разобраться в нем хоть немного и сделал 
-                    свою первую игру змейку,
-                    скопировав код с видео. Хоть это и была копия, 
-                    но я был сильно заинтересован. Поэтому я принял
-                    решение изучать язык программирования JavaScript
-                    и теперь становлюсь на путь истинного джуна.</p>
-                <img data-aos="fade-left" src="img/diplom.png" alt="Диплом о среднем профессиональном образовании">
-            </div>
-        </section>
-
-
-        <section id="mystack">
-            <div><h1>Стек</h1></div>
-            <div id="stack">
-                <p data-aos="fade-right">&lt;</p>
-                <p data-aos="fade-right" id="stack1">HTML</p>
-                <p data-aos="fade-right" id="stack2">CSS</p>
-                <p data-aos="fade-right" id="stack3">JavaScript</p>
-                <p data-aos="fade-right" id="stack4">TypeScript</p>
-                <p data-aos="fade-left" id="stack5">React</p>
-                <p data-aos="fade-left" id="stack6">Figma</p>
-                <p data-aos="fade-left" id="stack7">Wordpress</p>
-                <p data-aos="fade-left" id="stack8">GitHub</p>
-                <p data-aos="fade-left">&gt;</p>
-            </div>
-        </section>
-
-
-        <section id="mywork">
-            <div data-aos="fade-right"><h1>Работы</h1></div>
-
-
-
-            <!-- WILDBERRIES - ПАРФЮМ 2 -->
-<div class="project-section">
-    <h2 class="project-title" data-aos="fade-right">WILDBERRIES</h2>
-    <div class="project-grid" data-aos="fade-up">
-        <div class="work-item">
-            <a href="javascript:void(0)" class="open-popup-link" data-img="img/парф1.jpg" data-title="WILDBERRIES ПАРФЮМ 2">
-                <img src="img/парф1.jpg" alt="Wildberries парфюм">
-            </a>
-            <p>ПАРФЮМ</p>
         </div>
-        <div class="work-item">
-            <a href="javascript:void(0)" class="open-popup-link" data-img="img/парф2.jpg" data-title="WILDBERRIES ПАРФЮМ 2">
-                <img src="img/парф2.jpg" alt="Wildberries парфюм">
-            </a>
-            <p>ПАРФЮМ</p>
+
+        <!-- Feature cards -->
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="fc-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>Адаптивность</h3>
+                <p>Верстаю с подходом mobile-first. Сайт выглядит хорошо на любом устройстве.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="80">
+                <div class="fc-icon"><i class="fas fa-code"></i></div>
+                <h3>Чистый код</h3>
+                <p>Семантическая HTML-разметка, методология БЭМ, читаемый CSS без хаоса.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="160">
+                <div class="fc-icon"><i class="fas fa-pencil-ruler"></i></div>
+                <h3>Веб-дизайн</h3>
+                <p>Умею работать в Figma: разбираю макеты, создаю компоненты, слежу за визуалом.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="240">
+                <div class="fc-icon"><i class="fas fa-fire"></i></div>
+                <h3>Мотивация</h3>
+                <p>Каждый новый проект — возможность вырасти. Не боюсь сложных задач и правок.</p>
+            </div>
         </div>
-        <div class="work-item">
-            <a href="javascript:void(0)" class="open-popup-link" data-img="img/парф3.jpg" data-title="WILDBERRIES ПАРФЮМ 2">
-                <img src="img/парф3.jpg" alt="Wildberries парфюм">
-            </a>
-            <p>ПАРФЮМ</p>
+    </div>
+</section>
+
+<!-- ═══ STACK ═══ -->
+<section id="stack" class="stack-section">
+    <div class="container">
+        <div class="section-label" data-aos="fade-right">Инструменты</div>
+        <h2 class="section-title" data-aos="fade-right" data-aos-delay="50">Мой стек</h2>
+        <div class="stack-grid">
+            <div class="stack-card" data-aos="zoom-in" data-aos-delay="0">
+                <i class="fab fa-html5" style="color:#E34F26"></i>
+                <span>HTML5</span>
+                <div class="stack-badge">Уверенно</div>
+            </div>
+            <div class="stack-card" data-aos="zoom-in" data-aos-delay="50">
+                <i class="fab fa-css3-alt" style="color:#1572B6"></i>
+                <span>CSS3</span>
+                <div class="stack-badge">Уверенно</div>
+            </div>
+            <div class="stack-card" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fab fa-js" style="color:#F7DF1E"></i>
+                <span>JavaScript</span>
+                <div class="stack-badge stack-badge--mid">Учусь</div>
+            </div>
+            <div class="stack-card" data-aos="zoom-in" data-aos-delay="150">
+                <i class="fab fa-react" style="color:#61DAFB"></i>
+                <span>React</span>
+                <div class="stack-badge stack-badge--low">Знакомство</div>
+            </div>
+            <div class="stack-card" data-aos="zoom-in" data-aos-delay="200">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="#007ACC"><path d="M0 12v12h24V0H0zm19.341-.956c.61.152 1.074.423 1.501.865.221.236.549.666.575.77.008.03-1.036.73-1.668 1.123-.023.015-.115-.084-.217-.236-.31-.45-.633-.644-1.128-.678-.728-.05-1.196.331-1.192.967a.88.88 0 0 0 .102.45c.16.331.458.53 1.39.933 1.719.74 2.454 1.227 2.911 1.92.51.773.625 2.008.278 2.926-.38.998-1.325 1.676-2.655 1.9-.411.073-1.386.062-1.828-.018-.964-.172-1.878-.648-2.442-1.273-.221-.243-.652-.88-.625-.925.011-.016.11-.077.22-.141.108-.061.511-.294.892-.515l.69-.4.145.214c.202.308.643.731.91.872.766.404 1.817.347 2.335-.118a.883.883 0 0 0 .313-.72c0-.278-.035-.4-.18-.61-.186-.266-.567-.49-1.649-.96-1.238-.533-1.771-.864-2.259-1.39a3.165 3.165 0 0 1-.659-1.2c-.091-.339-.114-1.189-.042-1.531.255-1.197 1.158-2.03 2.461-2.278.423-.08 1.406-.05 1.821.053zm-5.634 1.002l.008.983H10.59v8.876H8.38v-8.876H5.258v-.964c0-.534.011-.98.026-.99.012-.016 1.913-.024 4.217-.02l4.195.012z"/></svg>
+                <span>TypeScript</span>
+                <div class="stack-badge stack-badge--mid">Учусь</div>
+            </div>
+            <div class="stack-card" data-aos="zoom-in" data-aos-delay="250">
+                <svg width="32" height="32" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 28.5C19 21.596 13.404 16 6.5 16S-6 21.596-6 28.5 -0.404 41 6.5 41 19 35.404 19 28.5z" fill="#F24E1E" transform="translate(12.5 0)"/><path d="M0 28.5C0 21.596 5.596 16 12.5 16h6.5v25h-6.5C5.596 41 0 35.404 0 28.5z" fill="#FF7262" transform="translate(0 0)"/><path d="M0 9.5C0 2.596 5.596-3 12.5-3S25 2.596 25 9.5 19.404 22 12.5 22H0V9.5z" fill="#F24E1E" transform="translate(0 -3)"/><path d="M0 0h12.5C19.404 0 25 5.596 25 12.5S19.404 25 12.5 25H0V0z" fill="#FF7262" transform="translate(0 16)"/><circle cx="12.5" cy="44.5" r="12.5" fill="#1ABCFE" transform="translate(0 0)"/></svg>
+                <span>Figma</span>
+                <div class="stack-badge">Уверенно</div>
+            </div>
+            <div class="stack-card" data-aos="zoom-in" data-aos-delay="300">
+                <i class="fab fa-wordpress" style="color:#21759B"></i>
+                <span>WordPress</span>
+                <div class="stack-badge stack-badge--mid">Базово</div>
+            </div>
+            <div class="stack-card" data-aos="zoom-in" data-aos-delay="350">
+                <i class="fab fa-github" style="color:#333"></i>
+                <span>GitHub</span>
+                <div class="stack-badge">Уверенно</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ EDUCATION ═══ -->
+<section id="education">
+    <div class="container">
+        <div class="section-label" data-aos="fade-right">История</div>
+        <h2 class="section-title" data-aos="fade-right" data-aos-delay="50">Путь в IT</h2>
+        <div class="edu-grid">
+            <div class="edu-timeline" data-aos="fade-right" data-aos-delay="100">
+                <div class="timeline-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-content">
+                        <span class="tl-year">Начало</span>
+                        <h4>Среднее проф. образование</h4>
+                        <p>Специальность: сварщик. Получил диплом, поработал — и понял, что это не моё.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-content">
+                        <span class="tl-year">Переход</span>
+                        <h4>Первый код</h4>
+                        <p>Случайно наткнулся на видео по Python. Сделал «Змейку» по туториалу — и захотел большего.</p>
+                    </div>
+                </div>
+                <div class="timeline-item active">
+                    <div class="tl-dot"></div>
+                    <div class="tl-content">
+                        <span class="tl-year">Сейчас</span>
+                        <h4>Junior Frontend Dev</h4>
+                        <p>Изучаю JavaScript, верстаю сайты, работаю с клиентами. Ищу команду для роста.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="edu-diploma" data-aos="fade-left" data-aos-delay="100">
+                <div class="diploma-card">
+                    <div class="diploma-img-wrap">
+                        <img src="img/diplom.png" alt="Диплом">
+                        <div class="diploma-badge"><i class="fas fa-graduation-cap"></i> Диплом</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ WORKS ═══ -->
+<section id="works">
+    <div class="container">
+        <div class="section-label" data-aos="fade-right">Портфолио</div>
+        <h2 class="section-title" data-aos="fade-right" data-aos-delay="50">Мои работы</h2>
+
+        <!-- Filter tabs -->
+        <div class="filter-tabs" data-aos="fade-up" data-aos-delay="100">
+            <button class="filter-btn active" data-filter="all">Все</button>
+            <button class="filter-btn" data-filter="marketplace">Маркетплейсы</button>
+            <button class="filter-btn" data-filter="web">Веб-дизайн</button>
+            <button class="filter-btn" data-filter="banner">Баннеры</button>
+        </div>
+
+<!-- Wildberries Парфюм 2 -->
+<div class="project-block" data-aos="fade-up" data-category="marketplace">
+    <div class="project-header">
+        <div>
+            <h3 class="project-name">Wildberries</h3>
+            <p class="project-type">Дизайн карточек парфюма</p>
+        </div>
+        <span class="project-tag">Дизайн</span>
+    </div>
+    <div class="works-grid cols-3">
+        <div class="work-card" data-img="img/парф1.jpg" data-title="Wildberries Парфюм 2" data-desc="👃 Дизайн карточки парфюма в светлых тонах.">
+            <div class="work-thumb"><img src="img/парф1.jpg" alt="Wildberries парфюм" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+        </div>
+        <div class="work-card" data-img="img/парф2.jpg" data-title="Wildberries Парфюм 2" data-desc="👃 Карточка с акцентом на флакон и аромат.">
+            <div class="work-thumb"><img src="img/парф2.jpg" alt="Wildberries парфюм" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+        </div>
+        <div class="work-card" data-img="img/парф3.jpg" data-title="Wildberries Парфюм 2" data-desc="👃 Финальный вариант дизайна карточки.">
+            <div class="work-thumb"><img src="img/парф3.jpg" alt="Wildberries парфюм" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
         </div>
     </div>
 </div>
 
-
-            <!-- WILDBERRIES - ПАРФЮМ -->
-<div class="project-section">
-    <h2 class="project-title" data-aos="fade-right">WILDBERRIES</h2>
-    <div class="project-grid" data-aos="fade-up">
-        <div class="work-item">
-            <a href="javascript:void(0)" class="open-popup-link" data-img="img/духи1.jpg" data-title="WILDBERRIES ПАРФЮМ">
-                <img src="img/духи1.jpg" alt="Wildberries парфюм">
-            </a>
-            <p>ПАРФЮМ</p>
+<!-- Wildberries Парфюм -->
+<div class="project-block" data-aos="fade-up" data-category="marketplace">
+    <div class="project-header">
+        <div>
+            <h3 class="project-name">Wildberries</h3>
+            <p class="project-type">Дизайн карточек парфюма</p>
         </div>
-        <div class="work-item">
-            <a href="javascript:void(0)" class="open-popup-link" data-img="img/духи2.jpg" data-title="WILDBERRIES ПАРФЮМ">
-                <img src="img/духи2.jpg" alt="Wildberries парфюм">
-            </a>
-            <p>ПАРФЮМ</p>
+        <span class="project-tag">Дизайн</span>
+    </div>
+    <div class="works-grid cols-3">
+        <div class="work-card" data-img="img/духи1.jpg" data-title="Wildberries Парфюм" data-desc="👃 Дизайн карточки парфюма для Wildberries. Акцент на флакон и премиальность.">
+            <div class="work-thumb"><img src="img/духи1.jpg" alt="Wildberries парфюм" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
         </div>
-        <div class="work-item">
-            <a href="javascript:void(0)" class="open-popup-link" data-img="img/духи3.jpg" data-title="WILDBERRIES ПАРФЮМ">
-                <img src="img/духи3.jpg" alt="Wildberries парфюм">
-            </a>
-            <p>ПАРФЮМ</p>
+        <div class="work-card" data-img="img/духи2.jpg" data-title="Wildberries Парфюм" data-desc="👃 Вторая карточка парфюма — элегантность и детали.">
+            <div class="work-thumb"><img src="img/духи2.jpg" alt="Wildberries парфюм" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+        </div>
+        <div class="work-card" data-img="img/духи3.jpg" data-title="Wildberries Парфюм" data-desc="👃 Третий вариант карточки парфюма с улучшенной композицией.">
+            <div class="work-thumb"><img src="img/духи3.jpg" alt="Wildberries парфюм" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
         </div>
     </div>
 </div>
-            <!-- WILDBERRIES -->
-<div class="project-section">
-    <h2 class="project-title" data-aos="fade-right">WILDBERRIES</h2>
-    <div class="project-grid" data-aos="fade-up">
-        <div class="work-item">
-            <a href="javascript:void(0)" class="open-popup-link" data-img="img/корзина1.jpg" data-title="WILDBERRIES">
-                <img src="img/корзина1.jpg" alt="Wildberries">
-            </a>
-            <p>ОСНОВА</p>
+        <!-- WildSpace -->
+        <div class="project-block" data-aos="fade-up" data-category="marketplace">
+            <div class="project-header">
+                <div>
+                    <h3 class="project-name">WildSpace</h3>
+                    <p class="project-type">Дизайн инфографики</p>
+                </div>
+                <span class="project-tag">Дизайн</span>
+            </div>
+            <div class="works-grid cols-3">
+                <div class="work-card" data-img="img/wild1.jpg" data-title="WildSpace" data-desc="🚀 Проект дизайна карточки инфографики для WildSpace. Разработал визуальный стиль и систему иконок.">
+                    <div class="work-thumb"><img src="img/wild1.jpg" alt="WildSpace" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                </div>
+                <div class="work-card" data-img="img/wild2.jpg" data-title="WildSpace" data-desc="🚀 Карточки инфографики WildSpace — второй вариант с улучшенной типографикой.">
+                    <div class="work-thumb"><img src="img/wild2.jpg" alt="WildSpace" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                </div>
+                <div class="work-card" data-img="img/wild3.jpg" data-title="WildSpace" data-desc="🚀 WildSpace — финальный вариант карточки.">
+                    <div class="work-thumb"><img src="img/wild3.jpg" alt="WildSpace" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                </div>
+            </div>
         </div>
-        <div class="work-item">
-            <a href="javascript:void(0)" class="open-popup-link" data-img="img/корзина2.jpg" data-title="WILDBERRIES">
-                <img src="img/корзина2.jpg" alt="Wildberries">
-            </a>
-            <p>ДОПОЛНЕНИЕ</p>
-        </div>
-        <div class="work-item">
-            <a href="javascript:void(0)" class="open-popup-link" data-img="img/корзина3.jpg" data-title="WILDBERRIES">
-                <img src="img/корзина3.jpg" alt="Wildberries">
-            </a>
-            <p>ДОПОЛНЕНИЕ</p>
-        </div>
-    </div>
-</div>
 
-
-
-           
-
-<!-- WildSpace -->
-<div class="project-section">
-    <h2 class="project-title" data-aos="fade-right">WildSpace</h2>
-    <div class="project-grid" data-aos="fade-up">
-        <div class="work-item">
-            <a href="javascript:void(0)" class="open-popup-link" data-img="img/wild1.jpg" data-title="WildSpace">
-                <img src="img/wild1.jpg" alt="WildSpace">
-            </a>
-            <p>WildSpace</p>
+        <!-- Wildberries -->
+        <div class="project-block" data-aos="fade-up" data-category="marketplace">
+            <div class="project-header">
+                <div>
+                    <h3 class="project-name">Wildberries</h3>
+                    <p class="project-type">Дизайн карточек товаров</p>
+                </div>
+                <span class="project-tag">Маркетплейс</span>
+            </div>
+            <div class="works-grid cols-3">
+                <div class="work-card" data-img="img/корзина1.jpg" data-title="WILDBERRIES" data-desc="🛍️ Дизайн для Wildberries — карточки товаров, корзина и UI элементы. Работа с нейросетью.">
+                    <div class="work-thumb"><img src="img/корзина1.jpg" alt="Wildberries" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                    <span class="work-label">Основа</span>
+                </div>
+                <div class="work-card" data-img="img/корзина2.jpg" data-title="WILDBERRIES" data-desc="🛍️ Wildberries — дополнение с улучшенной версткой.">
+                    <div class="work-thumb"><img src="img/корзина2.jpg" alt="Wildberries" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                    <span class="work-label">Дополнение</span>
+                </div>
+                <div class="work-card" data-img="img/корзина3.jpg" data-title="WILDBERRIES" data-desc="🛍️ Wildberries — третий вариант с адаптивными элементами.">
+                    <div class="work-thumb"><img src="img/корзина3.jpg" alt="Wildberries" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                    <span class="work-label">Дополнение</span>
+                </div>
+            </div>
         </div>
-        <div class="work-item">
-            <a href="javascript:void(0)" class="open-popup-link" data-img="img/wild2.jpg" data-title="WildSpace">
-                <img src="img/wild2.jpg" alt="WildSpace">
-            </a>
-            <p>WildSpace</p>
-        </div>
-        <div class="work-item">
-            <a href="javascript:void(0)" class="open-popup-link" data-img="img/wild3.jpg" data-title="WildSpace">
-                <img src="img/wild3.jpg" alt="WildSpace">
-            </a>
-            <p>WildSpace</p>
-        </div>
+
         
-    </div>
-</div>
 
-                       <!-- Рекламный баннер в мебельную компанию -->
-<div class="project-section">
-    <h2 class="project-title" data-aos="fade-right">Рекламный баннер в мебельную компанию</h2>
-    <div class="project-grid" data-aos="fade-up">
-
-         <div class="work-item large-banner">
-            <a href="javascript:void(0)" class="open-popup-link" data-img="img/bannerBig.jpg" data-title="Рекламный баннер в мебельную компанию">
-                <img src="img/bannerBig.jpg" alt="Рекламный баннер мебельной компании">
-            </a>
-            <p>РЕКЛАМНЫЙ БАННЕР DESKTOP</p>
+        <!-- Banner -->
+        <div class="project-block" data-aos="fade-up" data-category="banner">
+            <div class="project-header">
+                <div>
+                    <h3 class="project-name">Мебельная компания</h3>
+                    <p class="project-type">Рекламные баннеры</p>
+                </div>
+                <span class="project-tag">Баннер</span>
+            </div>
+            <div class="works-grid cols-banner">
+                <div class="work-card work-card--wide" data-img="img/bannerBig.jpg" data-title="Рекламный баннер в мебельную компанию" data-desc="🛋️ Рекламный баннер Desktop для мебельной компании. Чёткое ТЗ, точное исполнение.">
+                    <div class="work-thumb"><img src="img/bannerBig.jpg" alt="Баннер Desktop" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                    <span class="work-label">Desktop</span>
+                </div>
+                <div class="work-card" data-img="img/bannerMobile.jpg" data-title="Рекламный баннер в мебельную компанию" data-desc="🛋️ Мобильная версия баннера — адаптирован под смартфоны.">
+                    <div class="work-thumb"><img src="img/bannerMobile.jpg" alt="Баннер Mobile" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                    <span class="work-label">Mobile</span>
+                </div>
+            </div>
         </div>
 
-        <div class="work-item">
-            <a href="javascript:void(0)" class="open-popup-link" data-img="img/bannerMobile.jpg" data-title="Рекламный баннер в мебельную компанию">
-                <img src="img/bannerMobile.jpg" alt="Рекламный баннер мебельной компании">
-            </a>
-            <p>РЕКЛАМНЫЙ БАННЕР MOBILE</p>
-        </div>        
+        <!-- PumpHunter -->
+        <div class="project-block" data-aos="fade-up" data-category="web">
+            <div class="project-header">
+                <div>
+                    <h3 class="project-name">PumpHunter</h3>
+                    <p class="project-type">Дизайн и рекламные креативы</p>
+                </div>
+                <span class="project-tag">Веб</span>
+            </div>
+            <div class="works-grid cols-4">
+                <div class="work-card" data-img="img/pump.jpg" data-title="PumpHunter" data-desc="✨ PumpHunter — мой любимый проект. Разработал дизайн сайта и рекламные креативы.">
+                    <div class="work-thumb"><img src="img/pump.jpg" alt="PumpHunter" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                </div>
+                <div class="work-card" data-img="img/pump1.jpg" data-title="PumpHunter" data-desc="✨ PumpHunter — страница продукта.">
+                    <div class="work-thumb"><img src="img/pump1.jpg" alt="PumpHunter" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                </div>
+                <div class="work-card" data-img="img/pump2.jpg" data-title="PumpHunter" data-desc="✨ PumpHunter — мобильная версия.">
+                    <div class="work-thumb"><img src="img/pump2.jpg" alt="PumpHunter" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                </div>
+                <div class="work-card" data-img="img/pump3.jpg" data-title="PumpHunter" data-desc="✨ PumpHunter — детали интерфейса.">
+                    <div class="work-thumb"><img src="img/pump3.jpg" alt="PumpHunter" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PODSTAY -->
+        <div class="project-block" data-aos="fade-up" data-category="web">
+            <div class="project-header">
+                <div>
+                    <h3 class="project-name">PODSTAY</h3>
+                    <p class="project-type">Адаптивная верстка</p>
+                </div>
+                <span class="project-tag">Верстка</span>
+            </div>
+            <div class="works-grid cols-4">
+                <div class="work-card" data-img="img/pod1.jpg" data-title="PODSTAY" data-desc="🔥 Учебный проект PODSTAY — полностью адаптивная верстка с современным дизайном.">
+                    <div class="work-thumb"><img src="img/pod1.jpg" alt="PODSTAY" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                </div>
+                <div class="work-card" data-img="img/pod2.jpg" data-title="PODSTAY" data-desc="🔥 PODSTAY — раздел каталога.">
+                    <div class="work-thumb"><img src="img/pod2.jpg" alt="PODSTAY" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                </div>
+                <div class="work-card" data-img="img/pod3.jpg" data-title="PODSTAY" data-desc="🔥 PODSTAY — страница товара.">
+                    <div class="work-thumb"><img src="img/pod3.jpg" alt="PODSTAY" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                </div>
+                <div class="work-card" data-img="img/pod4.jpg" data-title="PODSTAY" data-desc="🔥 PODSTAY — мобильная версия.">
+                    <div class="work-thumb"><img src="img/pod4.jpg" alt="PODSTAY" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ozon -->
+        <div class="project-block" data-aos="fade-up" data-category="marketplace">
+            <div class="project-header">
+                <div>
+                    <h3 class="project-name">Ozon</h3>
+                    <p class="project-type">Дизайн маркетплейсов</p>
+                </div>
+                <span class="project-tag">Маркетплейс</span>
+            </div>
+            <div class="works-grid cols-3">
+                <div class="work-card" data-img="img/ozon1.jpg" data-title="Дизайн маркетплейсов" data-desc="📦 Карточки товаров для Ozon — адаптивные макеты с продуманным UX.">
+                    <div class="work-thumb"><img src="img/ozon1.jpg" alt="Ozon" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                </div>
+                <div class="work-card" data-img="img/ozon2.jpg" data-title="Дизайн маркетплейсов" data-desc="📦 Ozon — промо-страница с баннером.">
+                    <div class="work-thumb"><img src="img/ozon2.jpg" alt="Ozon" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                </div>
+                <div class="work-card" data-img="img/ozon3.jpg" data-title="Дизайн маркетплейсов" data-desc="📦 Ozon — дополнительный вариант карточки.">
+                    <div class="work-thumb"><img src="img/ozon3.jpg" alt="Ozon" loading="lazy"></div>
+                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+                </div>
+            </div>
+        </div>
+
     </div>
-</div>
+</section>
 
-            <!-- PumpHunter -->
-            <div class="project-section">
-                <h2 class="project-title" data-aos="fade-right">PumpHunter</h2>
-                <div class="project-grid" data-aos="fade-up">
-                    <div class="work-item">
-                        <a href="javascript:void(0)" class="open-popup-link" data-img="img/pump.jpg" data-title="PumpHunter">
-                            <img src="img/pump.jpg" alt="PumpHunter">
-                        </a>
-                        <p>PumpHunter</p>
-                    </div>
-                    <div class="work-item">
-                        <a href="javascript:void(0)" class="open-popup-link" data-img="img/pump1.jpg" data-title="PumpHunter">
-                            <img src="img/pump1.jpg" alt="PumpHunter">
-                        </a>
-                        <p>PumpHunter</p>
-                    </div>
-                    <div class="work-item">
-                        <a href="javascript:void(0)" class="open-popup-link" data-img="img/pump2.jpg" data-title="PumpHunter">
-                            <img src="img/pump2.jpg" alt="PumpHunter">
-                        </a>
-                        <p>PumpHunter</p>
-                    </div>
-                    <div class="work-item">
-                        <a href="javascript:void(0)" class="open-popup-link" data-img="img/pump3.jpg" data-title="PumpHunter">
-                            <img src="img/pump3.jpg" alt="PumpHunter">
-                        </a>
-                        <p>PumpHunter</p>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- PODSTAY -->
-            <div class="project-section">
-                <h2 class="project-title" data-aos="fade-right">PODSTAY</h2>
-                <div class="project-grid" data-aos="fade-up">
-                    <div class="work-item">
-                        <a href="javascript:void(0)" class="open-popup-link" data-img="img/pod1.jpg" data-title="PODSTAY">
-                            <img src="img/pod1.jpg" alt="PODSTAY">
-                        </a>
-                        <p>PODSTAY</p>
-                    </div>
-                    <div class="work-item">
-                        <a href="javascript:void(0)" class="open-popup-link" data-img="img/pod2.jpg" data-title="PODSTAY">
-                            <img src="img/pod2.jpg" alt="PODSTAY">
-                        </a>
-                        <p>PODSTAY</p>
-                    </div>
-                    <div class="work-item">
-                        <a href="javascript:void(0)" class="open-popup-link" data-img="img/pod3.png" data-title="PODSTAY">
-                            <img src="img/pod3.jpg" alt="PODSTAY">
-                        </a>
-                        <p>PODSTAY</p>
-                    </div>
-                    <div class="work-item">
-                        <a href="javascript:void(0)" class="open-popup-link" data-img="img/pod4.jpg" data-title="PODSTAY">
-                            <img src="img/pod4.jpg" alt="PODSTAY">
-                        </a>
-                        <p>PODSTAY</p>
-                    </div>
-                </div>
-            </div>
-
- 
-
-            <!-- Дизайн маркетплейсов (2 фото) -->
-            <div class="project-section">
-                <h2 class="project-title" data-aos="fade-right">Дизайн маркетплейсов</h2>
-                <div class="project-grid" data-aos="fade-up">
-                    <div class="work-item">
-                        <a href="javascript:void(0)" class="open-popup-link" data-img="img/ozon1.jpg" data-title="Дизайн маркетплейсов">
-                            <img src="img/ozon1.jpg" alt="Ozon">
-                        </a>
-                        <p>Ozon</p>
-                    </div>
-                    <div class="work-item">
-                        <a href="javascript:void(0)" class="open-popup-link" data-img="img/ozon2.jpg" data-title="Дизайн маркетплейсов">
-                            <img src="img/ozon2.jpg" alt="Ozon">
-                        </a>
-                        <p>Ozon</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Дизайн маркетплейсов (1 фото) -->
-            <div class="project-section">
-                <h2 class="project-title" data-aos="fade-right">Дизайн маркетплейсов</h2>
-                <div class="project-grid-single" data-aos="fade-up">
-                    <div class="work-item">
-                        <a href="javascript:void(0)" class="open-popup-link" data-img="img/ozon3.jpg" data-title="Дизайн маркетплейсов">
-                            <img src="img/ozon3.jpg" alt="Ozon">
-                        </a>
-                        <p>Ozon</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- КОНТАКТЫ -->
-        <section id="contacts">
-            <div data-aos="fade-right"><h1>Контакты</h1></div>
-            <div class="contacts-container" data-aos="fade-up">
-                <div class="contact-card">
-                    <i class="fab fa-telegram"></i>
+<!-- ═══ CONTACTS ═══ -->
+<section id="contacts">
+    <div class="container">
+        <div class="section-label" data-aos="fade-right">Контакты</div>
+        <h2 class="section-title" data-aos="fade-right" data-aos-delay="50">Напиши мне</h2>
+        <p class="contacts-desc" data-aos="fade-right" data-aos-delay="100">Открыт к новым проектам и предложениям о работе. Отвечу быстро.</p>
+        <div class="contacts-grid">
+            <a href="https://t.me/andrusha_pv" target="_blank" class="contact-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="cc-icon" style="background: #229ED9;"><i class="fab fa-telegram"></i></div>
+                <div class="cc-info">
                     <h3>Telegram</h3>
                     <p>@andrusha_pv</p>
-                    <a href="https://t.me/andrusha_pv" target="_blank" class="contact-link">Перейти →</a>
                 </div>
-                <div class="contact-card">
-                    <i class="fas fa-envelope"></i>
+                <i class="fas fa-arrow-right cc-arrow"></i>
+            </a>
+            <a href="mailto:andrey.pishev2020@yandex.ru" class="contact-card" data-aos="fade-up" data-aos-delay="80">
+                <div class="cc-icon" style="background: #ff007f;"><i class="fas fa-envelope"></i></div>
+                <div class="cc-info">
                     <h3>Email</h3>
                     <p>andrey.pishev2020@yandex.ru</p>
-                    <a href="mailto:andrey.pishev2020@yandex.ru" class="contact-link">Написать →</a>
                 </div>
-                <div class="contact-card">
-                    <i class="fab fa-github"></i>
+                <i class="fas fa-arrow-right cc-arrow"></i>
+            </a>
+            <a href="https://github.com/Daiki20" target="_blank" class="contact-card" data-aos="fade-up" data-aos-delay="160">
+                <div class="cc-icon" style="background: #333;"><i class="fab fa-github"></i></div>
+                <div class="cc-info">
                     <h3>GitHub</h3>
                     <p>Daiki20</p>
-                    <a href="https://github.com/Daiki20" target="_blank" class="contact-link">Перейти →</a>
+                </div>
+                <i class="fas fa-arrow-right cc-arrow"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+    <div class="container footer-inner">
+        <span class="footer-logo">AP<span>.</span></span>
+        <p>Андрей Пишев — Junior Frontend Developer</p>
+        <p class="footer-copy">© 2024 Сделано с ❤️ и JetBrains Mono</p>
+    </div>
+</footer>
+
+<!-- ═══ POPUP ═══ -->
+<div class="popup-overlay" id="popupOverlay">
+    <div class="popup-box" id="popupBox">
+        <button class="popup-close" id="popupClose"><i class="fas fa-times"></i></button>
+        <div class="popup-content">
+            <div class="popup-img-wrap">
+                <img id="popupImg" src="" alt="">
+            </div>
+            <div class="popup-info">
+                <h2 id="popupTitle"></h2>
+                <p id="popupDesc"></p>
+                <div class="popup-links">
+                    <a href="https://github.com/Daiki20?tab=repositories" target="_blank" id="popupGit" class="popup-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://t.me/andrusha_pv" target="_blank" class="popup-link popup-link--tg">
+                        <i class="fab fa-telegram"></i> Telegram
+                    </a>
                 </div>
             </div>
-            
-            <div class="visitor-counter" data-aos="fade-up">
-                <i class="fas fa-eye"></i>
-                <span id="visitor-count">0</span>
-                <p>просмотров портфолио</p>
-            </div>
-        </section>
-    </div>
-
-   <!-- ПОПАП -->
-<div class="popup-bg" id="popup-bg">
-    <div class="popup">
-        <div id="sb">
-            <h1 id="popup-title">Название проекта</h1>
-            <img class="close-popup" id="close-popup" src="img/x.png" alt="Закрыть">
-        </div>
-        <p id="popup-description">Описание проекта появится здесь...</p>
-        <img id="popup-image" src="" alt="Увеличенное изображение">
-        
-        <!-- ССЫЛКИ НА GITHUB И TELEGRAM (ТЕПЕРЬ ВНУТРИ .popup) -->
-        <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
-            <a href="https://github.com/Daiki20?tab=repositories" target="_blank" id="popup-git-link">
-                <i class="fab fa-github" style="font-size: 40px; color: #fff; transition: transform 0.3s;"></i>
-            </a>
-            <a href="https://t.me/andrusha_pv" target="_blank" id="popup-tg-link">
-                <i class="fab fa-telegram" style="font-size: 40px; color: #0088cc; transition: transform 0.3s;"></i>
-            </a>
         </div>
     </div>
 </div>
-</main>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="index.js"></script>
 </body>
 </html>
+
