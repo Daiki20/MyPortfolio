@@ -958,10 +958,7 @@ footer p { font-size: 13px; color: var(--muted); }
     backdrop-filter: blur(4px);
 }
 
-/* Скрываем стандартный курсор на всем сайте */
-body {
-    cursor: none;
-}
+
 
 /* Показываем стандартный курсор только на мобильных устройствах */
 @media (max-width: 768px) {
