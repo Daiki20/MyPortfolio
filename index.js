@@ -36,10 +36,7 @@ const projectsData = {
     gitLink: "https://github.com/Daiki20?tab=repositories"
 },
 
-"ПОСТ INSTAGRAM": {
-    description: "📸 Дизайн постов для Instagram — создал визуально привлекательные карточки для социальных сетей. Работал над композицией, цветокоррекцией и типографикой. Посты получились яркими и запоминающимися.",
-    gitLink: "https://github.com/Daiki20?tab=repositories"
-},
+
     "PODSTAY": {
         description: "🔥 Учебный проект 'PodStay' — полностью адаптивная верстка, современный дизайн. Вложил душу в каждую деталь!",
         gitLink: "https://github.com/Daiki20?tab=repositories"
