@@ -186,48 +186,4 @@ document.addEventListener('DOMContentLoaded', function() {
         cursor.style.top = mouseY + 'px';
     });
     
-    // Функция добавления эффекта наведения
-    function addHoverEffect(el) {
-        if (el.hasAttribute('data-cursor-listener')) return;
-        el.setAttribute('data-cursor-listener', 'true');
-        
-        el.addEventListener('mouseenter', function() {
-            cursor.classList.add('hover');
-        });
-        
-        el.addEventListener('mouseleave', function() {
-            cursor.classList.remove('hover');
-        });
-    }
-    
-    // Все кликабельные элементы
-    const selectors = [
-        'a', 'button', '.work-card', '.nav-links a', '.btn-primary', 
-        '.btn-ghost', '.card-link', '.contact-card', '.filter-btn', 
-        '.project-tag', '.stack-card', '.feature-card', '.close-popup', 
-        '.open-popup-link', '.popup-link', '[href]', '[data-popup]'
-    ];
-    
-    // Добавляем на существующие элементы
-    setTimeout(function() {
-        document.querySelectorAll(selectors.join(',')).forEach(addHoverEffect);
-    }, 100);
-    
-    // Следим за новыми элементами
-    const observer = new MutationObserver(function() {
-        document.querySelectorAll(selectors.join(',')).forEach(addHoverEffect);
-    });
-    
-    observer.observe(document.body, { childList: true, subtree: true });
-    
-    // Скрываем кружок при выходе за пределы окна
-    document.addEventListener('mouseleave', function() {
-        cursor.style.opacity = '0';
-    });
-    
-    document.addEventListener('mouseenter', function() {
-        cursor.style.opacity = '1';
-    });
-    
-    console.log('✅ Кастомный курсор загружен');
-});
+   
