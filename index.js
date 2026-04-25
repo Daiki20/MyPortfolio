@@ -163,60 +163,71 @@ sections.forEach(s => navObserver.observe(s));
 
 console.log('✅ Portfolio loaded');
 // ========== КАСТОМНЫЙ КРУЖОК НА КУРСОРЕ ==========
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Проверяем, не мобильное ли устройство
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
     if (isMobile) return;
+    
+    // Проверяем, есть ли уже элемент
+    if (document.querySelector('.custom-cursor')) return;
     
     // Создаем элемент кружка
     const cursor = document.createElement('div');
     cursor.classList.add('custom-cursor');
     document.body.appendChild(cursor);
     
-    // Обновляем позицию при движении мыши (мгновенно)
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
+    let mouseX = 0, mouseY = 0;
+    
+    // Обновляем позицию при движении мыши
+    document.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursor.style.left = mouseX + 'px';
+        cursor.style.top = mouseY + 'px';
     });
     
-    // Функция для добавления эффекта наведения
+    // Функция добавления эффекта наведения
     function addHoverEffect(el) {
         if (el.hasAttribute('data-cursor-listener')) return;
         el.setAttribute('data-cursor-listener', 'true');
         
-        el.addEventListener('mouseenter', () => {
+        el.addEventListener('mouseenter', function() {
             cursor.classList.add('hover');
         });
         
-        el.addEventListener('mouseleave', () => {
+        el.addEventListener('mouseleave', function() {
             cursor.classList.remove('hover');
         });
     }
     
-    // Находим все кликабельные элементы
-    const clickableSelectors = [
+    // Все кликабельные элементы
+    const selectors = [
         'a', 'button', '.work-card', '.nav-links a', '.btn-primary', 
         '.btn-ghost', '.card-link', '.contact-card', '.filter-btn', 
         '.project-tag', '.stack-card', '.feature-card', '.close-popup', 
-        '.open-popup-link', '.popup-link'
+        '.open-popup-link', '.popup-link', '[href]', '[data-popup]'
     ];
     
-    // Добавляем эффект на существующие элементы
-    document.querySelectorAll(clickableSelectors.join(',')).forEach(addHoverEffect);
+    // Добавляем на существующие элементы
+    setTimeout(function() {
+        document.querySelectorAll(selectors.join(',')).forEach(addHoverEffect);
+    }, 100);
     
-    // Следим за новыми элементами (попапы, динамический контент)
-    const observer = new MutationObserver(() => {
-        document.querySelectorAll(clickableSelectors.join(',')).forEach(addHoverEffect);
+    // Следим за новыми элементами
+    const observer = new MutationObserver(function() {
+        document.querySelectorAll(selectors.join(',')).forEach(addHoverEffect);
     });
     
     observer.observe(document.body, { childList: true, subtree: true });
     
     // Скрываем кружок при выходе за пределы окна
-    document.addEventListener('mouseleave', () => {
+    document.addEventListener('mouseleave', function() {
         cursor.style.opacity = '0';
     });
     
-    document.addEventListener('mouseenter', () => {
+    document.addEventListener('mouseenter', function() {
         cursor.style.opacity = '1';
     });
-})();
+    
+    console.log('✅ Кастомный курсор загружен');
+});
