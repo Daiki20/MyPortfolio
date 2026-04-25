@@ -162,28 +162,3 @@ const navObserver = new IntersectionObserver((entries) => {
 sections.forEach(s => navObserver.observe(s));
 
 console.log('✅ Portfolio loaded');
-// ========== КАСТОМНЫЙ КРУЖОК НА КУРСОРЕ ==========
-document.addEventListener('DOMContentLoaded', function() {
-    // Проверяем, не мобильное ли устройство
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    if (isMobile) return;
-    
-    // Проверяем, есть ли уже элемент
-    if (document.querySelector('.custom-cursor')) return;
-    
-    // Создаем элемент кружка
-    const cursor = document.createElement('div');
-    cursor.classList.add('custom-cursor');
-    document.body.appendChild(cursor);
-    
-    let mouseX = 0, mouseY = 0;
-    
-    // Обновляем позицию при движении мыши
-    document.addEventListener('mousemove', function(e) {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        cursor.style.left = mouseX + 'px';
-        cursor.style.top = mouseY + 'px';
-    });
-    
-   
