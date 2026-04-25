@@ -1,158 +1,222 @@
-// Инициализация AOS анимаций
-AOS.init({
-    duration: 800,
-    once: true,
-    offset: 100
+// ═══════════════════════════════
+//  INIT AOS
+// ═══════════════════════════════
+AOS.init({ duration: 700, once: true, offset: 80 });
+
+// ═══════════════════════════════
+//  NAVBAR: sticky + burger
+// ═══════════════════════════════
+const navbar = document.getElementById('navbar');
+const burger = document.getElementById('burger');
+const navLinks = document.querySelector('.nav-links');
+
+window.addEventListener('scroll', () => {
+    navbar.style.background = window.scrollY > 40
+        ? 'rgba(13,13,13,0.97)'
+        : 'rgba(13,13,13,0.85)';
 });
 
-// ========== СЧЕТЧИК ПРОСМОТРОВ ==========
-let visitorCount = localStorage.getItem('visitorCount');
-if (!visitorCount) {
-    visitorCount = Math.floor(Math.random() * 150) + 80;
-    localStorage.setItem('visitorCount', visitorCount);
-}
-const countEl = document.getElementById('visitor-count');
-if (countEl) countEl.textContent = visitorCount;
+burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+});
 
-// ========== ДАННЫЕ ДЛЯ ПОПАПОВ ==========
-const projectsData = {
-    "WildSpace": {
-    description: "🚀 Проект дизайна карточки инфографики для WildSpace",
-    gitLink: "https://github.com/Daiki20?tab=repositories"
-},
+// Close mobile menu on link click
+navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+        burger.classList.remove('open');
+        navLinks.classList.remove('open');
+    });
+});
 
-"WILDBERRIES": {
-    description: "🛍️ Дизайн для Wildberries — разработал карточки товаров, корзину и дополнительные элементы интерфейса по заданному ТЗ. Работа с нейросетью. Уделил внимание удобству пользователя, визуальной иерархии и адаптивности. Проект включает основную версию и два дополнения с улучшениями.",
-    gitLink: "https://github.com/Daiki20?tab=repositories"
-},
+// ═══════════════════════════════
+//  SKILL BARS — animate on scroll
+// ═══════════════════════════════
+const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const fills = entry.target.querySelectorAll('.skill-fill');
+            fills.forEach(fill => {
+                const w = fill.getAttribute('data-w');
+                fill.style.width = w + '%';
+            });
+            skillObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.3 });
 
-    "WILDBERRIES ПАРФЮМ 2": {
-    description: "👃 Ещё одна серия дизайна карточек парфюма для Wildberries — акцент на элегантность, детали и визуальную привлекательность. Карточки адаптированы под мобильные устройства и хорошо конвертируют просмотры в покупки.",
-    gitLink: "https://github.com/Daiki20?tab=repositories"
-},
+const aboutSection = document.getElementById('about');
+if (aboutSection) skillObserver.observe(aboutSection);
 
-"WILDBERRIES ПАРФЮМ": {
-    description: "👃 Дизайн карточек парфюма для Wildberries — создал визуально привлекательные карточки товаров с акцентом на флаконы и брендинг. Работал над композицией, светом и цветопередачей, чтобы передать атмосферу и премиальность парфюма.",
-    gitLink: "https://github.com/Daiki20?tab=repositories"
-},
+// ═══════════════════════════════
+//  FILTER TABS
+// ═══════════════════════════════
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectBlocks = document.querySelectorAll('.project-block');
 
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-    "PODSTAY": {
-        description: "🔥 Учебный проект 'PodStay' — полностью адаптивная верстка, современный дизайн. Вложил душу в каждую деталь!",
-        gitLink: "https://github.com/Daiki20?tab=repositories"
-    },
-    "PumpHunter": {
-        description: "✨ PumpHunter — мой любимый проект. Разработал дизайн сайта и создал рекламные креативы. Каждая деталь продумана до мелочей!",
-        gitLink: "https://github.com/Daiki20?tab=repositories"
-    },
-    "Дизайн маркетплейсов": {
-        description: "📦 Дизайн для маркетплейсов — карточки товаров, баннеры, промо-страницы для Ozon и Wildberries. Адаптивные макеты, продуманный UX.",
-        gitLink: "https://github.com/Daiki20?tab=repositories"
-    },
-    "Рекламный баннер в мебельную компанию": {
-        description: "🛋️ Разработал рекламные баннеры для мебельной компании. Все выполнено четко по ТЗ",
-        gitLink: "https://github.com/Daiki20?tab=repositories"
-    },
+        const filter = btn.getAttribute('data-filter');
+
+        projectBlocks.forEach(block => {
+            if (filter === 'all' || block.getAttribute('data-category') === filter) {
+                block.classList.remove('hidden');
+            } else {
+                block.classList.add('hidden');
+            }
+        });
+    });
+});
+
+// ═══════════════════════════════
+//  POPUP
+// ═══════════════════════════════
+const popupOverlay = document.getElementById('popupOverlay');
+const popupImg     = document.getElementById('popupImg');
+const popupTitle   = document.getElementById('popupTitle');
+const popupDesc    = document.getElementById('popupDesc');
+const popupGit     = document.getElementById('popupGit');
+const popupClose   = document.getElementById('popupClose');
+
+const projectMeta = {
+    "WildSpace":                         { git: "https://github.com/Daiki20?tab=repositories" },
+    "WILDBERRIES":                       { git: "https://github.com/Daiki20?tab=repositories" },
+    "WILDBERRIES ПАРФЮМ":                { git: "https://github.com/Daiki20?tab=repositories" },
+    "WILDBERRIES ПАРФЮМ 2":              { git: "https://github.com/Daiki20?tab=repositories" },
+    "Рекламный баннер в мебельную компанию": { git: "https://github.com/Daiki20?tab=repositories" },
+    "PumpHunter":                        { git: "https://github.com/Daiki20?tab=repositories" },
+    "PODSTAY":                           { git: "https://github.com/Daiki20?tab=repositories" },
+    "Дизайн маркетплейсов":              { git: "https://github.com/Daiki20?tab=repositories" },
 };
 
-// ========== ПОПАП ==========
-const popupBg = document.getElementById("popup-bg");
-const popupTitle = document.getElementById("popup-title");
-const popupDescription = document.getElementById("popup-description");
-const popupImage = document.getElementById("popup-image");
-const popupGitLink = document.getElementById("popup-git-link");
-
-// Функция открытия попапа
-function openPopup(imageSrc, title) {
-    if (!popupBg) return;
-    
-    // Устанавливаем картинку
-    popupImage.src = imageSrc;
-    popupImage.alt = title;
-    
-    // Устанавливаем заголовок
+function openPopup(img, title, desc) {
+    popupImg.src = img;
+    popupImg.alt = title;
     popupTitle.textContent = title;
-    
-    // ========== ВОТ ЭТОТ БЛОК БЫЛ ПРОПУЩЕН ==========
-    // Устанавливаем описание и ссылку на GitHub
-    const projectData = projectsData[title];
-    if (projectData) {
-        popupDescription.textContent = projectData.description;
-        popupGitLink.href = projectData.gitLink;
-    } else {
-        popupDescription.textContent = "Проект в разработке. Скоро здесь появится описание!";
-        popupGitLink.href = "https://github.com/Daiki20";
-    }
-    // ================================================
-    
-    // Показываем попап
-    popupBg.classList.add("open");
-    document.body.style.overflow = "hidden";
+    popupDesc.textContent = desc || '';
+
+    const meta = projectMeta[title];
+    if (meta?.git) popupGit.href = meta.git;
+
+    popupOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
 }
 
-// Функция закрытия попапа
 function closePopup() {
-    if (!popupBg) return;
-    popupBg.classList.remove("open");
-    document.body.style.overflow = "";
+    popupOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+    // Clear src after transition
+    setTimeout(() => { popupImg.src = ''; }, 300);
 }
 
-// ========== НАВЕШИВАЕМ ОБРАБОТЧИКИ НА ВСЕ КАРТИНКИ ==========
-document.querySelectorAll('.open-popup-link').forEach(function(link) {
-    link.addEventListener('click', function(event) {
-        event.preventDefault();
-        
-        // Берем путь к картинке из атрибута data-img
-        const imgSrc = this.getAttribute('data-img');
-        // Берем название проекта из атрибута data-title
-        const title = this.getAttribute('data-title');
-        
-        if (imgSrc) {
-            openPopup(imgSrc, title);
-        } else {
-            console.error('Нет атрибута data-img у элемента:', this);
+// Wire up all work cards
+document.querySelectorAll('.work-card').forEach(card => {
+    card.addEventListener('click', () => {
+        const img   = card.getAttribute('data-img');
+        const title = card.getAttribute('data-title');
+        const desc  = card.getAttribute('data-desc');
+        if (img) openPopup(img, title, desc);
+    });
+});
+
+popupClose.addEventListener('click', closePopup);
+popupOverlay.addEventListener('click', e => { if (e.target === popupOverlay) closePopup(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
+
+// ═══════════════════════════════
+//  SMOOTH SCROLL (fallback)
+// ═══════════════════════════════
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const id = this.getAttribute('href');
+        if (id === '#' || id === '') return;
+        const target = document.querySelector(id);
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
 });
 
-// ========== ЗАКРЫТИЕ ПОПАПА ==========
-// Кнопкой закрытия
-const closeBtn = document.getElementById("close-popup");
-if (closeBtn) {
-    closeBtn.addEventListener("click", closePopup);
-}
+// ═══════════════════════════════
+//  ACTIVE NAV LINK on scroll
+// ═══════════════════════════════
+const sections = document.querySelectorAll('section[id], header[id]');
+const navItems = document.querySelectorAll('.nav-links a[href^="#"]');
 
-// Кликом на фон
-if (popupBg) {
-    popupBg.addEventListener("click", function(event) {
-        if (event.target === popupBg) {
-            closePopup();
+const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            navItems.forEach(a => a.style.color = '');
+            const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+            if (active && !active.classList.contains('nav-cta')) {
+                active.style.color = '#FF007F';
+            }
         }
     });
-}
+}, { threshold: 0.4 });
 
-// Кнопкой ESC
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Escape" && popupBg && popupBg.classList.contains("open")) {
-        closePopup();
+sections.forEach(s => navObserver.observe(s));
+
+console.log('✅ Portfolio loaded');
+// ========== КАСТОМНЫЙ КРУЖОК НА КУРСОРЕ ==========
+(function() {
+    // Проверяем, не мобильное ли устройство
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (isMobile) return;
+    
+    // Создаем элемент кружка
+    const cursor = document.createElement('div');
+    cursor.classList.add('custom-cursor');
+    document.body.appendChild(cursor);
+    
+    // Обновляем позицию при движении мыши (мгновенно)
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+    
+    // Функция для добавления эффекта наведения
+    function addHoverEffect(el) {
+        if (el.hasAttribute('data-cursor-listener')) return;
+        el.setAttribute('data-cursor-listener', 'true');
+        
+        el.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
+        });
+        
+        el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
+        });
     }
-});
-
-// ========== ПЛАВНАЯ ПРОКРУТКА ДЛЯ ЯКОРНЫХ ССЫЛОК ==========
-document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-    anchor.addEventListener('click', function(event) {
-        const targetId = this.getAttribute('href');
-        if (targetId === "#" || targetId === "") return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            event.preventDefault();
-            targetElement.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        }
+    
+    // Находим все кликабельные элементы
+    const clickableSelectors = [
+        'a', 'button', '.work-card', '.nav-links a', '.btn-primary', 
+        '.btn-ghost', '.card-link', '.contact-card', '.filter-btn', 
+        '.project-tag', '.stack-card', '.feature-card', '.close-popup', 
+        '.open-popup-link', '.popup-link'
+    ];
+    
+    // Добавляем эффект на существующие элементы
+    document.querySelectorAll(clickableSelectors.join(',')).forEach(addHoverEffect);
+    
+    // Следим за новыми элементами (попапы, динамический контент)
+    const observer = new MutationObserver(() => {
+        document.querySelectorAll(clickableSelectors.join(',')).forEach(addHoverEffect);
     });
-});
-
-console.log("✅ Сайт загружен, попап работает!");
+    
+    observer.observe(document.body, { childList: true, subtree: true });
+    
+    // Скрываем кружок при выходе за пределы окна
+    document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+    });
+    
+    document.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '1';
+    });
+})();
