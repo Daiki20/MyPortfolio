@@ -3,16 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Андрей Пишев — Junior Frontend Developer</title>
+    <title>Андрей Пищев — Junior Frontend Developer</title>
     <meta name="description" content="Портфолио Junior Frontend разработчика. HTML, CSS, JavaScript, React, Figma.">
     <meta property="og:title" content="Андрей Пишев — Junior Frontend Developer">
     <meta property="og:description" content="Верстка, дизайн, JavaScript. Смотри мои работы.">
     <meta property="og:type" content="website">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Preconnect для внешних ресурсов — ускоряет DNS + TLS handshake -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
+
+    <!-- Критичные стили — первыми -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts: убрали wght:500 у JetBrains (не используется), display=swap -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome — не блокирует рендер -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <!-- AOS CSS — не блокирует рендер, стабильная версия вместо @next -->
+    <link rel="preload" href="https://unpkg.com/aos@2.3.4/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"></noscript>
 </head>
 <body>
 
@@ -256,12 +270,70 @@
         <h2 class="section-title" data-aos="fade-right" data-aos-delay="50">Мои работы</h2>
 
         <!-- Filter tabs -->
-        <div class="filter-tabs" data-aos="fade-up" data-aos-delay="100">
-            <button class="filter-btn active" data-filter="all">Все</button>
-            <button class="filter-btn" data-filter="marketplace">Маркетплейсы</button>
-            <button class="filter-btn" data-filter="web">Веб-дизайн</button>
-            <button class="filter-btn" data-filter="banner">Баннеры</button>
+<div class="filter-tabs" data-aos="fade-up" data-aos-delay="100">
+    <button class="filter-btn active" data-filter="all">Все</button>
+    <button class="filter-btn" data-filter="marketplace">Маркетплейсы</button>
+    <button class="filter-btn" data-filter="web">Веб-дизайн</button>
+    <button class="filter-btn" data-filter="banner">Баннеры</button>
+    <button class="filter-btn" data-filter="social">Соц.сети</button>
+</div>
+ 
+ 
+<!-- НОВЫЙ ПРОЕКТ - СОЦСЕТИ -->
+<div class="project-block" data-aos="fade-up" data-category="social">
+    <div class="project-header">
+        <div>
+            <h3 class="project-name">Соцсети / YouTube</h3>
+            <p class="project-type">Редизайн соцсетей и YouTube</p>
         </div>
+        <span class="project-tag">Соц.сети</span>
+    </div>
+
+     <!-- ПРЕВЬЮ — вторая строка -->
+    <div class="works-grid cols-3" style="margin-bottom: 20px;">
+        <div class="work-card" data-img="img/превью.jpg" data-title="Превью YouTube" data-desc="🎬 Сделали редизайн для превью YouTube. Яркий и кликабельный дизайн, который привлекает внимание.">
+            <div class="work-thumb"><img src="img/превью.jpg" alt="Превью YouTube" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+            <div class="work-label">Превью YouTube</div>
+        </div>
+        <!-- Свободное место (можно добавить ещё одно превью или оставить пустым) -->
+        <div></div>
+        <div></div>
+    </div>
+    
+    <!-- ШАПКА — первая строка, широкое соотношение -->
+    <div class="works-grid" style="grid-template-columns: 1fr; margin-bottom: 20px;">
+        <div class="work-card" data-img="img/шапка1.jpg" data-title="Шапка YouTube" data-desc="🎨 Сделали редизайн шапки канала YouTube. Полное обновление визуального стиля.">
+            <div class="work-thumb"><img src="img/шапка1.jpg" alt="Шапка YouTube" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+            <div class="work-label">Шапка YouTube</div>
+        </div>
+    </div>
+    
+    
+    
+    <!-- СТОРИС — третья строка, 3 картинки -->
+    <div class="works-grid cols-3">
+        <div class="work-card" data-img="img/сторис 1.jpg" data-title="Сторис Instagram" data-desc="📱 Сделали редизайн сторис для Instagram. Лаконичный и современный дизайн.">
+            <div class="work-thumb"><img src="img/сторис 1.jpg" alt="Сторис 1" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+            <div class="work-label">Сторис Instagram</div>
+        </div>
+        <div class="work-card" data-img="img/сторис 2.jpg" data-title="Сторис Instagram" data-desc="📱 Сделали редизайн сторис для Instagram. Визуально привлекательный стиль.">
+            <div class="work-thumb"><img src="img/сторис 2.jpg" alt="Сторис 2" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+            <div class="work-label">Сторис Instagram</div>
+        </div>
+        <div class="work-card" data-img="img/сторис 3.jpg" data-title="Сторис Instagram" data-desc="📱 Сделали редизайн сторис для Instagram. Креативный подход и уникальный дизайн.">
+            <div class="work-thumb"><img src="img/сторис 3.jpg" alt="Сторис 3" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+            <div class="work-label">Сторис Instagram</div>
+        </div>
+    </div>
+</div>
+
+
+
 
 <!-- Гайковерт -->
 <div class="project-block" data-aos="fade-up" data-category="marketplace">
@@ -284,8 +356,9 @@
     </div>
 </div>
 
-        
-        <!-- GORILLA -->
+
+
+<!-- GORILLA -->
 <div class="project-block" data-aos="fade-up" data-category="marketplace">
     <div class="project-header">
         <div>
@@ -310,7 +383,7 @@
     </div>
 </div>
 
-        
+
 <!-- Wildberries Парфюм 2 -->
 <div class="project-block" data-aos="fade-up" data-category="marketplace">
     <div class="project-header">
@@ -592,8 +665,8 @@
     </div>
 </div>
 
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script src="index.js"></script>
+<!-- defer = не блокируют парсинг HTML, выполняются после загрузки DOM -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+<script src="index.js" defer></script>
 </body>
 </html>
-
