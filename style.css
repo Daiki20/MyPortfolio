@@ -677,6 +677,20 @@ section {
     aspect-ratio: 21/9;
 }
 
+/* Фиксированные соотношения сторон для нестандартных изображений */
+.work-thumb--16x9 {
+    aspect-ratio: 16 / 9;
+}
+.work-thumb--banner {
+    aspect-ratio: 6.2 / 1;
+}
+.work-thumb--16x9 img,
+.work-thumb--banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .work-thumb img {
     width: 100%;
     height: auto;
@@ -932,3 +946,158 @@ footer p { font-size: 13px; color: var(--muted); }
     .footer-copy { margin-left: 0; }
 }
 
+/* ═══════════════════════════════
+   КАСТОМНЫЙ КУРСОР
+═══════════════════════════════ */
+.custom-cursor {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 0, 127, 0.4);
+    border: 2px solid rgba(255, 0, 127, 0.8);
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    backdrop-filter: blur(2px);
+}
+
+/* Состояние при наведении на кликабельные элементы */
+.custom-cursor.hover {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 0, 127, 0.15);
+    border-color: rgba(255, 0, 127, 1);
+    backdrop-filter: blur(4px);
+}
+
+/* Скрываем стандартный курсор на всем сайте */
+body {
+    cursor: none;
+}
+
+/* Показываем стандартный курсор только на мобильных устройствах */
+@media (max-width: 768px) {
+    .custom-cursor {
+        display: none;
+    }
+    body {
+        cursor: auto;
+    }
+}
+
+/* Для интерактивных элементов тоже скрываем стандартный курсор */
+a, button, .work-card, .nav-links a, .btn-primary, .btn-ghost, .card-link, 
+.contact-card, .filter-btn, .project-tag, .stack-card, .feature-card,
+.close-popup, .open-popup-link, .popup-link {
+    cursor: none;
+}
+
+/* На мобилках возвращаем стандартный курсор */
+@media (max-width: 768px) {
+    a, button, .work-card, .nav-links a, .btn-primary, .btn-ghost, .card-link, 
+    .contact-card, .filter-btn, .project-tag, .stack-card, .feature-card,
+    .close-popup, .open-popup-link, .popup-link {
+        cursor: pointer;
+    }
+}
+/* ═══════════════════════════════
+   КАСТОМНЫЙ КРУЖОК НА КУРСОРЕ
+═══════════════════════════════ */
+.custom-cursor {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #FF007F;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+    opacity: 1;
+}
+
+/* Состояние при наведении на кликабельные элементы */
+.custom-cursor.hover {
+    width: 16px;
+    height: 16px;
+    opacity: 0.4;
+}
+
+/* ═══════════════════════════════
+   ФИКСЫ ДЛЯ СОЦСЕТЕЙ
+═══════════════════════════════ */
+
+/* Убираем фиксированные соотношения для превью и шапки */
+.work-thumb--16x9,
+.work-thumb--banner {
+    aspect-ratio: auto !important;
+}
+
+/* Для всех картинок в соцсетях — убираем принудительные пропорции */
+.project-block[data-category="social"] .work-thumb {
+    aspect-ratio: auto !important;
+    min-height: auto;
+}
+
+/* Шапка YouTube — убираем лишние отступы, картинка без границ */
+.work-thumb--banner {
+    width: 100%;
+    background: var(--dark2);
+}
+
+.work-thumb--banner img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Картинке превью даём нормальные пропорции */
+.work-thumb--16x9 img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ЖЁСТКИЙ ФИКС ДЛЯ ПРЕВЬЮ */
+.work-card[data-img*="превью"] .work-thumb,
+.work-card:has(img[src*="превью"]) .work-thumb {
+    aspect-ratio: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+}
+
+.work-card[data-img*="превью"] .work-thumb img,
+.work-card:has(img[src*="превью"]) .work-thumb img {
+    width: 100%;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+}
+
+/* Убираем лишние отступы у родителя */
+.work-card[data-img*="превью"],
+.work-card:has(img[src*="превью"]) {
+    overflow: visible !important;
+}
+
+/* ПРЕВЬЮ НА ВСЮ ШИРИНУ */
+.work-card[data-img*="превью"] {
+    grid-column: span 3 !important;
+}
+
+.work-card[data-img*="превью"] .work-thumb {
+    width: 100%;
+    max-height: none !important;
+    background: var(--dark2);
+}
+
+.work-card[data-img*="превью"] .work-thumb img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 500px !important;
+    object-fit: contain !important;
+}
