@@ -162,3 +162,61 @@ const navObserver = new IntersectionObserver((entries) => {
 sections.forEach(s => navObserver.observe(s));
 
 console.log('✅ Portfolio loaded');
+// ========== КАСТОМНЫЙ КРУЖОК НА КУРСОРЕ ==========
+(function() {
+    // Проверяем, не мобильное ли устройство
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (isMobile) return;
+    
+    // Создаем элемент кружка
+    const cursor = document.createElement('div');
+    cursor.classList.add('custom-cursor');
+    document.body.appendChild(cursor);
+    
+    // Обновляем позицию при движении мыши (мгновенно)
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+    
+    // Функция для добавления эффекта наведения
+    function addHoverEffect(el) {
+        if (el.hasAttribute('data-cursor-listener')) return;
+        el.setAttribute('data-cursor-listener', 'true');
+        
+        el.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
+        });
+        
+        el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
+        });
+    }
+    
+    // Находим все кликабельные элементы
+    const clickableSelectors = [
+        'a', 'button', '.work-card', '.nav-links a', '.btn-primary', 
+        '.btn-ghost', '.card-link', '.contact-card', '.filter-btn', 
+        '.project-tag', '.stack-card', '.feature-card', '.close-popup', 
+        '.open-popup-link', '.popup-link'
+    ];
+    
+    // Добавляем эффект на существующие элементы
+    document.querySelectorAll(clickableSelectors.join(',')).forEach(addHoverEffect);
+    
+    // Следим за новыми элементами (попапы, динамический контент)
+    const observer = new MutationObserver(() => {
+        document.querySelectorAll(clickableSelectors.join(',')).forEach(addHoverEffect);
+    });
+    
+    observer.observe(document.body, { childList: true, subtree: true });
+    
+    // Скрываем кружок при выходе за пределы окна
+    document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+    });
+    
+    document.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '1';
+    });
+})();
