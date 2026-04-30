@@ -1101,3 +1101,23 @@ a, button, .work-card, .nav-links a, .btn-primary, .btn-ghost, .card-link,
     max-height: 500px !important;
     object-fit: contain !important;
 }
+
+/* ЖЁСТКИЙ ФИКС ДЛЯ ПРЕВЬЮ (РАБОТАЕТ ВСЕГДА) */
+.work-card .work-thumb:has(img[alt="Превью YouTube"]),
+.work-card .work-thumb:has(img[src*="превью"]) {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.work-card .work-thumb:has(img[alt="Превью YouTube"]) img,
+.work-card .work-thumb:has(img[src*="превью"]) img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 400px !important;
+    object-fit: contain !important;
+}
+
+.work-card:has(img[alt="Превью YouTube"]),
+.work-card:has(img[src*="превью"]) {
+    grid-column: span 3 !important;
+}
