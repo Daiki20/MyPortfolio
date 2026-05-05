@@ -1102,10 +1102,78 @@ a, button, .work-card, .nav-links a, .btn-primary, .btn-ghost, .card-link,
     object-fit: contain !important;
 }
 
-/* ЖЁСТКИЙ ФИКС ДЛЯ ПРЕВЬЮ (РАБОТАЕТ ВСЕГДА) */
-.work-card .work-thumb:has(img[alt="Превью YouTube"]),
-.work-card .work-thumb:has(img[src*="превью"]) {
-    width: 100% !important;
-    max-width: 100% !important;
+.project-block {
+    opacity: 1 !important;
+    transform: none !important;
+}
+.project-block.hidden {
+    display: none !important;
+    opacity: 0 !important;
 }
 
+/* SPOTLIGHT ЭФФЕКТ НА КАРТОЧКАХ */
+.work-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.work-card::before {
+    content: '';
+    position: absolute;
+    top: var(--y, 0);
+    left: var(--x, 0);
+    width: 0px;
+    height: 0px;
+    background: radial-gradient(circle, rgba(255,0,127,0.25) 0%, rgba(255,0,127,0) 80%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: width 0.2s ease, height 0.2s ease;
+    z-index: 2;
+}
+
+.work-card:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* КНОПКА НАВЕРХ */
+.go-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--grad);
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+    box-shadow: 0 4px 15px rgba(255,0,127,0.3);
+}
+
+.go-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.go-top:hover {
+    transform: translateY(-5px);
+}
+
+/* ПРОГРЕСС-БАР ПРОКРУТКИ */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #FF007F, #FF2D2D);
+    z-index: 1000;
+    transition: width 0.1s ease;
+}
