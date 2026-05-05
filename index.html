@@ -5,30 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Андрей Пищев — Junior Frontend Developer</title>
     <meta name="description" content="Портфолио Junior Frontend разработчика. HTML, CSS, JavaScript, React, Figma.">
-    <meta property="og:title" content="Андрей Пишев — Junior Frontend Developer">
+    <meta property="og:title" content="Андрей Пищев — Junior Frontend Developer">
     <meta property="og:description" content="Верстка, дизайн, JavaScript. Смотри мои работы.">
     <meta property="og:type" content="website">
-    <!-- Preconnect для внешних ресурсов — ускоряет DNS + TLS handshake -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://unpkg.com">
-
-    <!-- Критичные стили — первыми -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Google Fonts: убрали wght:500 у JetBrains (не используется), display=swap -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome — не блокирует рендер -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-
-    <!-- AOS CSS — не блокирует рендер, стабильная версия вместо @next -->
-    <link rel="preload" href="https://unpkg.com/aos@2.3.4/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"></noscript>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- ПРОГРЕСС-БАР -->
+<div class="progress-bar" id="progressBar"></div>
 
 <!-- ═══ STICKY NAV ═══ -->
 <nav id="navbar">
@@ -60,7 +49,7 @@
             </p>
             <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
                 <a href="#works" class="btn-primary">Смотреть работы</a>
-                <a href="https://t.me/andrusha_pv" target="_blank" class="btn-ghost">Написать мне</a>
+                <a href="#contacts" class="btn-ghost">Написать мне</a>
             </div>
             <div class="hero-tags" data-aos="fade-up" data-aos-delay="400">
                 <span class="tag">HTML</span>
@@ -73,9 +62,9 @@
         <div class="hero-card" data-aos="fade-left" data-aos-delay="200">
             <div class="hero-card-inner">
                 <div class="hero-avatar">
-                    <div class="avatar-placeholder">А</div>
-                </div>
-                <p class="hero-card-name">Андрей Пишев</p>
+    <img src="img/myface.jpg" alt="Андрей Пишев" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+</div>
+                <p class="hero-card-name">Андрей Пищев</p>
                 <p class="hero-card-role">Frontend Dev & Designer</p>
                 <div class="hero-card-stats">
                     <div class="hcs">
@@ -289,19 +278,16 @@
         <span class="project-tag">Соц.сети</span>
     </div>
 
-     <!-- ПРЕВЬЮ — вторая строка -->
-    <div class="works-grid cols-3" style="margin-bottom: 20px;">
-        <div class="work-card" data-img="img/превью.jpg" data-title="Превью YouTube" data-desc="🎬 Сделали редизайн для превью YouTube. Яркий и кликабельный дизайн, который привлекает внимание.">
+    <!-- ПРЕВЬЮ — вторая строка (на всю ширину) -->
+    <div class="works-grid" style="grid-template-columns: 1fr; margin-bottom: 20px;">
+        <div class="work-card preview-card" data-img="img/превью.jpg" data-title="Превью YouTube" data-desc="🎬 Сделали редизайн для превью YouTube. Яркий и кликабельный дизайн.">
             <div class="work-thumb"><img src="img/превью.jpg" alt="Превью YouTube" loading="lazy"></div>
             <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
             <div class="work-label">Превью YouTube</div>
         </div>
-        <!-- Свободное место (можно добавить ещё одно превью или оставить пустым) -->
-        <div></div>
-        <div></div>
     </div>
     
-    <!-- ШАПКА — первая строка, широкое соотношение -->
+    <!-- ШАПКА — первая строка -->
     <div class="works-grid" style="grid-template-columns: 1fr; margin-bottom: 20px;">
         <div class="work-card" data-img="img/шапка1.jpg" data-title="Шапка YouTube" data-desc="🎨 Сделали редизайн шапки канала YouTube. Полное обновление визуального стиля.">
             <div class="work-thumb"><img src="img/шапка1.jpg" alt="Шапка YouTube" loading="lazy"></div>
@@ -311,20 +297,21 @@
     </div>
     
     
-    
-    <!-- СТОРИС — третья строка, 3 картинки -->
+
+
+<!-- пост инстаграм -->
     <div class="works-grid cols-3">
-        <div class="work-card" data-img="img/сторис 1.jpg" data-title="Сторис Instagram" data-desc="📱 Сделали редизайн сторис для Instagram. Лаконичный и современный дизайн.">
+        <div class="work-card" data-img="img/сторис 1.jpg" data-title="Сторис Instagram" data-desc="📱 Сделали редизайн сторис для Instagram.">
             <div class="work-thumb"><img src="img/сторис 1.jpg" alt="Сторис 1" loading="lazy"></div>
             <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
             <div class="work-label">Сторис Instagram</div>
         </div>
-        <div class="work-card" data-img="img/сторис 2.jpg" data-title="Сторис Instagram" data-desc="📱 Сделали редизайн сторис для Instagram. Визуально привлекательный стиль.">
+        <div class="work-card" data-img="img/сторис 2.jpg" data-title="Сторис Instagram" data-desc="📱 Визуально привлекательный стиль.">
             <div class="work-thumb"><img src="img/сторис 2.jpg" alt="Сторис 2" loading="lazy"></div>
             <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
             <div class="work-label">Сторис Instagram</div>
         </div>
-        <div class="work-card" data-img="img/сторис 3.jpg" data-title="Сторис Instagram" data-desc="📱 Сделали редизайн сторис для Instagram. Креативный подход и уникальный дизайн.">
+        <div class="work-card" data-img="img/сторис 3.jpg" data-title="Сторис Instagram" data-desc="📱 Креативный подход.">
             <div class="work-thumb"><img src="img/сторис 3.jpg" alt="Сторис 3" loading="lazy"></div>
             <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
             <div class="work-label">Сторис Instagram</div>
@@ -332,8 +319,67 @@
     </div>
 </div>
 
-
-
+   <!-- Торты - Instagram пост -->
+<div class="project-block" data-aos="fade-up" data-category="social">
+    <div class="project-header">
+        <div>
+            <h3 class="project-name">Торты</h3>
+            <p class="project-type">Дизайн поста для Instagram | Магазин тортов</p>
+        </div>
+        <span class="project-tag">Соц.сети</span>
+    </div>
+    <div class="works-grid cols-3">
+        <div class="work-card" data-img="img/торт1.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Дизайн поста для Instagram — магазин тортов. Сочная и аппетитная подача.">
+            <div class="work-thumb"><img src="img/торт1.jpg" alt="Торт дизайн 1" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+            <div class="work-label">Instagram пост</div>
+        </div>
+        <div class="work-card" data-img="img/торт2.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Второй вариант дизайна — акцент на текстуру и детали.">
+            <div class="work-thumb"><img src="img/торт2.jpg" alt="Торт дизайн 2" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+            <div class="work-label">Instagram пост</div>
+        </div>
+        <div class="work-card" data-img="img/торт3.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Яркий и праздничный дизайн.">
+            <div class="work-thumb"><img src="img/торт3.jpg" alt="Торт дизайн 3" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+            <div class="work-label">Instagram пост</div>
+        </div>
+    </div>
+    <div class="works-grid cols-3" style="margin-top: 14px;">
+        <div class="work-card" data-img="img/торт4.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Нежный и элегантный дизайн.">
+            <div class="work-thumb"><img src="img/торт4.jpg" alt="Торт дизайн 4" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+            <div class="work-label">Instagram пост</div>
+        </div>
+        <div class="work-card" data-img="img/торт5.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Премиальный стиль для дорогих тортов.">
+            <div class="work-thumb"><img src="img/торт5.jpg" alt="Торт дизайн 5" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+            <div class="work-label">Instagram пост</div>
+        </div>
+        <div class="work-card" data-img="img/торт6.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Минималистичный и современный.">
+            <div class="work-thumb"><img src="img/торт6.jpg" alt="Торт дизайн 6" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+            <div class="work-label">Instagram пост</div>
+        </div>
+    </div>
+    <div class="works-grid cols-3" style="margin-top: 14px;">
+        <div class="work-card" data-img="img/торт7.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Сезонная коллекция — осенние торты.">
+            <div class="work-thumb"><img src="img/торт7.jpg" alt="Торт дизайн 7" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+            <div class="work-label">Instagram пост</div>
+        </div>
+        <div class="work-card" data-img="img/торт8.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Детские торты — ярко и весело.">
+            <div class="work-thumb"><img src="img/торт8.jpg" alt="Торт дизайн 8" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+            <div class="work-label">Instagram пост</div>
+        </div>
+        <div class="work-card" data-img="img/торт9.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Свадебные торты — элегантность и стиль.">
+            <div class="work-thumb"><img src="img/торт9.jpg" alt="Торт дизайн 9" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+            <div class="work-label">Instagram пост</div>
+        </div>
+    </div>
+</div>
 
 <!-- Гайковерт -->
 <div class="project-block" data-aos="fade-up" data-category="marketplace">
@@ -489,27 +535,27 @@
         
 
         <!-- Banner -->
-        <div class="project-block" data-aos="fade-up" data-category="banner">
-            <div class="project-header">
-                <div>
-                    <h3 class="project-name">Мебельная компания</h3>
-                    <p class="project-type">Рекламные баннеры</p>
-                </div>
-                <span class="project-tag">Баннер</span>
-            </div>
-            <div class="works-grid cols-banner">
-                <div class="work-card work-card--wide" data-img="img/bannerBig.jpg" data-title="Рекламный баннер в мебельную компанию" data-desc="🛋️ Рекламный баннер Desktop для мебельной компании. Чёткое ТЗ, точное исполнение.">
-                    <div class="work-thumb"><img src="img/bannerBig.jpg" alt="Баннер Desktop" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                    <span class="work-label">Desktop</span>
-                </div>
-                <div class="work-card" data-img="img/bannerMobile.jpg" data-title="Рекламный баннер в мебельную компанию" data-desc="🛋️ Мобильная версия баннера — адаптирован под смартфоны.">
-                    <div class="work-thumb"><img src="img/bannerMobile.jpg" alt="Баннер Mobile" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                    <span class="work-label">Mobile</span>
-                </div>
-            </div>
+<div class="project-block" data-aos="fade-up" data-category="banner">
+    <div class="project-header">
+        <div>
+            <h3 class="project-name">Мебельная компания</h3>
+            <p class="project-type">Рекламные баннеры</p>
         </div>
+        <span class="project-tag">Баннер</span>
+    </div>
+    <div class="works-grid cols-banner">
+        <div class="work-card work-card--wide" data-img="img/bannerBig.jpg" data-title="Рекламный баннер в мебельную компанию" data-desc="🛋️ Рекламный баннер Desktop для мебельной компании. Чёткое ТЗ, точное исполнение.">
+            <div class="work-thumb"><img src="img/bannerBig.jpg" alt="Баннер Desktop" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+            <span class="work-label">Desktop</span>
+        </div>
+        <div class="work-card" data-img="img/bannerMobile.jpg" data-title="Рекламный баннер в мебельную компанию" data-desc="🛋️ Мобильная версия баннера — адаптирован под смартфоны.">
+            <div class="work-thumb"><img src="img/bannerMobile.jpg" alt="Баннер Mobile" loading="lazy"></div>
+            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
+            <span class="work-label">Mobile</span>
+        </div>
+    </div>
+</div>
 
         <!-- PumpHunter -->
         <div class="project-block" data-aos="fade-up" data-category="web">
@@ -661,12 +707,16 @@
                     </a>
                 </div>
             </div>
+
         </div>
+
     </div>
+
 </div>
 
-<!-- defer = не блокируют парсинг HTML, выполняются после загрузки DOM -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-<script src="index.js" defer></script>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="index.js"></script>
+
 </body>
 </html>
