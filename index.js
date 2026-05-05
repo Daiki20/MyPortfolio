@@ -16,18 +16,22 @@ window.addEventListener('scroll', () => {
         : 'rgba(13,13,13,0.85)';
 });
 
-burger.addEventListener('click', () => {
-    burger.classList.toggle('open');
-    navLinks.classList.toggle('open');
-});
+if (burger) {
+    burger.addEventListener('click', () => {
+        burger.classList.toggle('open');
+        navLinks.classList.toggle('open');
+    });
+}
 
 // Close mobile menu on link click
-navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-        burger.classList.remove('open');
-        navLinks.classList.remove('open');
+if (navLinks) {
+    navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            burger.classList.remove('open');
+            navLinks.classList.remove('open');
+        });
     });
-});
+}
 
 // ═══════════════════════════════
 //  SKILL BARS — animate on scroll
@@ -49,10 +53,43 @@ const aboutSection = document.getElementById('about');
 if (aboutSection) skillObserver.observe(aboutSection);
 
 // ═══════════════════════════════
-//  FILTER TABS
+//  FILTER TABS — ИСПРАВЛЕНО (баг с AOS)
 // ═══════════════════════════════
 const filterBtns = document.querySelectorAll('.filter-btn');
-const projectBlocks = document.querySelectorAll('.project-block');
+let projectBlocks = document.querySelectorAll('.project-block');
+
+function updateProjectBlocks() {
+    projectBlocks = document.querySelectorAll('.project-block');
+}
+
+// Сбрасываем AOS-скрытие на блоке, чтобы он сразу был виден
+function unlockAOS(block) {
+    block.removeAttribute('data-aos');
+    block.removeAttribute('data-aos-delay');
+    block.style.opacity = '1';
+    block.style.transform = 'none';
+    block.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+    // Убираем inline-стили которые AOS мог выставить
+    block.classList.remove('aos-animate');
+    block.classList.remove('aos-init');
+}
+
+function filterProjects(filter) {
+    updateProjectBlocks();
+
+    projectBlocks.forEach(block => {
+        const category = block.getAttribute('data-category');
+
+        if (filter === 'all' || category === filter) {
+            block.classList.remove('hidden');
+            block.style.display = '';
+            // ← ФИКС: убираем AOS-блокировку видимости
+            unlockAOS(block);
+        } else {
+            block.classList.add('hidden');
+        }
+    });
+}
 
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -60,16 +97,14 @@ filterBtns.forEach(btn => {
         btn.classList.add('active');
 
         const filter = btn.getAttribute('data-filter');
-
-        projectBlocks.forEach(block => {
-            if (filter === 'all' || block.getAttribute('data-category') === filter) {
-                block.classList.remove('hidden');
-            } else {
-                block.classList.add('hidden');
-            }
-        });
+        filterProjects(filter);
     });
 });
+
+// Инициализация при загрузке
+setTimeout(() => {
+    filterProjects('all');
+}, 100);
 
 // ═══════════════════════════════
 //  POPUP
@@ -90,26 +125,31 @@ const projectMeta = {
     "PumpHunter":                        { git: "https://github.com/Daiki20?tab=repositories" },
     "PODSTAY":                           { git: "https://github.com/Daiki20?tab=repositories" },
     "Дизайн маркетплейсов":              { git: "https://github.com/Daiki20?tab=repositories" },
+    "Торты — Instagram пост":            { git: "https://github.com/Daiki20?tab=repositories" },
 };
 
 function openPopup(img, title, desc) {
+    if (!popupImg) return;
     popupImg.src = img;
     popupImg.alt = title;
     popupTitle.textContent = title;
     popupDesc.textContent = desc || '';
 
     const meta = projectMeta[title];
-    if (meta?.git) popupGit.href = meta.git;
+    if (meta?.git && popupGit) popupGit.href = meta.git;
 
-    popupOverlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    if (popupOverlay) {
+        popupOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
 }
 
 function closePopup() {
-    popupOverlay.classList.remove('open');
-    document.body.style.overflow = '';
-    // Clear src after transition
-    setTimeout(() => { popupImg.src = ''; }, 300);
+    if (popupOverlay) {
+        popupOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+        setTimeout(() => { if (popupImg) popupImg.src = ''; }, 300);
+    }
 }
 
 // Wire up all work cards
@@ -122,8 +162,8 @@ document.querySelectorAll('.work-card').forEach(card => {
     });
 });
 
-popupClose.addEventListener('click', closePopup);
-popupOverlay.addEventListener('click', e => { if (e.target === popupOverlay) closePopup(); });
+if (popupClose) popupClose.addEventListener('click', closePopup);
+if (popupOverlay) popupOverlay.addEventListener('click', e => { if (e.target === popupOverlay) closePopup(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
 
 // ═══════════════════════════════
@@ -161,39 +201,30 @@ const navObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(s => navObserver.observe(s));
 
-console.log('✅ Portfolio loaded');
-// ========== КАСТОМНЫЙ КРУЖОК НА КУРСОРЕ ==========
+// ═══════════════════════════════
+//  КАСТОМНЫЙ КУРСОР
+// ═══════════════════════════════
 (function() {
-    // Проверяем, не мобильное ли устройство
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
     if (isMobile) return;
     
-    // Создаем элемент кружка
     const cursor = document.createElement('div');
     cursor.classList.add('custom-cursor');
     document.body.appendChild(cursor);
     
-    // Обновляем позицию при движении мыши (мгновенно)
     document.addEventListener('mousemove', (e) => {
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
     });
     
-    // Функция для добавления эффекта наведения
     function addHoverEffect(el) {
         if (el.hasAttribute('data-cursor-listener')) return;
         el.setAttribute('data-cursor-listener', 'true');
         
-        el.addEventListener('mouseenter', () => {
-            cursor.classList.add('hover');
-        });
-        
-        el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('hover');
-        });
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
     }
     
-    // Находим все кликабельные элементы
     const clickableSelectors = [
         'a', 'button', '.work-card', '.nav-links a', '.btn-primary', 
         '.btn-ghost', '.card-link', '.contact-card', '.filter-btn', 
@@ -201,22 +232,131 @@ console.log('✅ Portfolio loaded');
         '.open-popup-link', '.popup-link'
     ];
     
-    // Добавляем эффект на существующие элементы
     document.querySelectorAll(clickableSelectors.join(',')).forEach(addHoverEffect);
     
-    // Следим за новыми элементами (попапы, динамический контент)
     const observer = new MutationObserver(() => {
         document.querySelectorAll(clickableSelectors.join(',')).forEach(addHoverEffect);
     });
-    
     observer.observe(document.body, { childList: true, subtree: true });
     
-    // Скрываем кружок при выходе за пределы окна
-    document.addEventListener('mouseleave', () => {
-        cursor.style.opacity = '0';
+    document.addEventListener('mouseleave', () => cursor.style.opacity = '0');
+    document.addEventListener('mouseenter', () => cursor.style.opacity = '1');
+})();
+
+console.log('✅ Portfolio loaded, filter fixed!');
+
+
+// ═══════════════════════════════
+//  ПЕЧАТАЮЩИЙ ТЕКСТ В HERO
+// ═══════════════════════════════
+const roles = ['Junior Frontend Dev', 'Верстальщик', 'Дизайнер', 'React Dev'];
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const heroLabel = document.querySelector('.hero-label');
+
+if (heroLabel) {
+    function typeEffect() {
+        const currentRole = roles[roleIndex];
+        
+        if (isDeleting) {
+            heroLabel.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            heroLabel.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+        }
+        
+        if (!isDeleting && charIndex === currentRole.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, 2000);
+            return;
+        }
+        
+        if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            setTimeout(typeEffect, 500);
+            return;
+        }
+        
+        const speed = isDeleting ? 50 : 100;
+        setTimeout(typeEffect, speed);
+    }
+    
+    typeEffect();
+}
+
+// ═══════════════════════════════
+//  SPOTLIGHT ЭФФЕКТ
+// ═══════════════════════════════
+document.querySelectorAll('.work-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--x', x + 'px');
+        card.style.setProperty('--y', y + 'px');
+    });
+});
+
+// ═══════════════════════════════
+//  КНОПКА НАВЕРХ
+// ═══════════════════════════════
+const goTopBtn = document.getElementById('goTop');
+if (goTopBtn) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            goTopBtn.classList.add('show');
+        } else {
+            goTopBtn.classList.remove('show');
+        }
     });
     
-    document.addEventListener('mouseenter', () => {
-        cursor.style.opacity = '1';
+    goTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-})();
+}
+
+// ═══════════════════════════════
+//  ПРОГРЕСС-БАР ПРОКРУТКИ
+// ═══════════════════════════════
+const progressBar = document.getElementById('progressBar');
+if (progressBar) {
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+    });
+}
+// ═══════════════════════════════
+//  АНИМАЦИЯ СЧЁТЧИКОВ В HERO
+// ═══════════════════════════════
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counters = document.querySelectorAll('.hcs-num:not(.counted)');
+            counters.forEach(counter => {
+                const target = parseInt(counter.innerText);
+                if (isNaN(target)) return;
+                counter.classList.add('counted');
+                let current = 0;
+                const increment = Math.ceil(target / 50);
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.innerText = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.innerText = current;
+                    }
+                }, 30);
+            });
+            counterObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+const heroCard = document.querySelector('.hero-card');
+if (heroCard) counterObserver.observe(heroCard);
