@@ -262,8 +262,10 @@ ul, ol { list-style: none; }
   font-weight: 700; font-size: 14px;
 }
 .case__tag--blue { background: var(--blue); }
+.case__tag--yellow { background: var(--yellow); }
+.case-full + .case-full { margin-top: 20px; }
 .case__tag--coral { background: var(--coral); color: var(--cream); }
-.cases--soon { grid-template-columns: repeat(2, 1fr); margin-top: 20px; }
+.cases--soon { grid-template-columns: 1fr; margin-top: 20px; }
 .cases--soon .case { min-height: 220px; }
 
 /* Full case */
