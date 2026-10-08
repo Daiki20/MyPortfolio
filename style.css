@@ -294,6 +294,13 @@ ul, ol { list-style: none; }
 .stat--cream { background: var(--cream); }
 .stat__value { font: 900 clamp(44px, 4.5vw, 64px)/1 var(--font-display); }
 .stat__label { font-size: 15px; font-weight: 500; opacity: .75; }
+.stat__value--compare { display: flex; align-items: center; flex-wrap: wrap; gap: 0 10px; }
+.stat__value--compare s {
+  opacity: .45;
+  text-decoration-thickness: 4px;
+  text-decoration-color: var(--red);
+}
+.stat__arrow { font-family: var(--font-text); font-weight: 500; font-size: .6em; }
 
 .case-full__body { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
 .case-full__body h4 {
