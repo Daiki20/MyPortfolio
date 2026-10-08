@@ -375,7 +375,44 @@ ul, ol { list-style: none; }
 .calc__range + .calc__range { margin-top: 8px; }
 .calc__range-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px; font-weight: 500; }
 .calc__range output { font: 900 26px/1 var(--font-display); white-space: nowrap; }
-.calc__range input { width: 100%; accent-color: var(--dark); cursor: pointer; }
+.calc__range input {
+  --fill: 0%;
+  -webkit-appearance: none; appearance: none;
+  display: block; width: 100%; height: 32px;
+  margin: 4px 0 0;
+  background: transparent;
+  cursor: pointer;
+}
+.calc__range input:focus { outline: none; }
+.calc__range input::-webkit-slider-runnable-track {
+  height: 10px; border-radius: 999px;
+  background: linear-gradient(to right, var(--dark) var(--fill), rgba(37, 4, 4, .14) var(--fill));
+}
+.calc__range input::-moz-range-track { height: 10px; border-radius: 999px; background: rgba(37, 4, 4, .14); }
+.calc__range input::-moz-range-progress { height: 10px; border-radius: 999px; background: var(--dark); }
+.calc__range input::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 30px; height: 30px; margin-top: -10px;
+  border-radius: 50%;
+  background: var(--lime);
+  border: 4px solid var(--dark);
+  box-shadow: 0 4px 12px rgba(37, 4, 4, .3);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.calc__range input::-moz-range-thumb {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--lime);
+  border: 4px solid var(--dark);
+  box-shadow: 0 4px 12px rgba(37, 4, 4, .3);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.calc__range input:hover::-webkit-slider-thumb,
+.calc__range input:active::-webkit-slider-thumb { transform: scale(1.15); box-shadow: 0 6px 16px rgba(37, 4, 4, .35); }
+.calc__range input:hover::-moz-range-thumb,
+.calc__range input:active::-moz-range-thumb { transform: scale(1.15); box-shadow: 0 6px 16px rgba(37, 4, 4, .35); }
+.calc__range input:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 4px rgba(220, 96, 71, .5); }
+.calc__range input:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 4px rgba(220, 96, 71, .5); }
 .calc [hidden] { display: none !important; }
 
 .calc__result {

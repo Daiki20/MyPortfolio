@@ -116,6 +116,8 @@ if (calc) {
       const id = range.dataset.platform;
       const { currency } = PLATFORMS[id];
       range.hidden = !selected.includes(id);
+      const fill = ((input.value - input.min) / (input.max - input.min)) * 100;
+      input.style.setProperty('--fill', `${fill}%`);
       range.querySelector('output').textContent = budgetLabel(Number(input.value), Number(input.max), currency);
     });
 
