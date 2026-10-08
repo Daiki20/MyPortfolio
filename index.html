@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@800;900&family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -24,6 +24,7 @@
       </a>
       <nav class="nav" id="nav">
         <a href="#services">Услуги</a>
+        <a href="#prices">Цены</a>
         <a href="#why">Почему я</a>
         <a href="#process">Как работаю</a>
         <a href="#cases">Кейсы</a>
@@ -91,7 +92,7 @@
               <span class="service__budget-value">от 10 000 ₽ <small>/ тест</small></span>
             </div>
             <div class="service__foot">
-              <span class="service__price">Моя работа — по запросу</span>
+              <a href="#prices" class="service__price">Настройка — 8 000 ₽<span>Все цены →</span></a>
               <a href="https://t.me/andrusha_pv" class="btn btn--dark" target="_blank" rel="noopener">Обсудить</a>
             </div>
           </article>
@@ -114,7 +115,7 @@
               <span class="service__budget-value">от 10 000 ₽ <small>/ тест</small></span>
             </div>
             <div class="service__foot">
-              <span class="service__price">Моя работа — по запросу</span>
+              <a href="#prices" class="service__price">Настройка — 6 000 ₽<span>Все цены →</span></a>
               <a href="https://t.me/andrusha_pv" class="btn btn--dark" target="_blank" rel="noopener">Обсудить</a>
             </div>
           </article>
@@ -137,13 +138,96 @@
               <span class="service__budget-value">от 300 $ <small>/ тест</small></span>
             </div>
             <div class="service__foot">
-              <span class="service__price">Моя работа — по запросу</span>
+              <a href="#prices" class="service__price">Настройка — 90 $<span>Все цены →</span></a>
               <a href="https://t.me/andrusha_pv" class="btn btn--dark" target="_blank" rel="noopener">Обсудить</a>
             </div>
           </article>
         </div>
       </div>
     </section>
+
+    <!-- PRICES -->
+    <section class="section section--dark prices" id="prices">
+      <div class="container">
+        <div class="prices__head">
+          <h2 class="section__title reveal">Цены</h2>
+          <span class="prices__sticker reveal" aria-hidden="true">Доступные<br>цены</span>
+        </div>
+        <p class="section__lead reveal">Беру небольшую плату за работу — больше вашего бюджета уходит в рекламу. Рекламный бюджет оплачивается площадке отдельно.</p>
+
+        <div class="price-free reveal">
+          <span class="price-free__value">0 ₽</span>
+          <div class="price-free__text">
+            <h3>Консультация 20–30 минут</h3>
+            <p>Разбор задачи, подбор рекламной площадки, рекомендации по бюджету и стратегии</p>
+          </div>
+          <a href="https://t.me/andrusha_pv" class="btn btn--lime" target="_blank" rel="noopener">Записаться бесплатно</a>
+        </div>
+
+        <div class="price-cards">
+          <article class="price-card price-card--yellow reveal">
+            <div class="price-card__head"><h3 class="price-card__title">Яндекс Директ</h3><span class="price-card__num">01</span></div>
+            <div class="price-rows">
+              <div class="price-row"><div><h4>Аудит рекламных кампаний</h4><p>Анализ кабинета, поиск ошибок, рекомендации по оптимизации</p></div><span class="price-row__value">3 000 ₽</span></div>
+              <div class="price-row"><div><h4>Настройка с нуля</h4><p>Метрика и цели, семантика, Поиск + РСЯ, объявления, запуск</p></div><span class="price-row__value">8 000 ₽</span></div>
+              <div class="price-row"><div><h4>Ведение</h4><p>Оптимизация, чистка запросов и площадок, тестирование, контроль эффективности</p></div><span class="price-row__value">от 10 000 ₽ <small>/ мес</small></span></div>
+            </div>
+            <p class="tiers__label">Стоимость ведения в зависимости от рекламного бюджета в месяц:</p>
+            <div class="tiers">
+              <div class="tier"><span class="tier__budget">до 100 000 ₽</span><span class="tier__fee">10 000 ₽</span></div>
+              <div class="tier"><span class="tier__budget">100–200 тыс. ₽</span><span class="tier__fee">15 000 ₽</span></div>
+              <div class="tier"><span class="tier__budget">200–400 тыс. ₽</span><span class="tier__fee">30 000 ₽</span></div>
+              <div class="tier"><span class="tier__budget">400–700 тыс. ₽</span><span class="tier__fee">45 000 ₽</span></div>
+              <div class="tier tier--custom"><span class="tier__budget">от 700 тыс. ₽</span><span class="tier__fee">договорная</span></div>
+            </div>
+          </article>
+
+          <article class="price-card price-card--blue reveal">
+            <div class="price-card__head"><h3 class="price-card__title">Telegram Ads</h3><span class="price-card__num">02</span></div>
+            <div class="price-rows">
+              <div class="price-row"><div><h4>Настройка</h4><p>Подбор каналов и тематик, рекламные объявления, запуск кампании</p></div><span class="price-row__value">6 000 ₽</span></div>
+              <div class="price-row"><div><h4>Ведение</h4><p>Тестирование, анализ каналов, перераспределение бюджета, оптимизация, отчётность</p></div><span class="price-row__value">от 10 000 ₽ <small>/ мес</small></span></div>
+            </div>
+            <p class="tiers__label">Стоимость ведения в зависимости от рекламного бюджета в месяц:</p>
+            <div class="tiers">
+              <div class="tier"><span class="tier__budget">до 100 000 ₽</span><span class="tier__fee">10 000 ₽</span></div>
+              <div class="tier"><span class="tier__budget">100–200 тыс. ₽</span><span class="tier__fee">15 000 ₽</span></div>
+              <div class="tier"><span class="tier__budget">200–400 тыс. ₽</span><span class="tier__fee">30 000 ₽</span></div>
+              <div class="tier"><span class="tier__budget">400–700 тыс. ₽</span><span class="tier__fee">45 000 ₽</span></div>
+              <div class="tier tier--custom"><span class="tier__budget">от 700 тыс. ₽</span><span class="tier__fee">договорная</span></div>
+            </div>
+          </article>
+
+          <article class="price-card price-card--lime reveal">
+            <div class="price-card__head"><h3 class="price-card__title">Facebook / Instagram Ads*</h3><span class="price-card__num">03</span></div>
+            <div class="price-rows">
+              <div class="price-row"><div><h4>Настройка</h4><p>Pixel, события, аудитории, рекламные кампании, 3–5 креативов, запуск</p></div><span class="price-row__value">90 $</span></div>
+              <div class="price-row"><div><h4>Ведение</h4><p>Оптимизация, тестирование аудиторий и креативов, масштабирование, отчётность</p></div><span class="price-row__value">от 120 $ <small>/ мес</small></span></div>
+            </div>
+            <p class="tiers__label">Стоимость ведения в зависимости от рекламного бюджета в месяц:</p>
+            <div class="tiers">
+              <div class="tier"><span class="tier__budget">до $1 000</span><span class="tier__fee">$120</span></div>
+              <div class="tier"><span class="tier__budget">$1 000–2 000</span><span class="tier__fee">$180</span></div>
+              <div class="tier"><span class="tier__budget">$2 000–4 000</span><span class="tier__fee">$350</span></div>
+              <div class="tier"><span class="tier__budget">$4 000–7 000</span><span class="tier__fee">$500</span></div>
+              <div class="tier tier--custom"><span class="tier__budget">от $7 000</span><span class="tier__fee">договорная</span></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="price-terms">
+          <div class="price-term reveal"><b>Бюджет отдельно</b>Рекламный бюджет оплачивается напрямую площадке и не входит в стоимость моей работы.</div>
+          <div class="price-term reveal"><b>Кабинет ваш</b>Кампании создаются в вашем аккаунте — все данные и история остаются у вас.</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee marquee--alt" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Яндекс Директ</span><i></i><span>Telegram Ads</span><i></i><span>Facebook Ads</span><i></i><span>Доступные цены</span><i></i>
+        <span>Яндекс Директ</span><i></i><span>Telegram Ads</span><i></i><span>Facebook Ads</span><i></i><span>Доступные цены</span><i></i>
+      </div>
+    </div>
 
     <!-- WHY -->
     <section class="section section--dark" id="why">
@@ -424,6 +508,6 @@
     </div>
   </footer>
 
-  <script src="index.js?v=2"></script>
+  <script src="index.js?v=3"></script>
 </body>
 </html>
