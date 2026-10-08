@@ -122,10 +122,47 @@ ul, ol { list-style: none; }
   letter-spacing: -.01em;
   margin-bottom: 32px;
 }
+.hero__sticker {
+  display: inline-grid; place-items: center;
+  vertical-align: middle;
+  margin-left: .1em;
+  width: clamp(110px, 11vw, 160px); aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--yellow); color: var(--dark);
+  font: 900 clamp(20px, 2vw, 30px)/.95 var(--font-display);
+  text-transform: uppercase;
+  text-align: center;
+  transform: rotate(12deg);
+  box-shadow: 0 14px 30px rgba(16, 2, 2, .4);
+  animation: sticker-wobble 5s ease-in-out infinite;
+}
+@keyframes sticker-wobble {
+  0%, 100% { transform: rotate(12deg); }
+  50% { transform: rotate(4deg) scale(1.04); }
+}
 .hero__lead {
-  max-width: 720px; margin: 0 auto 40px;
+  max-width: 720px; margin: 0 auto 28px;
   font-size: clamp(17px, 1.6vw, 21px);
   color: rgba(255, 246, 235, .85);
+}
+.hero__offer {
+  display: flex; align-items: center; gap: 16px;
+  max-width: 720px; margin: 0 auto 36px;
+  padding: 16px 24px 16px 16px;
+  border-radius: var(--radius-md);
+  background: rgba(206, 240, 94, .12);
+  border: 2px solid var(--lime);
+  text-align: left;
+  font-size: clamp(16px, 1.4vw, 19px);
+  color: rgba(255, 246, 235, .85);
+}
+.hero__offer strong { color: var(--lime); font-weight: 700; }
+.hero__offer-icon {
+  flex-shrink: 0;
+  display: grid; place-items: center;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--lime); color: var(--dark);
+  font: 700 26px/1 var(--font-text);
 }
 .hero__actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px; }
 .hero__chips { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
@@ -432,7 +469,7 @@ ul, ol { list-style: none; }
 .reveal.is-visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-  .marquee__track { animation: none; }
+  .marquee__track, .hero__sticker { animation: none; }
   html { scroll-behavior: auto; }
 }
 
@@ -487,6 +524,9 @@ ul, ol { list-style: none; }
   .logo__text small { display: none; }
   .header__cta { padding: 10px 16px; font-size: 14px; }
   .hero { padding: 120px 0 64px; }
+  .hero__sticker { width: 84px; font-size: 16px; }
+  .hero__offer { gap: 12px; padding: 14px 16px 14px 12px; }
+  .hero__offer-icon { width: 42px; height: 42px; font-size: 21px; }
   .btn--lg { width: 100%; padding: 16px 20px; font-size: 16px; white-space: normal; }
   .marquee__track span { font-size: 28px; }
   .case-full__title { font-size: 36px; }
