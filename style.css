@@ -364,6 +364,8 @@ ul, ol { list-style: none; }
 .calc-chip--yellow input:checked + span { background: var(--yellow); border-color: var(--dark); color: var(--dark); }
 .calc-chip--blue input:checked + span { background: var(--blue); border-color: var(--dark); color: var(--dark); }
 .calc-chip--lime input:checked + span { background: var(--lime); border-color: var(--dark); color: var(--dark); }
+.calc-chip.is-disabled { cursor: not-allowed; opacity: .4; }
+.calc-chip.is-disabled:hover span { border-color: rgba(37, 4, 4, .18); }
 .calc-chip input:focus-visible + span { outline: 3px solid var(--coral); outline-offset: 2px; }
 
 .calc__check { display: flex; align-items: center; gap: 10px; margin-top: 14px; cursor: pointer; font-weight: 500; }

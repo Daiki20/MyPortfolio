@@ -63,6 +63,7 @@ if (calc) {
 
   const linesEl = calc.querySelector('.calc__lines');
   const totalEl = calc.querySelector('.calc__total-value');
+  const totalLabelEl = calc.querySelector('.calc__total span');
   const monthlyEl = calc.querySelector('.calc__monthly');
   const ctaEl = calc.querySelector('.calc__cta');
   const auditEl = calc.querySelector('[name="audit"]');
@@ -75,13 +76,32 @@ if (calc) {
     return parts.join(' + ') + (negotiable ? ' + договорная часть' : '');
   };
 
-  const update = () => {
-    const selected = [...calc.querySelectorAll('[name="platform"]:checked')].map((el) => el.value);
-    const service = calc.querySelector('[name="service"]:checked').value;
-    const withSetup = service !== 'manage';
-    const withManage = service !== 'setup';
+  const platformInputs = [...calc.querySelectorAll('[name="platform"]')];
+  let savedPlatforms = null;
 
-    calc.querySelector('[data-show="direct"]').hidden = !selected.includes('direct');
+  const update = () => {
+    const service = calc.querySelector('[name="service"]:checked').value;
+    const auditOnly = service === 'audit';
+
+    // Audit is offered for Yandex Direct only
+    if (auditOnly && !savedPlatforms) {
+      savedPlatforms = platformInputs.filter((el) => el.checked).map((el) => el.value);
+      platformInputs.forEach((el) => { el.checked = el.value === 'direct'; });
+    } else if (!auditOnly && savedPlatforms) {
+      platformInputs.forEach((el) => { el.checked = savedPlatforms.includes(el.value); });
+      savedPlatforms = null;
+    }
+    platformInputs.forEach((el) => {
+      el.disabled = auditOnly && el.value !== 'direct';
+      el.closest('.calc-chip').classList.toggle('is-disabled', el.disabled);
+    });
+    if (auditOnly) platformInputs.find((el) => el.value === 'direct').checked = true;
+
+    const selected = platformInputs.filter((el) => el.checked).map((el) => el.value);
+    const withSetup = service === 'setup' || service === 'both';
+    const withManage = service === 'manage' || service === 'both';
+
+    calc.querySelector('[data-show="direct"]').hidden = auditOnly || !selected.includes('direct');
     if (!selected.includes('direct')) auditEl.checked = false;
     calc.querySelector('.calc__budgets').hidden = !withManage || !selected.length;
 
@@ -99,7 +119,13 @@ if (calc) {
       range.querySelector('output').textContent = budgetLabel(Number(input.value), Number(input.max), currency);
     });
 
-    selected.forEach((id) => {
+    if (auditOnly) {
+      lines.push(['Аудит текущих кампаний Директа', money(AUDIT_PRICE, 'rub')]);
+      first.rub += AUDIT_PRICE;
+      summary.push('аудит рекламных кампаний Яндекс Директ');
+    }
+
+    (auditOnly ? [] : selected).forEach((id) => {
       const platform = PLATFORMS[id];
       const { currency } = platform;
       const input = calc.querySelector(`.calc__range[data-platform="${id}"] input`);
@@ -127,7 +153,7 @@ if (calc) {
       summary.push(`${platform.name} — ${parts.join(' + ')}`);
     });
 
-    if (auditEl.checked) {
+    if (!auditOnly && auditEl.checked) {
       lines.push(['Аудит текущих кампаний Директа', money(AUDIT_PRICE, 'rub')]);
       first.rub += AUDIT_PRICE;
       summary.push('аудит Директа');
@@ -152,6 +178,7 @@ if (calc) {
 
     const totalText = sumText(first, negotiable);
     totalEl.textContent = totalText;
+    totalLabelEl.textContent = withManage ? 'Первый месяц' : 'Итого';
 
     const monthlyText = sumText(monthly, negotiable);
     monthlyEl.innerHTML = '';
@@ -163,7 +190,7 @@ if (calc) {
     }
 
     const message = selected.length
-      ? `Здравствуйте! Мой расчёт с сайта: ${summary.join('; ')}. Первый месяц: ${totalText}.`
+      ? `Здравствуйте! Мой расчёт с сайта: ${summary.join('; ')}. ${withManage ? 'Первый месяц' : 'Итого'}: ${totalText}.`
       : 'Здравствуйте! Хочу обсудить рекламу.';
     ctaEl.href = `https://t.me/andrusha_pv?text=${encodeURIComponent(message)}`;
   };
