@@ -443,6 +443,7 @@ ul, ol { list-style: none; }
   .hero { padding: 120px 0 64px; }
   .btn--lg { width: 100%; padding: 16px 20px; font-size: 16px; white-space: normal; }
   .marquee__track span { font-size: 28px; }
+  .case-full__title { font-size: 36px; }
   .stat { padding: 18px; }
   .stat__value { font-size: 32px; }
   .stat__label { font-size: 13px; }
