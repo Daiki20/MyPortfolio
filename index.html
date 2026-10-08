@@ -1,774 +1,271 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Андрей Пищев — Junior Frontend Developer</title>
-    <meta name="description" content="Портфолио Junior Frontend разработчика. HTML, CSS, JavaScript, React, Figma.">
-    <meta property="og:title" content="Андрей Пищев — Junior Frontend Developer">
-    <meta property="og:description" content="Верстка, дизайн, JavaScript. Смотри мои работы.">
-    <meta property="og:type" content="website">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Андрей — таргетолог | Яндекс Директ, Telegram Ads, Facebook Ads</title>
+  <meta name="description" content="Настройка и ведение рекламы в Яндекс Директ, Telegram Ads и Facebook Ads. Приведу заявки и клиентов в ваш бизнес. Пишите в Telegram @andrusha_pv.">
+  <meta property="og:title" content="Андрей — таргетолог">
+  <meta property="og:description" content="Реклама, которая приводит клиентов: Яндекс Директ, Telegram Ads, Facebook Ads.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23250404'/><circle cx='50' cy='50' r='30' fill='%23CEF05E'/><circle cx='50' cy='50' r='12' fill='%23250404'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@800;900&family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ПРОГРЕСС-БАР -->
-<div class="progress-bar" id="progressBar"></div>
+  <header class="header">
+    <div class="header__inner">
+      <a href="#top" class="logo">
+        <span class="logo__mark" aria-hidden="true"></span>
+        <span class="logo__text">Андрей<small>таргетолог</small></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#services">Услуги</a>
+        <a href="#why">Почему я</a>
+        <a href="#process">Как работаю</a>
+        <a href="#cases">Кейсы</a>
+        <a href="#faq">Вопросы</a>
+      </nav>
+      <a href="https://t.me/andrusha_pv" class="btn btn--dark header__cta" target="_blank" rel="noopener">Написать</a>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
 
-<!-- ═══ STICKY NAV ═══ -->
-<nav id="navbar">
-    <div class="nav-inner">
-        <a href="#" class="nav-logo">AP<span>.</span></a>
-        <ul class="nav-links">
-            <li><a href="#about">О себе</a></li>
-            <li><a href="#stack">Стек</a></li>
-            <li><a href="#works">Работы</a></li>
-            <li><a href="#contacts" class="nav-cta">Связаться</a></li>
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <p class="hero__eyebrow reveal">Андрей · настройка и ведение рекламы</p>
+        <h1 class="hero__title reveal">Реклама, которая<br>приводит <span class="accent-lime">клиентов</span></h1>
+        <p class="hero__lead reveal">Запускаю и веду рекламу в Яндекс Директ, Telegram Ads и Facebook Ads. Без слитого бюджета: считаю стоимость заявки и прозрачно показываю, куда уходит каждый рубль.</p>
+        <div class="hero__actions reveal">
+          <a href="https://t.me/andrusha_pv" class="btn btn--lime btn--lg" target="_blank" rel="noopener">Обсудить проект в Telegram</a>
+          <a href="#services" class="btn btn--ghost btn--lg">Смотреть услуги</a>
+        </div>
+        <ul class="hero__chips reveal">
+          <li class="chip chip--yellow">Яндекс Директ</li>
+          <li class="chip chip--blue">Telegram Ads</li>
+          <li class="chip chip--coral">Facebook Ads*</li>
         </ul>
-        <button class="burger" id="burger" aria-label="Меню">
-            <span></span><span></span><span></span>
-        </button>
-    </div>
-</nav>
+      </div>
+    </section>
 
-<!-- ═══ HERO ═══ -->
-<header id="hero">
-    <div class="hero-inner">
-        <div class="hero-text">
-            <p class="hero-label" data-aos="fade-up">Junior Frontend Developer</p>
-            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
-                Привет,<br>я <span class="grad">Андрей</span>
-            </h1>
-            <p class="hero-desc" data-aos="fade-up" data-aos-delay="200">
-                Верстаю сайты, создаю дизайн и разбираюсь в коде.<br>
-                Ищу первую работу в веб-разработке.
-            </p>
-            <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
-                <a href="#works" class="btn-primary">Смотреть работы</a>
-                <a href="#contacts" class="btn-ghost">Написать мне</a>
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Заявки</span><i></i><span>Продажи</span><i></i><span>Подписчики</span><i></i><span>Трафик</span><i></i><span>Аналитика</span><i></i><span>Рост</span><i></i>
+        <span>Заявки</span><i></i><span>Продажи</span><i></i><span>Подписчики</span><i></i><span>Трафик</span><i></i><span>Аналитика</span><i></i><span>Рост</span><i></i>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="section section--cream" id="services">
+      <div class="container">
+        <h2 class="section__title reveal">Услуги</h2>
+        <p class="section__lead reveal">Работаю с тремя ключевыми рекламными площадками и подбираю ту, где ваши клиенты действительно есть.</p>
+
+        <div class="services">
+          <article class="service service--yellow reveal">
+            <div class="service__top">
+              <span class="service__num">01</span>
+              <h3 class="service__title">Яндекс Директ</h3>
             </div>
-            <div class="hero-tags" data-aos="fade-up" data-aos-delay="400">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Figma</span>
-                <span class="tag">React</span>
+            <p class="service__desc">Поиск, РСЯ и Мастер кампаний. Ловим горячий спрос тех, кто уже ищет ваш товар или услугу.</p>
+            <ul class="service__list">
+              <li>Сбор и чистка семантики</li>
+              <li>Настройка Метрики и целей</li>
+              <li>Объявления и креативы</li>
+              <li>Ретаргетинг и автостратегии</li>
+              <li>Еженедельная оптимизация</li>
+            </ul>
+            <div class="service__foot">
+              <span class="service__price">Стоимость — по запросу</span>
+              <a href="https://t.me/andrusha_pv" class="btn btn--dark" target="_blank" rel="noopener">Обсудить</a>
             </div>
-        </div>
-        <div class="hero-card" data-aos="fade-left" data-aos-delay="200">
-            <div class="hero-card-inner">
-                <div class="hero-avatar">
-    <img src="img/myface.jpg" alt="Андрей Пишев" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-</div>
-                <p class="hero-card-name">Андрей Пищев</p>
-                <p class="hero-card-role">Frontend Dev & Designer</p>
-                <div class="hero-card-stats">
-                    <div class="hcs">
-                        <span class="hcs-num">8+</span>
-                        <span class="hcs-label">проектов</span>
-                    </div>
-                    <div class="hcs-sep"></div>
-                    <div class="hcs">
-                        <span class="hcs-num">1+</span>
-                        <span class="hcs-label">год опыта</span>
-                    </div>
-                    <div class="hcs-sep"></div>
-                    <div class="hcs">
-                        <span class="hcs-num">100%</span>
-                        <span class="hcs-label">мотивация</span>
-                    </div>
-                </div>
-                <div class="hero-card-links">
-                    <a href="https://github.com/Daiki20" target="_blank" class="card-link"><i class="fab fa-github"></i></a>
-                    <a href="https://t.me/andrusha_pv" target="_blank" class="card-link"><i class="fab fa-telegram"></i></a>
-                    <a href="mailto:andrey.pishev2020@yandex.ru" class="card-link"><i class="fas fa-envelope"></i></a>
-                </div>
+          </article>
+
+          <article class="service service--blue reveal">
+            <div class="service__top">
+              <span class="service__num">02</span>
+              <h3 class="service__title">Telegram Ads</h3>
             </div>
-        </div>
-    </div>
-    <div class="scroll-hint" data-aos="fade-up" data-aos-delay="500">
-        <div class="mouse-icon"><div class="mouse-dot"></div></div>
-        <span>скролл</span>
-    </div>
-</header>
-
-<!-- ═══ ABOUT ═══ -->
-<section id="about">
-    <div class="container">
-        <div class="section-label" data-aos="fade-right">О себе</div>
-        <h2 class="section-title" data-aos="fade-right" data-aos-delay="50">Кто я такой</h2>
-
-        <div class="about-grid">
-            <div class="about-story" data-aos="fade-right" data-aos-delay="100">
-                <p>Начинал как сварщик, но однажды наткнулся на видео по Python — и что-то щёлкнуло. Написал своего первого «Змейку», и понял: вот оно.</p>
-                <p>Переключился на JavaScript и веб, потому что хочу делать вещи, которые видят люди. С тех пор верстаю, проектирую интерфейсы и постепенно прокачиваю скилы.</p>
-                <p>Сейчас ищу первую работу, где смогу расти и приносить пользу команде.</p>
+            <p class="service__desc">Официальная реклама в каналах Telegram. Привожу подписчиков в канал и клиентов в бота или на сайт.</p>
+            <ul class="service__list">
+              <li>Подбор каналов и тематик</li>
+              <li>Тексты объявлений до 160 символов</li>
+              <li>Настройка аудиторий</li>
+              <li>Аналитика стоимости подписчика</li>
+              <li>Масштабирование связок</li>
+            </ul>
+            <div class="service__foot">
+              <span class="service__price">Стоимость — по запросу</span>
+              <a href="https://t.me/andrusha_pv" class="btn btn--dark" target="_blank" rel="noopener">Обсудить</a>
             </div>
-            <div class="about-skills" data-aos="fade-left" data-aos-delay="100">
-                <div class="skill-item">
-                    <div class="skill-info"><span>Дизайн & Figma</span><span class="skill-lvl">Уверенно</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info"><span>HTML / CSS</span><span class="skill-lvl">Уверенно</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info"><span>JavaScript</span><span class="skill-lvl">Учусь</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-w="65"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info"><span>React</span><span class="skill-lvl">Знакомство</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-w="40"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info"><span>WordPress</span><span class="skill-lvl">Базово</span></div>
-                    <div class="skill-bar"><div class="skill-fill" data-w="55"></div></div>
-                </div>
+          </article>
+
+          <article class="service service--lime reveal">
+            <div class="service__top">
+              <span class="service__num">03</span>
+              <h3 class="service__title">Facebook Ads*</h3>
             </div>
-        </div>
-
-        <!-- Feature cards -->
-        <div class="features-grid">
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="fc-icon"><i class="fas fa-mobile-alt"></i></div>
-                <h3>Адаптивность</h3>
-                <p>Верстаю с подходом mobile-first. Сайт выглядит хорошо на любом устройстве.</p>
+            <p class="service__desc">Таргетированная реклама в Facebook и Instagram* для зарубежных рынков и проектов вне РФ.</p>
+            <ul class="service__list">
+              <li>Настройка пикселя и событий</li>
+              <li>Сегментация аудиторий</li>
+              <li>Тесты креативов и офферов</li>
+              <li>Look-alike и ретаргетинг</li>
+              <li>Отчёты по результатам</li>
+            </ul>
+            <div class="service__foot">
+              <span class="service__price">Стоимость — по запросу</span>
+              <a href="https://t.me/andrusha_pv" class="btn btn--dark" target="_blank" rel="noopener">Обсудить</a>
             </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="80">
-                <div class="fc-icon"><i class="fas fa-code"></i></div>
-                <h3>Чистый код</h3>
-                <p>Семантическая HTML-разметка, методология БЭМ, читаемый CSS без хаоса.</p>
-            </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="160">
-                <div class="fc-icon"><i class="fas fa-pencil-ruler"></i></div>
-                <h3>Веб-дизайн</h3>
-                <p>Умею работать в Figma: разбираю макеты, создаю компоненты, слежу за визуалом.</p>
-            </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="240">
-                <div class="fc-icon"><i class="fas fa-fire"></i></div>
-                <h3>Мотивация</h3>
-                <p>Каждый новый проект — возможность вырасти. Не боюсь сложных задач и правок.</p>
-            </div>
+          </article>
         </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="section section--dark" id="why">
+      <div class="container">
+        <h2 class="section__title reveal">Почему со мной<br><span class="accent-lime">удобно</span></h2>
+        <div class="why">
+          <div class="why__item reveal">
+            <h3>Считаю деньги, а не клики</h3>
+            <p>Главная метрика — стоимость заявки и продажи. Охваты и CTR важны только тогда, когда приносят клиентов.</p>
+          </div>
+          <div class="why__item reveal">
+            <h3>Прозрачная отчётность</h3>
+            <p>Регулярно показываю, сколько потрачено, сколько пришло заявок и что я меняю дальше.</p>
+          </div>
+          <div class="why__item reveal">
+            <h3>Связь в Telegram</h3>
+            <p>Без бюрократии и долгих созвонов. Пишите — отвечаю быстро и по делу.</p>
+          </div>
+          <div class="why__item reveal">
+            <h3>Тестирую гипотезы</h3>
+            <p>Запускаю несколько связок «аудитория + креатив + оффер» и оставляю только работающие.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section section--cream" id="process">
+      <div class="container">
+        <h2 class="section__title reveal">Как я работаю</h2>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step__num">1</span>
+            <div><h3>Знакомство</h3><p>Обсуждаем бизнес, продукт, цели и бюджет. Пишите в Telegram — это бесплатно.</p></div>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">2</span>
+            <div><h3>Анализ и стратегия</h3><p>Изучаю нишу, конкурентов и аудиторию. Предлагаю площадки и план запуска.</p></div>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">3</span>
+            <div><h3>Настройка</h3><p>Ставлю аналитику, готовлю объявления и креативы, собираю кампании.</p></div>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">4</span>
+            <div><h3>Запуск и тесты</h3><p>Запускаю рекламу, отслеживаю первые результаты, отключаю неэффективное.</p></div>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">5</span>
+            <div><h3>Оптимизация и рост</h3><p>Снижаю стоимость заявки и масштабирую то, что работает лучше всего.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- CASES -->
+    <section class="section section--dark" id="cases">
+      <div class="container">
+        <h2 class="section__title reveal">Кейсы</h2>
+        <p class="section__lead reveal">Здесь скоро появятся результаты проектов: ниша, задача, что сделано и цифры.</p>
+        <div class="cases">
+          <article class="case case--soon reveal">
+            <span class="case__tag">Яндекс Директ</span>
+            <h3>Кейс скоро появится</h3>
+            <p>Готовлю описание проекта и результатов.</p>
+          </article>
+          <article class="case case--soon reveal">
+            <span class="case__tag">Telegram Ads</span>
+            <h3>Кейс скоро появится</h3>
+            <p>Готовлю описание проекта и результатов.</p>
+          </article>
+          <article class="case case--soon reveal">
+            <span class="case__tag">Facebook Ads*</span>
+            <h3>Кейс скоро появится</h3>
+            <p>Готовлю описание проекта и результатов.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--cream" id="faq">
+      <div class="container container--narrow">
+        <h2 class="section__title reveal">Частые вопросы</h2>
+        <div class="faq">
+          <details class="faq__item reveal">
+            <summary>Какой рекламный бюджет нужен для старта?</summary>
+            <p>Зависит от ниши и площадки. Обсудим ваши цели, и я подскажу минимальный тестовый бюджет, который даст понятный результат.</p>
+          </details>
+          <details class="faq__item reveal">
+            <summary>Какую площадку выбрать?</summary>
+            <p>Яндекс Директ подходит, когда ваш товар или услугу уже ищут. Telegram Ads — для продвижения каналов, ботов и онлайн-продуктов. Facebook Ads — для зарубежных рынков. Помогу выбрать на первой консультации.</p>
+          </details>
+          <details class="faq__item reveal">
+            <summary>Когда будут первые заявки?</summary>
+            <p>Обычно первые обращения приходят в первые дни после запуска. Стабильный результат и оптимальная цена заявки появляются после 2–4 недель тестов и оптимизации.</p>
+          </details>
+          <details class="faq__item reveal">
+            <summary>Как вы отчитываетесь о работе?</summary>
+            <p>Регулярно присылаю отчёт: расходы, количество заявок, их стоимость и план дальнейших действий.</p>
+          </details>
+          <details class="faq__item reveal">
+            <summary>Рекламный кабинет будет моим?</summary>
+            <p>Да. Кампании создаются в вашем аккаунте, все данные и история остаются у вас.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contacts">
+      <div class="container">
+        <div class="cta__box reveal">
+          <h2 class="cta__title">Обсудим<br>ваш проект?</h2>
+          <p class="cta__text">Напишите в Telegram: расскажите о бизнесе и задаче, а я предложу, как привлечь клиентов из рекламы.</p>
+          <a href="https://t.me/andrusha_pv" class="btn btn--dark btn--lg" target="_blank" rel="noopener">Написать @andrusha_pv</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <a href="#top" class="logo logo--light">
+          <span class="logo__mark" aria-hidden="true"></span>
+          <span class="logo__text">Андрей<small>таргетолог</small></span>
+        </a>
+        <p class="footer__note">* Meta Platforms Inc. (Facebook, Instagram) признана экстремистской организацией, её деятельность запрещена на территории РФ.</p>
+      </div>
+      <div class="footer__right">
+        <a href="https://t.me/andrusha_pv" target="_blank" rel="noopener">Telegram: @andrusha_pv</a>
+        <span>© <span id="year">2026</span> Андрей</span>
+      </div>
     </div>
-</section>
+  </footer>
 
-<!-- ═══ STACK ═══ -->
-<section id="stack" class="stack-section">
-    <div class="container">
-        <div class="section-label" data-aos="fade-right">Инструменты</div>
-        <h2 class="section-title" data-aos="fade-right" data-aos-delay="50">Мой стек</h2>
-        <div class="stack-grid">
-            <div class="stack-card" data-aos="zoom-in" data-aos-delay="0">
-                <i class="fab fa-html5" style="color:#E34F26"></i>
-                <span>HTML5</span>
-                <div class="stack-badge">Уверенно</div>
-            </div>
-            <div class="stack-card" data-aos="zoom-in" data-aos-delay="50">
-                <i class="fab fa-css3-alt" style="color:#1572B6"></i>
-                <span>CSS3</span>
-                <div class="stack-badge">Уверенно</div>
-            </div>
-            <div class="stack-card" data-aos="zoom-in" data-aos-delay="100">
-                <i class="fab fa-js" style="color:#F7DF1E"></i>
-                <span>JavaScript</span>
-                <div class="stack-badge stack-badge--mid">Учусь</div>
-            </div>
-            <div class="stack-card" data-aos="zoom-in" data-aos-delay="150">
-                <i class="fab fa-react" style="color:#61DAFB"></i>
-                <span>React</span>
-                <div class="stack-badge stack-badge--low">Знакомство</div>
-            </div>
-            <div class="stack-card" data-aos="zoom-in" data-aos-delay="200">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="#007ACC"><path d="M0 12v12h24V0H0zm19.341-.956c.61.152 1.074.423 1.501.865.221.236.549.666.575.77.008.03-1.036.73-1.668 1.123-.023.015-.115-.084-.217-.236-.31-.45-.633-.644-1.128-.678-.728-.05-1.196.331-1.192.967a.88.88 0 0 0 .102.45c.16.331.458.53 1.39.933 1.719.74 2.454 1.227 2.911 1.92.51.773.625 2.008.278 2.926-.38.998-1.325 1.676-2.655 1.9-.411.073-1.386.062-1.828-.018-.964-.172-1.878-.648-2.442-1.273-.221-.243-.652-.88-.625-.925.011-.016.11-.077.22-.141.108-.061.511-.294.892-.515l.69-.4.145.214c.202.308.643.731.91.872.766.404 1.817.347 2.335-.118a.883.883 0 0 0 .313-.72c0-.278-.035-.4-.18-.61-.186-.266-.567-.49-1.649-.96-1.238-.533-1.771-.864-2.259-1.39a3.165 3.165 0 0 1-.659-1.2c-.091-.339-.114-1.189-.042-1.531.255-1.197 1.158-2.03 2.461-2.278.423-.08 1.406-.05 1.821.053zm-5.634 1.002l.008.983H10.59v8.876H8.38v-8.876H5.258v-.964c0-.534.011-.98.026-.99.012-.016 1.913-.024 4.217-.02l4.195.012z"/></svg>
-                <span>TypeScript</span>
-                <div class="stack-badge stack-badge--mid">Учусь</div>
-            </div>
-            <div class="stack-card" data-aos="zoom-in" data-aos-delay="250">
-                <svg width="32" height="32" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 28.5C19 21.596 13.404 16 6.5 16S-6 21.596-6 28.5 -0.404 41 6.5 41 19 35.404 19 28.5z" fill="#F24E1E" transform="translate(12.5 0)"/><path d="M0 28.5C0 21.596 5.596 16 12.5 16h6.5v25h-6.5C5.596 41 0 35.404 0 28.5z" fill="#FF7262" transform="translate(0 0)"/><path d="M0 9.5C0 2.596 5.596-3 12.5-3S25 2.596 25 9.5 19.404 22 12.5 22H0V9.5z" fill="#F24E1E" transform="translate(0 -3)"/><path d="M0 0h12.5C19.404 0 25 5.596 25 12.5S19.404 25 12.5 25H0V0z" fill="#FF7262" transform="translate(0 16)"/><circle cx="12.5" cy="44.5" r="12.5" fill="#1ABCFE" transform="translate(0 0)"/></svg>
-                <span>Figma</span>
-                <div class="stack-badge">Уверенно</div>
-            </div>
-            <div class="stack-card" data-aos="zoom-in" data-aos-delay="300">
-                <i class="fab fa-wordpress" style="color:#21759B"></i>
-                <span>WordPress</span>
-                <div class="stack-badge stack-badge--mid">Базово</div>
-            </div>
-            <div class="stack-card" data-aos="zoom-in" data-aos-delay="350">
-                <i class="fab fa-github" style="color:#333"></i>
-                <span>GitHub</span>
-                <div class="stack-badge">Уверенно</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ═══ EDUCATION ═══ -->
-<section id="education">
-    <div class="container">
-        <div class="section-label" data-aos="fade-right">История</div>
-        <h2 class="section-title" data-aos="fade-right" data-aos-delay="50">Путь в IT</h2>
-        <div class="edu-grid">
-            <div class="edu-timeline" data-aos="fade-right" data-aos-delay="100">
-                <div class="timeline-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <span class="tl-year">Начало</span>
-                        <h4>Среднее проф. образование</h4>
-                        <p>Специальность: сварщик. Получил диплом, поработал — и понял, что это не моё.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <span class="tl-year">Переход</span>
-                        <h4>Первый код</h4>
-                        <p>Случайно наткнулся на видео по Python. Сделал «Змейку» по туториалу — и захотел большего.</p>
-                    </div>
-                </div>
-                <div class="timeline-item active">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <span class="tl-year">Сейчас</span>
-                        <h4>Junior Frontend Dev</h4>
-                        <p>Изучаю JavaScript, верстаю сайты, работаю с клиентами. Ищу команду для роста.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="edu-diploma" data-aos="fade-left" data-aos-delay="100">
-                <div class="diploma-card">
-                    <div class="diploma-img-wrap">
-                        <img src="img/diplom.png" alt="Диплом">
-                        <div class="diploma-badge"><i class="fas fa-graduation-cap"></i> Диплом</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ═══ WORKS ═══ -->
-<section id="works">
-    <div class="container">
-        <div class="section-label" data-aos="fade-right">Портфолио</div>
-        <h2 class="section-title" data-aos="fade-right" data-aos-delay="50">Мои работы</h2>
-
-        <!-- Filter tabs -->
-<div class="filter-tabs" data-aos="fade-up" data-aos-delay="100">
-    <button class="filter-btn active" data-filter="all">Все</button>
-    <button class="filter-btn" data-filter="marketplace">Маркетплейсы</button>
-    <button class="filter-btn" data-filter="web">Веб-дизайн</button>
-    <button class="filter-btn" data-filter="banner">Баннеры</button>
-    <button class="filter-btn" data-filter="social">Соц.сети</button>
-</div>
-
-
-        <!-- Австралийская студия звукозаписи - рекламный баннер -->
-<div class="project-block" data-aos="fade-up" data-category="banner">
-    <div class="project-header">
-        <div>
-            <h3 class="project-name">Австралийская студия звукозаписи</h3>
-            <p class="project-type">Рекламный баннер — 2 вариации</p>
-        </div>
-        <span class="project-tag">Баннер</span>
-    </div>
-    <div class="works-grid cols-2" style="grid-template-columns: repeat(2, 1fr);">
-        <div class="work-card" data-img="img/vlad1.jpg" data-title="Австралийская студия звукозаписи — Вариант 1" data-desc="🎧 Рекламный баннер для студии звукозаписи в Австралии. Первый вариант — динамичный и современный дизайн.">
-            <div class="work-thumb"><img src="img/vlad1.jpg" alt="Баннер студии вариант 1" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Вариант 1</div>
-        </div>
-        <div class="work-card" data-img="img/vlad2.jpg" data-title="Австралийская студия звукозаписи — Вариант 2" data-desc="🎧 Второй вариант баннера — минималистичный стиль с акцентом на атмосферу.">
-            <div class="work-thumb"><img src="img/vlad2.jpg" alt="Баннер студии вариант 2" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Вариант 2</div>
-        </div>
-    </div>
-</div>
-
-        <!-- Кондитерская - Сторис Instagram -->
-<div class="project-block" data-aos="fade-up" data-category="social">
-    <div class="project-header">
-        <div>
-            <h3 class="project-name">Кондитерская</h3>
-            <p class="project-type">Дизайн сторис для Instagram</p>
-        </div>
-        <span class="project-tag">Соц.сети</span>
-    </div>
-    <div class="works-grid cols-3">
-        <div class="work-card" data-img="img/стористорт1.jpg" data-title="Кондитерская — Сторис" data-desc="🍰 Дизайн сторис для кондитерской. Сладкий и аппетитный дизайн.">
-            <div class="work-thumb"><img src="img/стористорт1.jpg" alt="Сторис кондитерская 1" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Instagram Story</div>
-        </div>
-        <div class="work-card" data-img="img/стористорт2.jpg" data-title="Кондитерская — Сторис" data-desc="🍰 Дизайн сторис для кондитерской. Сладкий и аппетитный дизайн.">
-            <div class="work-thumb"><img src="img/стористорт2.jpg" alt="Сторис кондитерская 2" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Instagram Story</div>
-        </div>
-        <div class="work-card" data-img="img/стористорт3.jpg" data-title="Кондитерская — Сторис" data-desc="🍰 Дизайн сторис для кондитерской. Сладкий и аппетитный дизайн.">
-            <div class="work-thumb"><img src="img/стористорт3.jpg" alt="Сторис кондитерская 3" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Instagram Story</div>
-        </div>
-    </div>
-</div>
-        
- 
-<!-- НОВЫЙ ПРОЕКТ - СОЦСЕТИ -->
-<div class="project-block" data-aos="fade-up" data-category="social">
-    <div class="project-header">
-        <div>
-            <h3 class="project-name">Соцсети / YouTube</h3>
-            <p class="project-type">Редизайн соцсетей и YouTube</p>
-        </div>
-        <span class="project-tag">Соц.сети</span>
-    </div>
-
-    <!-- ПРЕВЬЮ — вторая строка (на всю ширину) -->
-    <div class="works-grid" style="grid-template-columns: 1fr; margin-bottom: 20px;">
-        <div class="work-card preview-card" data-img="img/превью.jpg" data-title="Превью YouTube" data-desc="🎬 Сделали редизайн для превью YouTube. Яркий и кликабельный дизайн.">
-            <div class="work-thumb"><img src="img/превью.jpg" alt="Превью YouTube" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Превью YouTube</div>
-        </div>
-    </div>
-    
-    <!-- ШАПКА — первая строка -->
-    <div class="works-grid" style="grid-template-columns: 1fr; margin-bottom: 20px;">
-        <div class="work-card" data-img="img/шапка1.jpg" data-title="Шапка YouTube" data-desc="🎨 Сделали редизайн шапки канала YouTube. Полное обновление визуального стиля.">
-            <div class="work-thumb"><img src="img/шапка1.jpg" alt="Шапка YouTube" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Шапка YouTube</div>
-        </div>
-    </div>
-    
-    
-
-
-<!-- пост инстаграм -->
-    <div class="works-grid cols-3">
-        <div class="work-card" data-img="img/сторис 1.jpg" data-title="Сторис Instagram" data-desc="📱 Сделали редизайн сторис для Instagram.">
-            <div class="work-thumb"><img src="img/сторис 1.jpg" alt="Сторис 1" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Сторис Instagram</div>
-        </div>
-        <div class="work-card" data-img="img/сторис 2.jpg" data-title="Сторис Instagram" data-desc="📱 Визуально привлекательный стиль.">
-            <div class="work-thumb"><img src="img/сторис 2.jpg" alt="Сторис 2" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Сторис Instagram</div>
-        </div>
-        <div class="work-card" data-img="img/сторис 3.jpg" data-title="Сторис Instagram" data-desc="📱 Креативный подход.">
-            <div class="work-thumb"><img src="img/сторис 3.jpg" alt="Сторис 3" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Сторис Instagram</div>
-        </div>
-    </div>
-</div>
-
-   <!-- Торты - Instagram пост -->
-<div class="project-block" data-aos="fade-up" data-category="social">
-    <div class="project-header">
-        <div>
-            <h3 class="project-name">Торты</h3>
-            <p class="project-type">Дизайн поста для Instagram | Магазин тортов</p>
-        </div>
-        <span class="project-tag">Соц.сети</span>
-    </div>
-    <div class="works-grid cols-3">
-        <div class="work-card" data-img="img/торт1.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Дизайн поста для Instagram — магазин тортов. Сочная и аппетитная подача.">
-            <div class="work-thumb"><img src="img/торт1.jpg" alt="Торт дизайн 1" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Instagram пост</div>
-        </div>
-        <div class="work-card" data-img="img/торт2.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Второй вариант дизайна — акцент на текстуру и детали.">
-            <div class="work-thumb"><img src="img/торт2.jpg" alt="Торт дизайн 2" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Instagram пост</div>
-        </div>
-        <div class="work-card" data-img="img/торт3.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Яркий и праздничный дизайн.">
-            <div class="work-thumb"><img src="img/торт3.jpg" alt="Торт дизайн 3" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Instagram пост</div>
-        </div>
-    </div>
-    <div class="works-grid cols-3" style="margin-top: 14px;">
-        <div class="work-card" data-img="img/торт4.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Нежный и элегантный дизайн.">
-            <div class="work-thumb"><img src="img/торт4.jpg" alt="Торт дизайн 4" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Instagram пост</div>
-        </div>
-        <div class="work-card" data-img="img/торт5.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Премиальный стиль для дорогих тортов.">
-            <div class="work-thumb"><img src="img/торт5.jpg" alt="Торт дизайн 5" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Instagram пост</div>
-        </div>
-        <div class="work-card" data-img="img/торт6.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Минималистичный и современный.">
-            <div class="work-thumb"><img src="img/торт6.jpg" alt="Торт дизайн 6" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Instagram пост</div>
-        </div>
-    </div>
-    <div class="works-grid cols-3" style="margin-top: 14px;">
-        <div class="work-card" data-img="img/торт7.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Сезонная коллекция — осенние торты.">
-            <div class="work-thumb"><img src="img/торт7.jpg" alt="Торт дизайн 7" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Instagram пост</div>
-        </div>
-        <div class="work-card" data-img="img/торт8.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Детские торты — ярко и весело.">
-            <div class="work-thumb"><img src="img/торт8.jpg" alt="Торт дизайн 8" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Instagram пост</div>
-        </div>
-        <div class="work-card" data-img="img/торт9.jpg" data-title="Торты — Instagram пост" data-desc="🎂 Свадебные торты — элегантность и стиль.">
-            <div class="work-thumb"><img src="img/торт9.jpg" alt="Торт дизайн 9" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <div class="work-label">Instagram пост</div>
-        </div>
-    </div>
-</div>
-
-<!-- Гайковерт -->
-<div class="project-block" data-aos="fade-up" data-category="marketplace">
-    <div class="project-header">
-        <div>
-            <h3 class="project-name">Wildberries</h3>
-            <p class="project-type">Дизайн гайковерта</p>
-        </div>
-        <span class="project-tag">Дизайн</span>
-    </div>
-    <div class="works-grid cols-3">
-        <div class="work-card" data-img="img/гайковерт 1.jpg" data-title="Wildberries Гайковерт" data-desc="Дизайн карточки гайковерта.">
-            <div class="work-thumb"><img src="img/гайковерт 1.jpg" alt="Wildberries Гайковерт" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-        </div>
-        <div class="work-card" data-img="img/гайковерт 2.jpg" data-title="Wildberries Гайковерт" data-desc="Дизайн карточки гайковерта, второй слайд.">
-            <div class="work-thumb"><img src="img/гайковерт 2.jpg" alt="Wildberries Гайковерт" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-        </div>
-    </div>
-</div>
-
-
-
-<!-- GORILLA -->
-<div class="project-block" data-aos="fade-up" data-category="marketplace">
-    <div class="project-header">
-        <div>
-            <h3 class="project-name">Wildberries</h3>
-            <p class="project-type">Дизайн карточек трусов</p>
-        </div>
-        <span class="project-tag">Дизайн</span>
-    </div>
-    <div class="works-grid cols-3">
-        <div class="work-card" data-img="img/горилла 1.jpg" data-title="Wildberries Gorilla" data-desc="Дизайн карточки мужских трусов.">
-            <div class="work-thumb"><img src="img/горилла 1.jpg" alt="Wildberries Gorilla" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-        </div>
-        <div class="work-card" data-img="img/горилла 2.jpg" data-title="Wildberries Gorilla" data-desc="Дизайн карточки мужских трусов.">
-            <div class="work-thumb"><img src="img/горилла 2.jpg" alt="Wildberries Gorilla" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-        </div>
-        <div class="work-card" data-img="img/горилла 3.jpg" data-title="Wildberries Gorilla" data-desc="👃 Финальный вариант дизайна карточки.">
-            <div class="work-thumb"><img src="img/горилла 3.jpg" alt="Wildberries Gorilla" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Wildberries Парфюм 2 -->
-<div class="project-block" data-aos="fade-up" data-category="marketplace">
-    <div class="project-header">
-        <div>
-            <h3 class="project-name">Wildberries</h3>
-            <p class="project-type">Дизайн карточек парфюма</p>
-        </div>
-        <span class="project-tag">Дизайн</span>
-    </div>
-    <div class="works-grid cols-3">
-        <div class="work-card" data-img="img/парф1.jpg" data-title="Wildberries Парфюм 2" data-desc="👃 Дизайн карточки парфюма в светлых тонах.">
-            <div class="work-thumb"><img src="img/парф1.jpg" alt="Wildberries парфюм" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-        </div>
-        <div class="work-card" data-img="img/парф2.jpg" data-title="Wildberries Парфюм 2" data-desc="👃 Карточка с акцентом на флакон и аромат.">
-            <div class="work-thumb"><img src="img/парф2.jpg" alt="Wildberries парфюм" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-        </div>
-        <div class="work-card" data-img="img/парф3.jpg" data-title="Wildberries Парфюм 2" data-desc="👃 Финальный вариант дизайна карточки.">
-            <div class="work-thumb"><img src="img/парф3.jpg" alt="Wildberries парфюм" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-        </div>
-    </div>
-</div>
-
-<!-- Wildberries Парфюм -->
-<div class="project-block" data-aos="fade-up" data-category="marketplace">
-    <div class="project-header">
-        <div>
-            <h3 class="project-name">Wildberries</h3>
-            <p class="project-type">Дизайн карточек парфюма</p>
-        </div>
-        <span class="project-tag">Дизайн</span>
-    </div>
-    <div class="works-grid cols-3">
-        <div class="work-card" data-img="img/духи1.jpg" data-title="Wildberries Парфюм" data-desc="👃 Дизайн карточки парфюма для Wildberries. Акцент на флакон и премиальность.">
-            <div class="work-thumb"><img src="img/духи1.jpg" alt="Wildberries парфюм" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-        </div>
-        <div class="work-card" data-img="img/духи2.jpg" data-title="Wildberries Парфюм" data-desc="👃 Вторая карточка парфюма — элегантность и детали.">
-            <div class="work-thumb"><img src="img/духи2.jpg" alt="Wildberries парфюм" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-        </div>
-        <div class="work-card" data-img="img/духи3.jpg" data-title="Wildberries Парфюм" data-desc="👃 Третий вариант карточки парфюма с улучшенной композицией.">
-            <div class="work-thumb"><img src="img/духи3.jpg" alt="Wildberries парфюм" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-        </div>
-    </div>
-</div>
-        <!-- WildSpace -->
-        <div class="project-block" data-aos="fade-up" data-category="marketplace">
-            <div class="project-header">
-                <div>
-                    <h3 class="project-name">WildSpace</h3>
-                    <p class="project-type">Дизайн инфографики</p>
-                </div>
-                <span class="project-tag">Дизайн</span>
-            </div>
-            <div class="works-grid cols-3">
-                <div class="work-card" data-img="img/wild1.jpg" data-title="WildSpace" data-desc="🚀 Проект дизайна карточки инфографики для WildSpace. Разработал визуальный стиль и систему иконок.">
-                    <div class="work-thumb"><img src="img/wild1.jpg" alt="WildSpace" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                </div>
-                <div class="work-card" data-img="img/wild2.jpg" data-title="WildSpace" data-desc="🚀 Карточки инфографики WildSpace — второй вариант с улучшенной типографикой.">
-                    <div class="work-thumb"><img src="img/wild2.jpg" alt="WildSpace" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                </div>
-                <div class="work-card" data-img="img/wild3.jpg" data-title="WildSpace" data-desc="🚀 WildSpace — финальный вариант карточки.">
-                    <div class="work-thumb"><img src="img/wild3.jpg" alt="WildSpace" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Wildberries -->
-        <div class="project-block" data-aos="fade-up" data-category="marketplace">
-            <div class="project-header">
-                <div>
-                    <h3 class="project-name">Wildberries</h3>
-                    <p class="project-type">Дизайн карточек товаров</p>
-                </div>
-                <span class="project-tag">Маркетплейс</span>
-            </div>
-            <div class="works-grid cols-3">
-                <div class="work-card" data-img="img/корзина1.jpg" data-title="WILDBERRIES" data-desc="🛍️ Дизайн для Wildberries — карточки товаров, корзина и UI элементы. Работа с нейросетью.">
-                    <div class="work-thumb"><img src="img/корзина1.jpg" alt="Wildberries" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                    <span class="work-label">Основа</span>
-                </div>
-                <div class="work-card" data-img="img/корзина2.jpg" data-title="WILDBERRIES" data-desc="🛍️ Wildberries — дополнение с улучшенной версткой.">
-                    <div class="work-thumb"><img src="img/корзина2.jpg" alt="Wildberries" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                    <span class="work-label">Дополнение</span>
-                </div>
-                <div class="work-card" data-img="img/корзина3.jpg" data-title="WILDBERRIES" data-desc="🛍️ Wildberries — третий вариант с адаптивными элементами.">
-                    <div class="work-thumb"><img src="img/корзина3.jpg" alt="Wildberries" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                    <span class="work-label">Дополнение</span>
-                </div>
-            </div>
-        </div>
-
-        
-
-        <!-- Banner -->
-<div class="project-block" data-aos="fade-up" data-category="banner">
-    <div class="project-header">
-        <div>
-            <h3 class="project-name">Мебельная компания</h3>
-            <p class="project-type">Рекламные баннеры</p>
-        </div>
-        <span class="project-tag">Баннер</span>
-    </div>
-    <div class="works-grid cols-banner">
-        <div class="work-card work-card--wide" data-img="img/bannerBig.jpg" data-title="Рекламный баннер в мебельную компанию" data-desc="🛋️ Рекламный баннер Desktop для мебельной компании. Чёткое ТЗ, точное исполнение.">
-            <div class="work-thumb"><img src="img/bannerBig.jpg" alt="Баннер Desktop" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <span class="work-label">Desktop</span>
-        </div>
-        <div class="work-card" data-img="img/bannerMobile.jpg" data-title="Рекламный баннер в мебельную компанию" data-desc="🛋️ Мобильная версия баннера — адаптирован под смартфоны.">
-            <div class="work-thumb"><img src="img/bannerMobile.jpg" alt="Баннер Mobile" loading="lazy"></div>
-            <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-            <span class="work-label">Mobile</span>
-        </div>
-    </div>
-</div>
-
-        <!-- PumpHunter -->
-        <div class="project-block" data-aos="fade-up" data-category="web">
-            <div class="project-header">
-                <div>
-                    <h3 class="project-name">PumpHunter</h3>
-                    <p class="project-type">Дизайн и рекламные креативы</p>
-                </div>
-                <span class="project-tag">Веб</span>
-            </div>
-            <div class="works-grid cols-4">
-                <div class="work-card" data-img="img/pump.jpg" data-title="PumpHunter" data-desc="✨ PumpHunter — мой любимый проект. Разработал дизайн сайта и рекламные креативы.">
-                    <div class="work-thumb"><img src="img/pump.jpg" alt="PumpHunter" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                </div>
-                <div class="work-card" data-img="img/pump1.jpg" data-title="PumpHunter" data-desc="✨ PumpHunter — страница продукта.">
-                    <div class="work-thumb"><img src="img/pump1.jpg" alt="PumpHunter" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                </div>
-                <div class="work-card" data-img="img/pump2.jpg" data-title="PumpHunter" data-desc="✨ PumpHunter — мобильная версия.">
-                    <div class="work-thumb"><img src="img/pump2.jpg" alt="PumpHunter" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                </div>
-                <div class="work-card" data-img="img/pump3.jpg" data-title="PumpHunter" data-desc="✨ PumpHunter — детали интерфейса.">
-                    <div class="work-thumb"><img src="img/pump3.jpg" alt="PumpHunter" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- PODSTAY -->
-        <div class="project-block" data-aos="fade-up" data-category="web">
-            <div class="project-header">
-                <div>
-                    <h3 class="project-name">PODSTAY</h3>
-                    <p class="project-type">Адаптивная верстка</p>
-                </div>
-                <span class="project-tag">Верстка</span>
-            </div>
-            <div class="works-grid cols-4">
-                <div class="work-card" data-img="img/pod1.jpg" data-title="PODSTAY" data-desc="🔥 Учебный проект PODSTAY — полностью адаптивная верстка с современным дизайном.">
-                    <div class="work-thumb"><img src="img/pod1.jpg" alt="PODSTAY" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                </div>
-                <div class="work-card" data-img="img/pod2.jpg" data-title="PODSTAY" data-desc="🔥 PODSTAY — раздел каталога.">
-                    <div class="work-thumb"><img src="img/pod2.jpg" alt="PODSTAY" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                </div>
-                <div class="work-card" data-img="img/pod3.jpg" data-title="PODSTAY" data-desc="🔥 PODSTAY — страница товара.">
-                    <div class="work-thumb"><img src="img/pod3.jpg" alt="PODSTAY" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                </div>
-                <div class="work-card" data-img="img/pod4.jpg" data-title="PODSTAY" data-desc="🔥 PODSTAY — мобильная версия.">
-                    <div class="work-thumb"><img src="img/pod4.jpg" alt="PODSTAY" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Ozon -->
-        <div class="project-block" data-aos="fade-up" data-category="marketplace">
-            <div class="project-header">
-                <div>
-                    <h3 class="project-name">Ozon</h3>
-                    <p class="project-type">Дизайн маркетплейсов</p>
-                </div>
-                <span class="project-tag">Маркетплейс</span>
-            </div>
-            <div class="works-grid cols-3">
-                <div class="work-card" data-img="img/ozon1.jpg" data-title="Дизайн маркетплейсов" data-desc="📦 Карточки товаров для Ozon — адаптивные макеты с продуманным UX.">
-                    <div class="work-thumb"><img src="img/ozon1.jpg" alt="Ozon" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                </div>
-                <div class="work-card" data-img="img/ozon2.jpg" data-title="Дизайн маркетплейсов" data-desc="📦 Ozon — промо-страница с баннером.">
-                    <div class="work-thumb"><img src="img/ozon2.jpg" alt="Ozon" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                </div>
-                <div class="work-card" data-img="img/ozon3.jpg" data-title="Дизайн маркетплейсов" data-desc="📦 Ozon — дополнительный вариант карточки.">
-                    <div class="work-thumb"><img src="img/ozon3.jpg" alt="Ozon" loading="lazy"></div>
-                    <div class="work-overlay"><i class="fas fa-expand-alt"></i></div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- ═══ CONTACTS ═══ -->
-<section id="contacts">
-    <div class="container">
-        <div class="section-label" data-aos="fade-right">Контакты</div>
-        <h2 class="section-title" data-aos="fade-right" data-aos-delay="50">Напиши мне</h2>
-        <p class="contacts-desc" data-aos="fade-right" data-aos-delay="100">Открыт к новым проектам и предложениям о работе. Отвечу быстро.</p>
-        <div class="contacts-grid">
-            <a href="https://t.me/andrusha_pv" target="_blank" class="contact-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="cc-icon" style="background: #229ED9;"><i class="fab fa-telegram"></i></div>
-                <div class="cc-info">
-                    <h3>Telegram</h3>
-                    <p>@andrusha_pv</p>
-                </div>
-                <i class="fas fa-arrow-right cc-arrow"></i>
-            </a>
-            <a href="mailto:andrey.pishev2020@yandex.ru" class="contact-card" data-aos="fade-up" data-aos-delay="80">
-                <div class="cc-icon" style="background: #ff007f;"><i class="fas fa-envelope"></i></div>
-                <div class="cc-info">
-                    <h3>Email</h3>
-                    <p>andrey.pishev2020@yandex.ru</p>
-                </div>
-                <i class="fas fa-arrow-right cc-arrow"></i>
-            </a>
-            <a href="https://github.com/Daiki20" target="_blank" class="contact-card" data-aos="fade-up" data-aos-delay="160">
-                <div class="cc-icon" style="background: #333;"><i class="fab fa-github"></i></div>
-                <div class="cc-info">
-                    <h3>GitHub</h3>
-                    <p>Daiki20</p>
-                </div>
-                <i class="fas fa-arrow-right cc-arrow"></i>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- ═══ FOOTER ═══ -->
-<footer>
-    <div class="container footer-inner">
-        <span class="footer-logo">AP<span>.</span></span>
-        <p>Андрей Пишев — Junior Frontend Developer</p>
-        <p class="footer-copy">© 2024 Сделано с ❤️ и JetBrains Mono</p>
-    </div>
-</footer>
-
-<!-- ═══ POPUP ═══ -->
-<div class="popup-overlay" id="popupOverlay">
-    <div class="popup-box" id="popupBox">
-        <button class="popup-close" id="popupClose"><i class="fas fa-times"></i></button>
-        <div class="popup-content">
-            <div class="popup-img-wrap">
-                <img id="popupImg" src="" alt="">
-            </div>
-            <div class="popup-info">
-                <h2 id="popupTitle"></h2>
-                <p id="popupDesc"></p>
-                <div class="popup-links">
-                    <a href="https://github.com/Daiki20?tab=repositories" target="_blank" id="popupGit" class="popup-link">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                    <a href="https://t.me/andrusha_pv" target="_blank" class="popup-link popup-link--tg">
-                        <i class="fab fa-telegram"></i> Telegram
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script src="index.js"></script>
-
+  <script src="index.js"></script>
 </body>
 </html>
