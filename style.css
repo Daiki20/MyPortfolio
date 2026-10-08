@@ -281,6 +281,18 @@ ul, ol { list-style: none; }
   text-transform: uppercase;
   margin-bottom: 40px;
 }
+.case-full__intro {
+  display: flex; align-items: center; justify-content: space-between; gap: 32px;
+  margin-bottom: 40px;
+}
+.case-full__intro .case-full__title { margin-bottom: 0; }
+.case-full__logo { flex: 0 0 auto; width: min(320px, 40%); text-align: center; }
+.case-full__logo img {
+  display: block; width: 100%; height: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 246, 235, .1);
+}
+.case-full__logo figcaption { margin-top: 10px; font-size: 13px; color: rgba(255, 246, 235, .5); }
 .case-full__stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 48px; }
 .stat {
   display: flex; flex-direction: column; gap: 8px;
@@ -292,9 +304,13 @@ ul, ol { list-style: none; }
 .stat--yellow { background: var(--yellow); }
 .stat--blue { background: var(--blue); }
 .stat--cream { background: var(--cream); }
-.stat__value { font: 900 clamp(44px, 4.5vw, 64px)/1 var(--font-display); }
+.stat__value { font: 900 clamp(44px, 4.5vw, 64px)/1 var(--font-display); white-space: nowrap; }
 .stat__label { font-size: 15px; font-weight: 500; opacity: .75; }
-.stat__value--compare { display: flex; align-items: center; flex-wrap: wrap; gap: 0 10px; }
+.stat__value.stat__value--compare {
+  display: flex; align-items: center; gap: 8px;
+  white-space: nowrap;
+  font-size: clamp(30px, 3.6vw, 56px);
+}
 .stat__value--compare s {
   opacity: .45;
   text-decoration-thickness: 4px;
@@ -391,6 +407,8 @@ ul, ol { list-style: none; }
   .services, .cases { grid-template-columns: 1fr; }
   .case { min-height: 220px; }
   .case-full__stats { grid-template-columns: repeat(2, 1fr); }
+  .case-full__intro { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .case-full__logo { width: 100%; max-width: 360px; }
   .case-full__body { grid-template-columns: 1fr; gap: 0; }
   .case-full__body > div + div { margin-top: 28px; }
 }
@@ -441,7 +459,7 @@ ul, ol { list-style: none; }
   .btn--lg { width: 100%; padding: 16px 20px; font-size: 16px; white-space: normal; }
   .marquee__track span { font-size: 28px; }
   .stat { padding: 18px; }
-  .stat__value { font-size: 36px; }
+  .stat__value { font-size: 32px; }
   .stat__label { font-size: 13px; }
   .section__lead, .cta__text { font-size: 17px; }
   .faq__item summary { font-size: 17px; padding: 20px; }
