@@ -281,7 +281,7 @@ ul, ol { list-style: none; }
   text-transform: uppercase;
   margin-bottom: 40px;
 }
-.case-full__stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 48px; }
+.case-full__stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 32px; }
 .stat {
   display: flex; flex-direction: column; gap: 8px;
   padding: 24px;
@@ -305,6 +305,42 @@ ul, ol { list-style: none; }
   text-decoration-color: var(--red);
 }
 .stat__arrow { font-family: var(--font-text); font-weight: 500; font-size: .6em; }
+
+.case-full__more { border-top: 1px solid rgba(255, 246, 235, .1); padding-top: 24px; }
+.case-full__toggle {
+  list-style: none; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 14px 22px 14px 26px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 246, 235, .25);
+  font-weight: 500; font-size: 16px;
+  transition: border-color .2s ease, background-color .2s ease, color .2s ease;
+  user-select: none;
+}
+.case-full__toggle::-webkit-details-marker { display: none; }
+.case-full__toggle::after {
+  content: "↓";
+  display: grid; place-items: center;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--lime); color: var(--dark);
+  font-size: 15px;
+  transition: transform .25s ease;
+}
+.case-full__toggle:hover { border-color: var(--lime); }
+.case-full__more[open] .case-full__toggle::after { transform: rotate(180deg); }
+.case-full__toggle-close,
+.case-full__more[open] .case-full__toggle-open { display: none; }
+.case-full__more[open] .case-full__toggle-close { display: inline; }
+.case-full__more[open] .case-full__body { margin-top: 36px; }
+
+@supports selector(::details-content) {
+  .case-full__more { interpolate-size: allow-keywords; }
+  .case-full__more::details-content {
+    block-size: 0; overflow: hidden; opacity: 0;
+    transition: block-size .4s ease, opacity .4s ease, content-visibility .4s allow-discrete;
+  }
+  .case-full__more[open]::details-content { block-size: auto; opacity: 1; }
+}
 
 .case-full__body { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
 .case-full__body h4 {
